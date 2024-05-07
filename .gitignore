@@ -1,0 +1,8 @@
+# Will not sync these
+
+/.venv/
+/.git/
+__pycache__/
+
+# will sync .gitiginore 
+!/.gitignore
