@@ -64,11 +64,80 @@ if __name__ == "__main__":
 
 keybindings.json
 ~~~json
+// Place your key bindings in this file to override the defaultsauto[]
 [
+    {
+        "key": "ctrl+alt+o",
+        "command": "projectManager.listProjects"
+    },
+    {
+        "key": "shift+alt+p",
+        "command": "-projectManager.listProjects"
+    },
     {
         "key" : "ctrl+shift+l",
         "command" : "workbench.action.tasks.runTask",
         "args": "Run on robot"
+    },
+    {
+        "key" : "ctrl+alt+l 1",
+        "command" : "workbench.action.tasks.runTask",
+        "args": "Run on robot1"
+    },
+    {
+        "key" : "ctrl+alt+l 2",
+        "command" : "workbench.action.tasks.runTask",
+        "args": "Run on robot2"
+    },
+    {
+        "key" : "ctrl+alt+l 3",
+        "command" : "workbench.action.tasks.runTask",
+        "args": "Run on robot3"
+    },
+    {
+        "key" : "ctrl+alt+l 4",
+        "command" : "workbench.action.tasks.runTask",
+        "args": "Run on robot4"
+    },
+    {
+        "key" : "ctrl+alt+l 5",
+        "command" : "workbench.action.tasks.runTask",
+        "args": "Run on robot5"
+    },
+    {
+        "key" : "ctrl+alt+l 6",
+        "command" : "workbench.action.tasks.runTask",
+        "args": "Run on robot6"
+    },
+    {
+        "key" : "ctrl+alt+l 7",
+        "command" : "workbench.action.tasks.runTask",
+        "args": "Run on robot7"
+    },
+    {
+        "key" : "ctrl+alt+l 8",
+        "command" : "workbench.action.tasks.runTask",
+        "args": "Run on robot8"
+    },
+    {
+        "key" : "ctrl+alt+l 9",
+        "command" : "workbench.action.tasks.runTask",
+        "args": "Run on robot9"
+    },
+    {
+        "key" : "ctrl+alt+l 0",
+        "command" : "workbench.action.tasks.runTask",
+        "args": "Run on robot0"
+    },
+    {
+        "key" : "ctrl+alt+l -",
+        "command" : "workbench.action.tasks.runTask",
+        "args": "Run on robot-"
+    },
+    {
+        "key" : "ctrl+alt+l =",
+        "command" : "workbench.action.tasks.runTask",
+        "args": "Run on robot="
     }
 ]
 ~~~
