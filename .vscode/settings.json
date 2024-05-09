@@ -13,7 +13,8 @@
         "**/README.md": true,
         "base_robot.py": true,
         "requirements.txt": true,
-        "pyproject.toml": true
+        "pyproject.toml": true,
+        "utils.py": true
     },
     "task.allowAutomaticTasks": "on",
     "git.postCommitCommand": "sync",
