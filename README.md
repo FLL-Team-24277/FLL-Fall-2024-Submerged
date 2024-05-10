@@ -65,7 +65,6 @@ if __name__ == "__main__":
 
 keybindings.json
 ~~~json
-// Place your key bindings in this file to override the defaultsauto[]
 [
     {
         "key": "ctrl+alt+o",
