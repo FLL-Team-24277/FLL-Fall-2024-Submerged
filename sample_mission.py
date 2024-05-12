@@ -1,4 +1,4 @@
-from base_robot import *
+from base_robot_testing import *
 
 # Add good comments, such as what the mission is supposed to do,
 # how to align the robot in home, any initial starting instructions,
@@ -10,12 +10,13 @@ from base_robot import *
 def Run(br: BaseRobot):
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
-    br.GyroDrive(distance=680, speed=500)
-    br.WaitForMillis(millis=500)  # half second
-    br.GyroTurn(65)  # turn to the right 85 degrees
-    br.GyroDrive(distance=300)  # use the default speed
+    # br.GyroDrive(distance=680, speed=500)
+    # br.WaitForMillis(millis=500)  # half second
+    # br.GyroTurn(65)  # turn to the right 85 degrees
+    # br.GyroDrive(distance=300)  # use the default speed
     # br.leftAttachmentMotor.run_angle(200, 180)  # speed 200, 180 degrees
     # br.rightAttachmentMotor.run_angle(200, 180)  # speed 200, 180 degrees
+    br.RemoveBacklash()
 
 
 # If running this program directly (not from the master program), this is

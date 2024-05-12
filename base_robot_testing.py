@@ -352,6 +352,10 @@ class BaseRobot:
         self.rightDriveMotor.settings(max_voltage=LG_MOT_MAX_VOLTAGE)
         self.robot.use_gyro(True)
 
+    def RemoveBacklash(self):
+        self.leftDriveMotor.run_time(speed=-DB_MAX_SPEED_MMSEC, time=200)
+        self.rightDriveMotor.run_time(speed=-DB_MAX_SPEED_MMSEC, time=200)
+
     # wait for miliseconds. 1000 is one second and 500 is half a second
     def WaitForMillis(self, millis):
         """
