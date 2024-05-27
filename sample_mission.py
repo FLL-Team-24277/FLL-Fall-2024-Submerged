@@ -16,7 +16,8 @@ def Run(br: BaseRobot):
     # br.GyroDrive(distance=300)  # use the default speed
     # br.leftAttachmentMotor.run_angle(200, 180)  # speed 200, 180 degrees
     # br.rightAttachmentMotor.run_angle(200, 180)  # speed 200, 180 degrees
-    br.RemoveBacklash()
+    # br.RemoveBacklash()
+    br.robot.
 
 
 # If running this program directly (not from the master program), this is
