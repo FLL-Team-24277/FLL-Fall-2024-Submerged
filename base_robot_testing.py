@@ -20,7 +20,7 @@ from utils import *
 # movement methods. They are all percents and need to be passed through
 # the Rescale() method before passing to pybricks
 DEF_STRAIGHT_SPEED_PCT = 65  # Normal driving speed
-DEF_STRAIGHT_ACCEL_PCT = 65  # normal acceleration, rarely changed
+DEF_STRAIGHT_ACCEL_PCT = 50  # normal acceleration, rarely changed
 DEF_TURN_RATE_PCT = 50  # normal turning rate
 DEF_TURN_ACCEL_PCT = 50  # normal turning acceleration, rarely changed
 DEF_MED_MOT_SPEED_PCT = 100  # Default max speed for attachments
@@ -43,8 +43,12 @@ class BaseRobot:
     def __init__(self):
         self.hub = PrimeHub(top_side=Axis.Z, front_side=-Axis.Y)
         self._version = "0.1 05/19/2023"
-        self.leftDriveMotor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
-        self.rightDriveMotor = Motor(Port.A)
+        self.leftDriveMotor = Motor(
+            port=Port.E,
+            positive_direction=Direction.COUNTERCLOCKWISE,
+            profile=5,
+        )
+        self.rightDriveMotor = Motor(port=Port.A, profile=5)
         self.robot = DriveBase(
             self.leftDriveMotor,
             self.rightDriveMotor,
@@ -156,6 +160,7 @@ class BaseRobot:
             turn_rate=RescaleTurnSpeed(turnSpeedPct),
             turn_acceleration=RescaleTurnAccel(turnAccelPct),
         )
+        print("settings= " + str(self.robot.settings()))
         self.robot.use_gyro(useGyro)
         self.robot.turn(
             angle,
@@ -171,7 +176,7 @@ class BaseRobot:
         speedPct=DEF_STRAIGHT_SPEED_PCT,
         accelPct=DEF_STRAIGHT_ACCEL_PCT,
         useGyro=True,
-        then=Stop.BRAKE,
+        then=Stop.COAST,
         waitUntilFinished=True,
     ):
         """
@@ -212,6 +217,7 @@ class BaseRobot:
             straight_speed=RescaleStraightSpeed(speedPct),
             straight_acceleration=RescaleStraightAccel(accelPct),
         )
+        print("settings= " + str(self.robot.settings()))
         self.robot.straight(distance, then, waitUntilFinished)
 
     def WallFollowDist(
@@ -351,10 +357,6 @@ class BaseRobot:
         self.leftDriveMotor.settings(max_voltage=LG_MOT_MAX_VOLTAGE)
         self.rightDriveMotor.settings(max_voltage=LG_MOT_MAX_VOLTAGE)
         self.robot.use_gyro(True)
-
-    def RemoveBacklash(self):
-        self.leftDriveMotor.run_time(speed=-DB_MAX_SPEED_MMSEC, time=200)
-        self.rightDriveMotor.run_time(speed=-DB_MAX_SPEED_MMSEC, time=200)
 
     # wait for miliseconds. 1000 is one second and 500 is half a second
     def WaitForMillis(self, millis):
