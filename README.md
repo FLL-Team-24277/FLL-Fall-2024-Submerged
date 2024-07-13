@@ -39,7 +39,7 @@ from base_robot import *
 # such as how it should be loaded with anything, arm positions, etc.
 
 # Weird spacing is intentional. Should be auto-corrected by Black formatter after saving
-# However, Black does not try to truncate the line legth for comments, like this one. Which is OK.
+# However, Black does not try to truncate the line length for comments, like this one. Which is OK.
 
 #When we run this program from the master program, we will call this
 # "Run(br)" method.
