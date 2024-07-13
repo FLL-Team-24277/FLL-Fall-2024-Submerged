@@ -18,7 +18,6 @@ TIRE_DIAMETER = 56  # mm
 AXLE_TRACK = 103  # distance between the wheels, mm
 
 STRAIGHT_SPEED = 400  # normal straight speed for driving, mm/sec
-DEFAULT_MOT_SPEED = 500
 STRAIGHT_ACCEL = 600  # normal acceleration, mm/sec^2
 TURN_RATE = 150  # normal turning rate, deg/sec
 TURN_ACCEL = 360  # normal turning acceleration, deg/sec^2
@@ -107,8 +106,8 @@ class BaseRobot:
         }
 
 
-def leftAttachmentMotorForDegrees(
-    self, degrees, speed=DEFAULT_MOT_SPEED, then=Stop.BRAKE, wait=True
+def leftAttachmentMoterForDegrees(
+    self, degrees, speed=DEFAULT_MOT_SPEED, then=Stop.BRAKE, wait=TRUE
 ):
     self.leftAttachmentMotor.run_angle(
         speed, degrees, then=Stop.HOLD, wait=True
