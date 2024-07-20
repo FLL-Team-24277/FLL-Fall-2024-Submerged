@@ -64,8 +64,6 @@ def Rescale(val, in_min, in_max, out_min, out_max):
         val = in_min
     if val > in_max:
         val = in_max
-    if val == 0:
-        return 0
     retVal = out_min + (val - in_min) * (
         (out_max - out_min) / (in_max - in_min)
     )
