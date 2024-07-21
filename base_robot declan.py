@@ -12,6 +12,7 @@ from pybricks.parameters import (
 from pybricks.robotics import GyroDriveBase
 from pybricks.hubs import PrimeHub
 from pybricks.tools import wait
+from utils import *
 
 # All constents will be defined here
 TIRE_DIAMETER = 56  # mm
@@ -21,7 +22,13 @@ STRAIGHT_SPEED = 400  # normal straight speed for driving, mm/sec
 STRAIGHT_ACCEL = 600  # normal acceleration, mm/sec^2
 TURN_RATE = 150  # normal turning rate, deg/sec
 TURN_ACCEL = 360  # normal turning acceleration, deg/sec^2
+<<<<<<< HEAD
 DEF_MOTOR_SPEED = 1000000000
+=======
+
+DEF_MED_MOT_SPEED_PCT = 100
+
+>>>>>>> 3a0124a3470f4f075e253e241ca0de912e4b2139
 
 class BaseRobot:
     """
@@ -106,10 +113,11 @@ class BaseRobot:
         }
 
 
-def leftAttachmentMoterForDegrees(
-    self, degrees, speed=DEFAULT_MOT_SPEED, then=Stop.BRAKE, wait=TRUE
+def moveRightAttachmentMotorForDegrees(
+    self, degrees, speedPct=DEF_MED_MOT_SPEED_PCT, then=Stop.BRAKE, wait=True
 ):
-    self.leftAttachmentMotor.run_angle(
+    speed = RescaleMedMotSpeed(speedPct)
+    self.rightAttachmentMotor.run_angle(
         speed, degrees, then=Stop.HOLD, wait=True
     )
 def MoveRightAttachmentMotorForDegrees(self, degrees, speed=DEF_MOTOR_SPEED, then=Stop.BRAKE, wait=True):

@@ -1,4 +1,5 @@
-TIRE_DIAMETER = 88  # mm; either 56 or 88
+TIRE_DIAMETER = 56  # mm
+AXLE_TRACK = 103  # distance between the wheels, mm
 
 # Drivebase parameters. None of these should ever be changed by users
 if TIRE_DIAMETER == 56:
@@ -47,9 +48,9 @@ LG_MOT_MIN_VOLTAGE = 3000  # mV
 LG_MOT_MAX_TORQUE = 560
 
 # Medium Motor usable parameters
-MED_MOT_MAX_SPEED_DEGSEC = 1100
-MED_MOT_MAX_ACCEL_DEGSEC2 = 20000
-MED_MOT_MIN_ACCEL_DEGSEC2 = 50
+MED_MOT_MAX_SPEED_DEGSEC = 1000
+# MED_MOT_MAX_ACCEL_DEGSEC2 = 20000
+# MED_MOT_MIN_ACCEL_DEGSEC2 = 50
 MED_MOT_MIN_SPEED_DEGSEC = 100
 MED_MOT_MAX_TORQUE = 1000
 MED_MOT_MIN_TORQUE = 600

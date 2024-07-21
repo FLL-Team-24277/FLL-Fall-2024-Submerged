@@ -12,10 +12,9 @@ from pybricks.parameters import (
 from pybricks.robotics import GyroDriveBase
 from pybricks.hubs import PrimeHub
 from pybricks.tools import wait
+from utils import *
 
 # All constents will be defined here
-TIRE_DIAMETER = 56  # mm
-AXLE_TRACK = 103  # distance between the wheels, mm
 
 STRAIGHT_SPEED = 400  # normal straight speed for driving, mm/sec
 STRAIGHT_ACCEL = 600  # normal acceleration, mm/sec^2
@@ -53,6 +52,8 @@ class BaseRobot:
         )
         self.leftAttachmentMotor = Motor(Port.B)
         self.rightAttachmentMotor = Motor(Port.D)
+        self.leftAttachmentMotor.control.limits(acceleration=20000)
+        self.leftAttachmentMotor.control.limits(acceleration=20000)
 
         self.colorSensor = ColorSensor(Port.F)
 

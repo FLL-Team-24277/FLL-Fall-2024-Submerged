@@ -16,15 +16,15 @@ from utils import *
 
 # Other constants are defined in utils.py
 #
-# These are the default parameters to be passed into the different
+# These are the DEFault parameters to be passed into the different
 # movement methods. They are all percents and need to be passed through
 # the Rescale() method before passing to pybricks
 DEF_STRAIGHT_SPEED_PCT = 65  # Normal driving speed
 DEF_STRAIGHT_ACCEL_PCT = 50  # normal acceleration, rarely changed
 DEF_TURN_RATE_PCT = 50  # normal turning rate
 DEF_TURN_ACCEL_PCT = 50  # normal turning acceleration, rarely changed
-DEF_MED_MOT_SPEED_PCT = 100  # Default max speed for attachments
-DEF_MED_MOT_TORQUE_PCT = 100  # Default max power for attachments
+DEF_MED_MOT_SPEED_PCT = 100  # Default speed for attachments
+DEF_MED_MOT_TORQUE_PCT = 100  # Default power for attachments
 
 
 class BaseRobot:
