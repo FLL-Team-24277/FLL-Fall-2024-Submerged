@@ -9,6 +9,7 @@ from pybricks.parameters import (
     Button,
     Icon,
 )
+from utils import *
 from pybricks.robotics import GyroDriveBase
 from pybricks.hubs import PrimeHub
 from pybricks.tools import wait
@@ -16,9 +17,9 @@ from pybricks.tools import wait
 # All constents will be defined here
 TIRE_DIAMETER = 56  # mm
 AXLE_TRACK = 103  # distance between the wheels, mm
-
+DEFAULT_STALL = 120
 STRAIGHT_SPEED = 400  # normal straight speed for driving, mm/sec
-DEFAULT_MOT_SPEED = 500
+DEFAULT_MED_MOT_SPEED_PCT = 100
 STRAIGHT_ACCEL = 600  # normal acceleration, mm/sec^2
 TURN_RATE = 150  # normal turning rate, deg/sec
 TURN_ACCEL = 360  # normal turning acceleration, deg/sec^2
@@ -108,8 +109,29 @@ class BaseRobot:
 
 
 def leftAttachmentMotorForDegrees(
-    self, degrees, speed=DEFAULT_MOT_SPEED, then=Stop.BRAKE, wait=True
+    self,
+    degrees,
+    speedPct=DEFAULT_MED_MOT_SPEED_PCT,
+    then=Stop.BRAKE,
+    wait=True,
 ):
-    self.leftAttachmentMotor.run_angle(
-        speed, degrees, then=Stop.HOLD, wait=True
-    )
+    speed = RescaleMedMotSpeed(speedPct)
+    self.leftAttachmentMotor.run_angle(speed, degrees, then, wait)
+
+
+def leftAttachmentMotorForMillis(
+    self,
+    millis,
+    speedPct=DEFAULT_MED_MOT_SPEED_PCT,
+    then=Stop.BRAKE,
+    wait=True,
+):
+    speed = RescaleMedMotSpeed(speedPct)
+    self.leftAttachmentMotor.run_angle(speed, millis, then, wait)
+
+
+def leftAttachmentMotorUntilStalled(
+    self, duty_limit, speedPct=DEFAULT_MED_MOT_SPEED_PCT, then=Stop.BRAKE
+):
+    speed = RescaleMedMotSpeed(speedPct)
+    self.leftAttachmentMotor.run_until_stalled(speed, then, duty_limit)
