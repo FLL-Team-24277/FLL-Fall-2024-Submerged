@@ -57,8 +57,6 @@ MED_MOT_MIN_TORQUE = 600
 
 
 def Rescale(val, in_min, in_max, out_min, out_max):
-    if val == 0:
-        return 0
     neg = val / abs(val)  # will either be 1 or -1
     val = abs(val)
     if in_max == in_min:
