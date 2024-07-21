@@ -21,7 +21,7 @@ STRAIGHT_SPEED = 400  # normal straight speed for driving, mm/sec
 STRAIGHT_ACCEL = 600  # normal acceleration, mm/sec^2
 TURN_RATE = 150  # normal turning rate, deg/sec
 TURN_ACCEL = 360  # normal turning acceleration, deg/sec^2
-
+DEF_MOTOR_SPEED = 1000000000
 
 class BaseRobot:
     """
@@ -112,3 +112,5 @@ def leftAttachmentMoterForDegrees(
     self.leftAttachmentMotor.run_angle(
         speed, degrees, then=Stop.HOLD, wait=True
     )
+def MoveRightAttachmentMotorForDegrees(self, degrees, speed=DEF_MOTOR_SPEED, then=Stop.BRAKE, wait=True):
+    self.RightAttachmentMotor.run_angle(speed, degrees, then=Stop.HOLD, wait=True)
