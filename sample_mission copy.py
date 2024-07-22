@@ -40,7 +40,9 @@ def Run(br: BaseRobot):
     # br.WaitForButton(button=Button.LEFT)
     # br.TurnInPlace(angle=360, then=Stop.COAST_SMART)
     # br.WaitForButton(button=Button.LEFT)
-    br.moveLeftAttachmentMotorForDegrees(degrees=1000)
+    # br.moveLeftAttachmentMotorForDegrees(degrees=1000, speedPct=100)
+    br.leftAttachmentMotor.run_angle(speed=500, rotation_angle=10000)
+    print(RescaleConvertFarToCel(32))
 
 # robot.settings(straight_speed=977, straight_acceleration=500)
 # robot.straight(2100)
