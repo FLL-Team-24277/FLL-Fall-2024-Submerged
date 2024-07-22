@@ -1,4 +1,4 @@
-from base_robot_testing import *
+from base_robot_2024_submerged import *
 
 # Add good comments, such as what the mission is supposed to do,
 # how to align the robot in home, any initial starting instructions,
@@ -25,7 +25,7 @@ def Run(br: BaseRobot):
     # br.WaitForButton(button=Button.LEFT)
     # br.TurnInPlace(angle=360, then=Stop.COAST_SMART)
     # br.WaitForButton(button=Button.LEFT)
-    br.robot
+    br.moveLeftAttachmentMotorForDegrees(speedPct=100, degrees=4000)
 
 
 # If running this program directly (not from the master program), this is
