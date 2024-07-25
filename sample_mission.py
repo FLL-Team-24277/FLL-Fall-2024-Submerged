@@ -25,7 +25,10 @@ def Run(br: BaseRobot):
     # br.WaitForButton(button=Button.LEFT)
     # br.TurnInPlace(angle=360, then=Stop.COAST_SMART)
     # br.WaitForButton(button=Button.LEFT)
-    br.moveLeftAttachmentMotorForDegrees(speedPct=100, degrees=4000)
+    # br.moveLeftAttachmentMotorForDegrees(speedPct=100, degrees=4000)
+    print(br.hub.battery.voltage())
+    br.hub.display.number(round(br.hub.battery.voltage() / 100, 0))
+    wait(2000)
 
 
 # If running this program directly (not from the master program), this is
