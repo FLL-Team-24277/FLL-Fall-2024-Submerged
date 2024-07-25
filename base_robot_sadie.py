@@ -10,7 +10,7 @@ from pybricks.parameters import (
     Icon,
 )
 from utils import *
-from pybricks.robotics import GyroDriveBase
+from pybricks.robotics import DriveBase
 from pybricks.hubs import PrimeHub
 from pybricks.tools import wait
 
@@ -24,6 +24,7 @@ DEFAULT_BIG_MOT_SPEED_PCT = 100  # normal wheels moter speed, % value
 STRAIGHT_ACCEL = 600  # normal acceleration, mm/sec^2
 TURN_RATE = 150  # normal turning rate, deg/sec
 TURN_ACCEL = 360  # normal turning acceleration, deg/sec^2
+DEF_ROBOT_ACCELERATION = 500
 
 
 class BaseRobot:
@@ -44,7 +45,7 @@ class BaseRobot:
         self._version = "0.1 05/19/2023"
         self.leftDriveMotor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
         self.rightDriveMotor = Motor(Port.A)
-        self.robot = GyroDriveBase(
+        self.robot = DriveBase(
             self.leftDriveMotor,
             self.rightDriveMotor,
             TIRE_DIAMETER,
@@ -108,44 +109,46 @@ class BaseRobot:
             Color.SENSOR_LIME: Color.CYAN,
         }
 
-
-def moveLeftAttachmentMotorForDegrees(
-    self,
-    degrees,
-    speedPct=DEFAULT_MED_MOT_SPEED_PCT,
-    then=Stop.BRAKE,
-    wait=True,
-):
-    speed = RescaleMedMotSpeed(speedPct)
-    self.leftAttachmentMotor.run_angle(speed, degrees, then, wait)
-
-
-def moveLeftAttachmentMotorForMillis(
-    self,
-    millis,
-    speedPct=DEFAULT_MED_MOT_SPEED_PCT,
-    then=Stop.BRAKE,
-    wait=True,
-):
-    speed = RescaleMedMotSpeed(speedPct)
-    self.leftAttachmentMotor.run_angle(speed, millis, then, wait)
-
-
-def moveLeftAttachmentMotorUntilStalled(
-    self,
-    duty_limit,
-    speedPct=DEFAULT_MED_MOT_SPEED_PCT,
-    then=Stop.BRAKE
-):
-    speed = RescaleMedMotSpeed(speedPct)
-    self.leftAttachmentMotor.run_until_stalled(speed, then, duty_limit)
-
-def moveRobotForwardForDegrees(
+    def moveLeftAttachmentMotorForDegrees(
         self,
         degrees,
+        speedPct=DEFAULT_MED_MOT_SPEED_PCT,
+        then=Stop.BRAKE,
+        wait=True,
+    ):
+        speed = RescaleMedMotSpeed(speedPct)
+        self.leftAttachmentMotor.run_angle(speed, degrees, then, wait)
+
+    def moveLeftAttachmentMotorForMillis(
+        self,
+        millis,
+        speedPct=DEFAULT_MED_MOT_SPEED_PCT,
+        then=Stop.BRAKE,
+        wait=True,
+    ):
+        speed = RescaleMedMotSpeed(speedPct)
+        self.leftAttachmentMotor.run_angle(speed, millis, then, wait)
+
+    def moveLeftAttachmentMotorUntilStalled(
+        self,
+        duty_limit_pct,
+        speedPct=DEFAULT_MED_MOT_SPEED_PCT,
+        then=Stop.BRAKE,
+    ):
+        speed = RescaleMedMotSpeed(speedPct)
+        duty_limit_pct = RescaleMedMotDutyLimit(duty_limit_pct)
+        self.leftAttachmentMotor.run_until_stalled(speed, then, duty_limit_pct)
+
+    def driveForDistance(
+        self,
+        distance,
         speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
         then=Stop.BRAKE,
-        wait=True
-):
-    speed = RescaleMedMotSpeed(speedPct)
-    self.       .run_angle()
+        wait=True,
+        gyro=True,
+        accelerationPct=DEF_ROBOT_ACCELERATION,
+    ):
+        speed = RescaleMedMotSpeed(speedPct)
+        self.robot.use_gyro(gyro)
+        self.robot.settings(speed, accelerationPct)
+        self.robot.straight(distance, then, wait)

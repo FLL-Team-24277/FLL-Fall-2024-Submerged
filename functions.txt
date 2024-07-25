@@ -12,6 +12,6 @@ MoveRightAttachmentMotorUntilStalled(stallPercent=, speed=, then=Stop.BRAKE, wai
 Done     MoveLeftAttachmentMotorUntilStalled(stallPercent=, speed=, then=Stop.BRAKE, wait=True)
 DriveUntillStalled(stallPercent=, speed=, then=Stop.BRAKE, wait=True)
 WaitForMillis(millis=500)
-
+DriveForTime(millis, speed=, then, wait)
 ColorSensor?
 

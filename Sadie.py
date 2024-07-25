@@ -1,4 +1,4 @@
-from base_robot_2024_submerged import *
+from base_robot_sadie import *
 
 # Add good comments, such as what the mission is supposed to do,
 # how to align the robot in home, any initial starting instructions,
@@ -13,7 +13,7 @@ from base_robot_2024_submerged import *
 def Run(br: BaseRobot):
     #   Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
-    br.moveLeftAttachmentMotorUntilStalled(50, 100)
+    br.driveForDistance(300)
 
 
 # If running this program directly (not from the master program), this is
