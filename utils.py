@@ -124,17 +124,6 @@ def RescaleMedMotSpeed(medMotSpeedPct):
         MED_MOT_MAX_SPEED_DEGSEC,
     )
 
-
-def RescaleMedMotAccel(medMotAccelPct):
-    return Rescale(
-        medMotAccelPct,
-        1,
-        100,
-        MED_MOT_MIN_ACCEL_DEGSEC2,
-        MED_MOT_MAX_ACCEL_DEGSEC2,
-    )
-
-
 def RescaleMedMotTorque(medMotTorquePct):
     return Rescale(
         medMotTorquePct,
@@ -143,3 +132,6 @@ def RescaleMedMotTorque(medMotTorquePct):
         MED_MOT_MIN_TORQUE,
         MED_MOT_MAX_TORQUE,
     )
+
+def RescaleConvertFarToCel(DegF):
+    return Rescale( DegF, 0, 212, -17.77, 100)

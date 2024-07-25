@@ -1,4 +1,19 @@
+from pybricks.pupdevices import Motor, ColorSensor
+from pybricks.parameters import (
+    Port,
+    Direction,
+    Axis,
+    Side,
+    Stop,
+    Color,
+    Button,
+    Icon,
+)
+from pybricks.robotics import DriveBase
+from pybricks.hubs import PrimeHub
+from pybricks.tools import wait
 from base_robot_2024_submerged import *
+from utils import *
 
 # Add good comments, such as what the mission is supposed to do,
 # how to align the robot in home, any initial starting instructions,
@@ -25,10 +40,12 @@ def Run(br: BaseRobot):
     # br.WaitForButton(button=Button.LEFT)
     # br.TurnInPlace(angle=360, then=Stop.COAST_SMART)
     # br.WaitForButton(button=Button.LEFT)
-    # br.moveLeftAttachmentMotorForDegrees(speedPct=100, degrees=4000)
-    print(br.hub.battery.voltage())
-    br.hub.display.number(round(br.hub.battery.voltage() / 100, 0))
-    wait(2000)
+    # br.moveLeftAttachmentMotorForDegrees(degrees=1000, speedPct=100)
+    br.leftAttachmentMotor.run_angle(speed=500, rotation_angle=10000)
+    print(RescaleConvertFarToCel(32))
+
+# robot.settings(straight_speed=977, straight_acceleration=500)
+# robot.straight(2100)
 
 
 # If running this program directly (not from the master program), this is

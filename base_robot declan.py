@@ -116,3 +116,11 @@ def moveRightAttachmentMotorForDegrees(
     self.rightAttachmentMotor.run_angle(
         speed, degrees, then=Stop.HOLD, wait=True
     )
+
+
+def MoveRightAttachmentMotorForDegrees(
+    self, degrees, speed=DEF_MOTOR_SPEED, then=Stop.BRAKE, wait=True
+):
+    self.RightAttachmentMotor.run_angle(
+        speed, degrees, then=Stop.HOLD, wait=True
+    )
