@@ -9,7 +9,7 @@ from pybricks.parameters import (
     Button,
     Icon,
 )
-from pybricks.robotics import GyroDriveBase
+from pybricks.robotics import DriveBase
 from pybricks.hubs import PrimeHub
 from pybricks.tools import wait
 from utils import *
@@ -44,7 +44,7 @@ class BaseRobot:
         self._version = "0.1 05/19/2023"
         self.leftDriveMotor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
         self.rightDriveMotor = Motor(Port.A)
-        self.robot = GyroDriveBase(
+        self.robot = DriveBase(
             self.leftDriveMotor,
             self.rightDriveMotor,
             TIRE_DIAMETER,
@@ -108,19 +108,49 @@ class BaseRobot:
             Color.SENSOR_LIME: Color.CYAN,
         }
 
+    def moveRightAttachmentMotorForDegrees(
+        self,
+        degrees,
+        speedPct=DEF_MED_MOT_SPEED_PCT,
+        then=Stop.BRAKE,
+        wait=True,
+    ):
+        speed = RescaleMedMotSpeed(speedPct)
+        self.rightAttachmentMotor.control.limits(acceleration=10000)
+        self.rightAttachmentMotor.run_angle(
+            speed, degrees, then=Stop.HOLD, wait=True
+        )
 
-def moveRightAttachmentMotorForDegrees(
-    self, degrees, speedPct=DEF_MED_MOT_SPEED_PCT, then=Stop.BRAKE, wait=True
-):
-    speed = RescaleMedMotSpeed(speedPct)
-    self.rightAttachmentMotor.run_angle(
-        speed, degrees, then=Stop.HOLD, wait=True
-    )
+    def moveRightAttachmentMotorForMillis(
+        self,
+        millis,
+        speedPct=DEF_MED_MOT_SPEED_PCT,
+        then=Stop.BRAKE,
+        wait=True,
+    ):
+        speed = RescaleMedMotSpeed(speedPct)
+        self.rightAttachmentMotor.control.limits(acceleration=10000)
+        self.rightAttachmentMotor.run_time(
+            speed, millis, then=Stop.HOLD, wait=True
+        )
+
+    def moveRightAttachmentMotorUntilStalled(
+        self,
+        duty_limit,
+        speedPct=DEF_MED_MOT_SPEED_PCT,
+        then=Stop.BRAKE,
+        wait=True,
+    ):
+        speed1 = RescaleMedMotSpeed(speedPct)
+        self.rightAttachmentMotor.control.limits(acceleration=10000)
+        self.rightAttachmentMotor.run_until_stalled(
+            speed=speed1, duty_limit=duty_limit, then=Stop.HOLD, wait=True
+        )
 
 
-def MoveRightAttachmentMotorForDegrees(
-    self, degrees, speed=DEF_MOTOR_SPEED, then=Stop.BRAKE, wait=True
-):
-    self.RightAttachmentMotor.run_angle(
-        speed, degrees, then=Stop.HOLD, wait=True
-    )
+# def MoveRightAttachmentMotorForDegrees(
+#     self, degrees, speed=DEF_MOTOR_SPEED, then=Stop.BRAKE, wait=True
+# ):
+#     self.RightAttachmentMotor.run_angle(
+#         speed, degrees, then=Stop.HOLD, wait=True
+#     )
