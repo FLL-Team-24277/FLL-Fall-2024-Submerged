@@ -20,6 +20,7 @@ AXLE_TRACK = 103  # distance between the wheels, mm
 DEFAULT_STALL = 120
 STRAIGHT_SPEED = 400  # normal straight speed for driving, mm/sec
 DEFAULT_MED_MOT_SPEED_PCT = 100  # normal attachment moter speed, % value
+DEFAULT_BIG_MOT_SPEED_PCT = 100  # normal wheels moter speed, % value
 STRAIGHT_ACCEL = 600  # normal acceleration, mm/sec^2
 TURN_RATE = 150  # normal turning rate, deg/sec
 TURN_ACCEL = 360  # normal turning acceleration, deg/sec^2
@@ -131,7 +132,20 @@ def moveLeftAttachmentMotorForMillis(
 
 
 def moveLeftAttachmentMotorUntilStalled(
-    self, duty_limit, speedPct=DEFAULT_MED_MOT_SPEED_PCT, then=Stop.BRAKE
+    self,
+    duty_limit,
+    speedPct=DEFAULT_MED_MOT_SPEED_PCT,
+    then=Stop.BRAKE
 ):
     speed = RescaleMedMotSpeed(speedPct)
     self.leftAttachmentMotor.run_until_stalled(speed, then, duty_limit)
+
+def moveRobotForwardForDegrees(
+        self,
+        degrees,
+        speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
+        then=Stop.BRAKE,
+        wait=True
+):
+    speed = RescaleMedMotSpeed(speedPct)
+    self.       .run_angle()
