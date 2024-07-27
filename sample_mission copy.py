@@ -12,7 +12,7 @@ from pybricks.parameters import (
 from pybricks.robotics import DriveBase
 from pybricks.hubs import PrimeHub
 from pybricks.tools import wait
-from base_robot_2024_submerged import *
+from base_robot_testing import *
 from utils import *
 
 # Add good comments, such as what the mission is supposed to do,
@@ -41,8 +41,13 @@ def Run(br: BaseRobot):
     # br.TurnInPlace(angle=360, then=Stop.COAST_SMART)
     # br.WaitForButton(button=Button.LEFT)
     # br.moveLeftAttachmentMotorForDegrees(degrees=1000, speedPct=100)
-    br.leftAttachmentMotor.run_angle(speed=500, rotation_angle=10000)
-    print(RescaleConvertFarToCel(32))
+    # br.leftAttachmentMotor.run_angle(speed=500, rotation_angle=10000)
+    # print(RescaleConvertFarToCel(32))
+    br.MoveLeftAttachmentMotorUntilStalled(
+        speedPct=100, torquePct=100
+    )
+    wait(5000)
+
 
 # robot.settings(straight_speed=977, straight_acceleration=500)
 # robot.straight(2100)
