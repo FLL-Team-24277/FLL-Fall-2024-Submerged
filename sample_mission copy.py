@@ -43,9 +43,10 @@ def Run(br: BaseRobot):
     # br.moveLeftAttachmentMotorForDegrees(degrees=1000, speedPct=100)
     # br.leftAttachmentMotor.run_angle(speed=500, rotation_angle=10000)
     # print(RescaleConvertFarToCel(32))
-    br.MoveLeftAttachmentMotorUntilStalled(
-        speedPct=100, torquePct=100
-    )
+    br.DriveDist(100, then=Stop.BRAKE)
+    # br.MoveLeftAttachmentMotorUntilStalled(
+    #     speedPct=10, torquePct=10
+    # )
     wait(5000)
 
 
