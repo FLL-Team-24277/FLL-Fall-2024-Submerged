@@ -413,12 +413,28 @@ class BaseRobot:
         speed = RescaleMedMotSpeed(speedPct)
         motor.run_time(speed, millis, then, waitUntilFinished)
 
-    def MoveAttachmentMotorUntilStalled(
+    def MoveLeftAttachmentMotorUntilStalled(
         self,
-        motor,
         speedPct=DEF_MED_MOT_SPEED_PCT,
         torquePct=DEF_MED_MOT_TORQUE_PCT,
         then=Stop.HOLD,
     ):
         speed = RescaleMedMotSpeed(speedPct)
-        motor.run_until_stalled(speed, then, torquePct)
+        torque = RescaleMedMotDutyLimit(torquePct)
+        self.leftAttachmentMotor.run(speed)
+        loads = [0] * 10
+        while True:
+            load = abs(self.leftAttachmentMotor.load())
+            loads.append(load)
+            loads.pop(0)
+            if sum(loads) / len(loads) > torque:
+                break
+            wait(100)
+        if then == Stop.HOLD:
+            self.leftAttachmentMotor.hold()
+        elif then == Stop.BRAKE:
+            self.leftAttachmentMotor.brake()
+        elif then == Stop.COAST:
+            self.leftAttachmentMotor.stop()
+        else:
+            self.leftAttachmentMotor.stop()
