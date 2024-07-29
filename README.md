@@ -1,5 +1,5 @@
 # Fall-2024-Submerged
-Base robot, missions, and materials for the Fall 2024 FLL Season "Submerged"
+Base robot, missions, and materials for the Fall 2024 FLL Season "Submerged".
 
 # FLL Team 24277  
 ##  Introduction
@@ -10,7 +10,7 @@ The instructions below will get team members up and running for FLL in a team co
 
 Additionally, this is where all of the team code and master program will live for the Fall 2024 Submerged FLL Season.
 
-Very helpful page here about how to use pybricks with VS Code: https://pybricks.com/projects/tutorials/dev/tools/vscode/
+Very helpful page here about how to use pybricks with VS Code: https://pybricks.com/projects/tutorials/dev/tools/vscode/. Github link: https://github.com/pybricks/pybricks-micropython
 
 ## Instructions
 
