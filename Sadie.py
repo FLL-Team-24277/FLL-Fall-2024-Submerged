@@ -13,8 +13,9 @@ from base_robot_sadie import *
 def Run(br: BaseRobot):
     #   Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
-    br.moveLeftAttachmentMotorUntilStalled(70)
-
+    # br.moveLeftAttachmentMotorForDegrees(90,then=Stop.HOLD)
+    br.driveUntilStalled()
+    wait(10000)
 
 # If running this program directly (not from the master program), this is
 # how we know it is running directly. In which case, this method will

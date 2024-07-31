@@ -24,7 +24,8 @@ DEFAULT_BIG_MOT_SPEED_PCT = 100  # normal wheels moter speed, % value
 STRAIGHT_ACCEL = 600  # normal acceleration, mm/sec^2
 TURN_RATE = 150  # normal turning rate, deg/sec
 TURN_ACCEL = 360  # normal turning acceleration, deg/sec^2
-DEF_ROBOT_ACCELERATION = 100
+DEF_ROBOT_ACCELERATION = 75  # norml acceleration
+DEFAULT_STALL_PCT = 50
 
 
 class BaseRobot:
@@ -113,7 +114,7 @@ class BaseRobot:
         self,
         degrees,
         speedPct=DEFAULT_MED_MOT_SPEED_PCT,
-        then=Stop.BRAKE,
+        then=Stop.HOLD,
         wait=True,
     ):
         speed = RescaleMedMotSpeed(speedPct)
@@ -123,7 +124,7 @@ class BaseRobot:
         self,
         millis,
         speedPct=DEFAULT_MED_MOT_SPEED_PCT,
-        then=Stop.BRAKE,
+        then=Stop.HOLD,
         wait=True,
     ):
         speed = RescaleMedMotSpeed(speedPct)
@@ -133,7 +134,7 @@ class BaseRobot:
         self,
         duty_limit_pct,
         speedPct=DEFAULT_MED_MOT_SPEED_PCT,
-        then=Stop.BRAKE,
+        then=Stop.HOLD,
     ):
         speed = RescaleMedMotSpeed(speedPct)
         duty_limit_pct = RescaleMedMotDutyLimit(duty_limit_pct)
@@ -149,15 +150,42 @@ class BaseRobot:
         accelerationPct=DEF_ROBOT_ACCELERATION,
     ):
         speed = RescaleMedMotSpeed(speedPct)
-        # acceleration = RescaleStraightAccel
+        acceleration = RescaleStraightAccel(accelerationPct)
         self.robot.use_gyro(gyro)
-        self.robot.settings(accelerationPct, speed)
+        self.robot.settings(acceleration, speed)
         self.robot.straight(distance, then, wait)
 
+    def driveForMillis(
+        self,
+        millis,
+        speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
+        then=Stop.BRAKE,
+        wait=True,
+        gyro=True,
+        accelerationPct=DEF_ROBOT_ACCELERATION,
+    ):
+        speed = RescaleMedMotSpeed(speedPct)
+        acceleration = RescaleStraightAccel(accelerationPct)
+        self.robot.use_gyro(gyro)
+        self.robot.settings(acceleration, speed)
+        self.robot.drive(speed, 0)
+        # wait(5000)
+        # self.robot.brake()
 
-# addRescaleToAcceleration
-
-# def driveForTime(
-#     self,
-# )
-
+    def driveUntilStalled(
+        self,
+        stallPct=DEFAULT_STALL_PCT,
+        speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
+        then=Stop.BRAKE,
+        wait=True,
+        gyro=True,
+        accelerationPct=DEF_ROBOT_ACCELERATION,
+    ):
+        speed = RescaleMedMotSpeed(speedPct)
+        acceleration = RescaleStraightAccel(accelerationPct)
+        self.robot.use_gyro(gyro)
+        self.robot.settings(acceleration, speed)
+        self.robot.drive(speed, 0)
+        while not self.robot.stalled():
+            wait(50)
+        self.robot.brake()
