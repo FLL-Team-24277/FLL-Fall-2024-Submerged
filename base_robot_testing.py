@@ -418,18 +418,20 @@ class BaseRobot:
         speedPct=DEF_MED_MOT_SPEED_PCT,
         torquePct=DEF_MED_MOT_TORQUE_PCT,
         then=Stop.HOLD,
+        sensitivity=50,
     ):
         speed = RescaleMedMotSpeed(speedPct)
         torque = RescaleMedMotDutyLimit(torquePct)
+        sens = int(RescaleSensitivity(sensitivity))
         self.leftAttachmentMotor.run(speed)
-        loads = [0] * 10
+        loads = [0] * sens
         while True:
             load = abs(self.leftAttachmentMotor.load())
             loads.append(load)
             loads.pop(0)
             if sum(loads) / len(loads) > torque:
                 break
-            wait(100)
+            wait(1)
         if then == Stop.HOLD:
             self.leftAttachmentMotor.hold()
         elif then == Stop.BRAKE:

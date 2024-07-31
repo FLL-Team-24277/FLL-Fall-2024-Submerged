@@ -43,11 +43,38 @@ def Run(br: BaseRobot):
     # br.moveLeftAttachmentMotorForDegrees(degrees=1000, speedPct=100)
     # br.leftAttachmentMotor.run_angle(speed=500, rotation_angle=10000)
     # print(RescaleConvertFarToCel(32))
-    br.DriveDist(100, then=Stop.BRAKE)
-    # br.MoveLeftAttachmentMotorUntilStalled(
-    #     speedPct=10, torquePct=10
-    # )
-    wait(5000)
+    # print(br.leftAttachmentMotor.control.limits())
+    # br.leftAttachmentMotor.control.limits(torque=50)
+    br.leftAttachmentMotor.reset_angle(0)
+    print("First starting angle", br.leftAttachmentMotor.angle())
+    
+    for i in range(1, 10):
+        br.MoveLeftAttachmentMotorUntilStalled(
+            speedPct=10, torquePct=25, then=Stop.HOLD, sensitivity=30
+        )
+        # br.leftAttachmentMotor.reset_angle(0)
+        # br.WaitForMillis(500)
+        a1 = br.leftAttachmentMotor.angle()
+        wait(200)
+
+        # br.leftAttachmentMotor.reset_angle()
+        afterStall = br.leftAttachmentMotor.angle()
+        br.hub.display.number(afterStall % 100)
+        br.MoveAttachmentMotorDegrees(
+            br.leftAttachmentMotor, -595, speedPct=100
+        )
+
+        # br.DriveDist(100, then=Stop.BRAKE)
+        # br.MoveLeftAttachmentMotorUntilStalled(
+        #     speedPct=10, torquePct=10
+        # )
+        wait(500)
+        stoppedAt = br.leftAttachmentMotor.angle()
+        print("a1 = ", a1, "After stall =", afterStall, "Stopped at", stoppedAt)
+        br.hub.display.number(stoppedAt % 100)
+        wait(1000)
+    # print(br.leftAttachmentMotor.angle())
+    SystemExit()
 
 
 # robot.settings(straight_speed=977, straight_acceleration=500)
