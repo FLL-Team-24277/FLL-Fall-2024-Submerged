@@ -24,7 +24,7 @@ DEFAULT_BIG_MOT_SPEED_PCT = 100  # normal wheels moter speed, % value
 STRAIGHT_ACCEL = 600  # normal acceleration, mm/sec^2
 TURN_RATE = 150  # normal turning rate, deg/sec
 TURN_ACCEL = 360  # normal turning acceleration, deg/sec^2
-DEF_ROBOT_ACCELERATION = 500
+DEF_ROBOT_ACCELERATION = 100
 
 
 class BaseRobot:
@@ -149,6 +149,14 @@ class BaseRobot:
         accelerationPct=DEF_ROBOT_ACCELERATION,
     ):
         speed = RescaleMedMotSpeed(speedPct)
+        # acceleration = RescaleStraightAccel
         self.robot.use_gyro(gyro)
-        self.robot.settings(speed, accelerationPct)
+        self.robot.settings(accelerationPct, speed)
         self.robot.straight(distance, then, wait)
+
+
+# addRescaleToAcceleration
+
+# def driveForTime(
+#     self,
+# )
