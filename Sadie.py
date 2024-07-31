@@ -13,7 +13,7 @@ from base_robot_sadie import *
 def Run(br: BaseRobot):
     #   Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
-    br.driveForDistance(300)
+    br.driveForDistance(600, accelerationPct=100)
 
 
 # If running this program directly (not from the master program), this is
