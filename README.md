@@ -1,5 +1,5 @@
 # Fall-2024-Submerged
-Base robot, missions, and materials for the Fall 2024 FLL Season "Submerged"
+Base robot, missions, and materials for the Fall 2024 FLL Season "Submerged".
 
 # FLL Team 24277  
 ##  Introduction
@@ -10,7 +10,7 @@ The instructions below will get team members up and running for FLL in a team co
 
 Additionally, this is where all of the team code and master program will live for the Fall 2024 Submerged FLL Season.
 
-Very helpful page here about how to use pybricks with VS Code: https://pybricks.com/projects/tutorials/dev/tools/vscode/
+Very helpful page here about how to use pybricks with VS Code: https://pybricks.com/projects/tutorials/dev/tools/vscode/. Github link: https://github.com/pybricks/pybricks-micropython
 
 ## Instructions
 
@@ -26,7 +26,7 @@ Very helpful page here about how to use pybricks with VS Code: https://pybricks.
 10. Install pybricks on each robot at https://beta.pybricks.com/. If the computer has never connected to a pybricks hub, you will probably need to manually install the USB drivers, which will require the use of the windows Device Manager. To run device manager as an admin, run a powershell as an administrator, then type devmgmt.msc. Then complete the usual steps. Name the robot at this time. Avoid spaces and special characters in the robot name. Put a label sticker on the top of the robot with the robot name.
 11. Create a User environment variable for the robot name. Set the variable `robotName` to the name of the robot. This should allow the keyboard binding and tasks to recognize the robot by name. You may also want to set robot1, robot2, robot3 if needed/desired. Restart VS Code and open a new terminal and then test it with `echo $env:robotName`.
 12. Last step, I promise! Add a keyboard shortcut to run the programs that we write. `Ctrl-Shift-P` > `Preferences: Open Keyboard Shortcuts (JSON)`. Edit the JSON to add the keyboard shortcut to run the task. Paste in the code below at the bottom of keybindings.json.
-13. **RUN OUR PROGRAM!** Turn the robot on and ensure the keyboard shortcut `ctrl-shift-L` runs the command, which should also run their program. Also, `Ctrl-Shift-P` > `Tasks: Run task` should pop up a menu with the correct entry. Watch the terminal and make sure the robot name is correct. If not, recheck that you completed step 11 correctly.
+13. **RUN OUR PROGRAM!** Turn the robot on and ensure the keyboard shortcut `ctrl-shift-L` runs the command, which should also run their program. Also, `Ctrl-Shift-P` > `Tasks: Run task` should pop up a menu with the correct entry. Watch the terminal and make sure the robot name is correct. If not, recheck that you completed step 11 correctly and that you restarted VS Code. If you want to run the program on one of the other robots that you defined in step 11 (i.e., robot1, etc) then use the keyboard shortcut `Ctrl-Alt-L`, followed by the number `1`, `2`, or `3` as desired.
 14. Finally, to use a master program to organize and run individual missions, take a look at the [master_program.py](https://github.com/FLL-Team-24277/Fall-2024-Submerged/blob/main/master_program.py) and the [sample_mission.py](https://github.com/FLL-Team-24277/Fall-2024-Submerged/blob/main/sample_mission.py).
 
 ## Example code for test program

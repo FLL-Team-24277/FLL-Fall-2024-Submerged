@@ -144,6 +144,6 @@ def RescaleMedMotDutyLimit(medMotDutyLimitPct):
         medMotDutyLimitPct,
         1,
         100,
-        40,
-        100,
+        20,
+        195,
     )
