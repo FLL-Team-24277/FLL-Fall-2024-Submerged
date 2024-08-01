@@ -20,12 +20,14 @@ AXLE_TRACK = 103  # distance between the wheels, mm
 DEFAULT_STALL = 120
 STRAIGHT_SPEED = 400  # normal straight speed for driving, mm/sec
 DEFAULT_MED_MOT_SPEED_PCT = 100  # normal attachment moter speed, % value
-DEFAULT_BIG_MOT_SPEED_PCT = 100  # normal wheels moter speed, % value
+DEFAULT_BIG_MOT_SPEED_PCT = 80  # normal wheels moter speed, % value
 STRAIGHT_ACCEL = 600  # normal acceleration, mm/sec^2
 TURN_RATE = 150  # normal turning rate, deg/sec
 TURN_ACCEL = 360  # normal turning acceleration, deg/sec^2
-DEF_ROBOT_ACCELERATION = 75  # norml acceleration
-DEFAULT_STALL_PCT = 50
+DEF_ROBOT_ACCELERATION = 75  # normal acceleration
+DEFAULT_STALL_PCT = 50  #normal
+DEFAULT_TURN_SPEED_PCT = 45 #
+DEFAULT_TURN_ACCEL_PCT = 45 #
 
 
 class BaseRobot:
@@ -159,33 +161,67 @@ class BaseRobot:
         self,
         millis,
         speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
-        then=Stop.BRAKE,
-        wait=True,
         gyro=True,
         accelerationPct=DEF_ROBOT_ACCELERATION,
     ):
         speed = RescaleMedMotSpeed(speedPct)
         acceleration = RescaleStraightAccel(accelerationPct)
         self.robot.use_gyro(gyro)
-        self.robot.settings(acceleration, speed)
+        self.robot.settings(straight_acceleration=acceleration)
         self.robot.drive(speed, 0)
-        # wait(5000)
-        # self.robot.brake()
+        wait(millis)
+        self.robot.brake()
 
     def driveUntilStalled(
         self,
-        stallPct=DEFAULT_STALL_PCT,
+        # stallPct=DEFAULT_STALL_PCT,
+        # think about above line later
         speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
-        then=Stop.BRAKE,
-        wait=True,
         gyro=True,
         accelerationPct=DEF_ROBOT_ACCELERATION,
     ):
-        speed = RescaleMedMotSpeed(speedPct)
+        spd = RescaleMedMotSpeed(speedPct)
+        print(spd)
         acceleration = RescaleStraightAccel(accelerationPct)
         self.robot.use_gyro(gyro)
-        self.robot.settings(acceleration, speed)
-        self.robot.drive(speed, 0)
+        # self.robot.settings(straight_speed=-999)
+        self.robot.settings(straight_acceleration=acceleration)
+        self.robot.drive(spd, 0)
         while not self.robot.stalled():
             wait(50)
         self.robot.brake()
+
+    def waitForMillis(self, millis):
+        wait(millis)
+
+    def waitForForwardButton(
+        self,
+    ):
+        while True:
+            pressed = self.hub.buttons.pressed()
+            if Button.LEFT in pressed:
+                break
+            wait(10)
+
+    def waitForBackButton(
+        self,
+    ):
+        while True:
+            pressed = self.hub.buttons.pressed()
+            if Button.RIGHT in pressed:
+                break
+            wait(10)
+
+    def turnInPlace(
+        self,
+        degrees,
+        speedPct=DEFAULT_TURN_SPEED_PCT,
+        gyro=True,
+        wait=True,
+        then=Stop.BRAKE,
+        accelerationPct=DEFAULT_TURN_ACCEL_PCT
+    ):
+
+
+# Finish this if you can ^
+#also start doing comments like  this

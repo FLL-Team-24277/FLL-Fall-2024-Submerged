@@ -1,19 +1,17 @@
 Done    MoveLeftAttachmentMotorUntilStalled(stallPercent=, speed=, then=Stop.BRAKE, wait=True)
 Done    MoveLeftAttachmentMotorForDegrees(degrees, speed=DEF_MOT_SPD, then=Stop.BRAKE, wait=True):
 Done    MoveLeftAttachmentMotorForMillis(millis, speed=, then=Stop.BRAKE, wait=True)
-
 Done    DriveForDistance(mm, speed=, then=Stop.BRAKE, wait=True, accelerationPct)
-
-DriveForMillis(millis, speed=, then, wait)
+Done    DriveForMillis(millis, speed=, then, wait)
+Done    DriveUntillStalled(stallPercent=, speed=, then=Stop.BRAKE, wait=True)
+Done    WaitForMillis(millis=500)
+Done    WaitForForwardButton()
+Done    WaitForBackButton()
 
 
 Curve(radius, distance, speed=, then=Stop.BRAKE, wait=True)
-Turn(degrees, speed=, then=Stop.BRAKE, wait=True)
+Turn(degrees, speed= , then=Stop.BRAKE, wait=True)
 MoveRightAttachmentMotorForMillis(millis, speed=, then=Stop.BRAKE, wait=True)
 MoveRightAttachmentMotorForDegrees(degrees, speed=, then=Stop.BRAKE, wait=True)
-WaitForForwardButton()
-WaitForBackButton()
 MoveRightAttachmentMotorUntilStalled(stallPercent=, speed=, then=Stop.BRAKE, wait=True)
-DriveUntillStalled(stallPercent=, speed=, then=Stop.BRAKE, wait=True)
-WaitForMillis(millis=500)
 ColorSensor?
