@@ -14,6 +14,7 @@ def Run(br: BaseRobot):
     #   Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
     br.moveLeftAttachmentMotorForDegrees(100)
+    br.turnInPlace(90)
     br.waitForBackButton()
     br.moveLeftAttachmentMotorForDegrees(-100)
 

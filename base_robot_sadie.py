@@ -221,7 +221,11 @@ class BaseRobot:
         then=Stop.BRAKE,
         accelerationPct=DEFAULT_TURN_ACCEL_PCT
     ):
-
+        speed = RescaleMedMotSpeed(speedPct)
+        acceleration = RescaleTurnAccel(accelerationPct)
+        self.robot.use_gyro(gyro)
+        self.robot.settings(acceleration, speed)
+        self.robot.straight(degrees, then, wait)
 
 # Finish this if you can ^
 #also start doing comments like  this
