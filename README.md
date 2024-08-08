@@ -8,8 +8,6 @@ We are not "giving away solutions" here. If you are looking for mission solution
 
 The instructions below will get team members up and running for FLL in a team collaboration environment using [pybricks libraries](https://github.com/pybricks), writing programs with Visual Studio Code, and using git/github for version control. The instructions are not perfect, and you will probably have some troubleshooting and adjustments along the way.
 
-Additionally, this is where all of the team code and master program will live for the Fall 2024 Submerged FLL Season.
-
 Very helpful page here about how to use pybricks with VS Code: https://pybricks.com/projects/tutorials/dev/tools/vscode/. Github link: https://github.com/pybricks/pybricks-micropython
 
 ## Instructions
