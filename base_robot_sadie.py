@@ -25,9 +25,9 @@ STRAIGHT_ACCEL = 600  # normal acceleration, mm/sec^2
 TURN_RATE = 150  # normal turning rate, deg/sec
 TURN_ACCEL = 360  # normal turning acceleration, deg/sec^2
 DEF_ROBOT_ACCELERATION = 75  # normal acceleration
-DEFAULT_STALL_PCT = 50  #normal
-DEFAULT_TURN_SPEED_PCT = 45 #
-DEFAULT_TURN_ACCEL_PCT = 45 #
+DEFAULT_STALL_PCT = 50  # normal
+DEFAULT_TURN_SPEED_PCT = 45  #
+DEFAULT_TURN_ACCEL_PCT = 45  #
 
 
 class BaseRobot:
@@ -119,6 +119,27 @@ class BaseRobot:
         then=Stop.HOLD,
         wait=True,
     ):
+        """
+        moveLeftAttachmentMotorForDegrees moves the left attachment motor. \
+        to determine hoow much the motor moves you put in a number \
+        positive numbers make it go right negative numbers left. \
+        Paramaters:
+        -------------
+        degrees: how much the left attachment motor will turn \
+        positive numbers move the motor right \
+        negative numbers turn it to the left \
+        -------------
+        speedPct: this controls how fast the motors will move \
+        the speed is from 1-100 \
+        -------------
+        then: the then function tells the robot what to do next \
+        our default is stop.HOLD \
+        stop.HOLD tells the robot that when it stops to hold that position \
+        -------------
+        wait: this tells the robot if it should wait for the next step \
+        or run both lines of code at the same time
+         """
+        # now the real work begins!
         speed = RescaleMedMotSpeed(speedPct)
         self.leftAttachmentMotor.run_angle(speed, degrees, then, wait)
 
@@ -219,7 +240,7 @@ class BaseRobot:
         gyro=True,
         wait=True,
         then=Stop.BRAKE,
-        accelerationPct=DEFAULT_TURN_ACCEL_PCT
+        accelerationPct=DEFAULT_TURN_ACCEL_PCT,
     ):
         speed = RescaleMedMotSpeed(speedPct)
         acceleration = RescaleTurnAccel(accelerationPct)
@@ -227,5 +248,6 @@ class BaseRobot:
         self.robot.settings(acceleration, speed)
         self.robot.straight(degrees, then, wait)
 
+
 # Finish this if you can ^
-#also start doing comments like  this
+# also start doing comments like  this
