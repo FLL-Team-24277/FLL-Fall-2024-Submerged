@@ -150,6 +150,31 @@ class BaseRobot:
         then=Stop.HOLD,
         wait=True,
     ):
+        """
+        moveLeftAttachmentMotorForMillis moves the left attachment motor. \
+        to determine how long the motor moves for you put in a number \
+        that number is how many miliseconds it will run for \
+        Paramaters:
+        -------------
+        millis: how many miliseconds the left attachment motor will turn for\
+        a millisecond is 0.001 of a second \
+        so 5000 is 5 seconds \
+        -------------
+        speedPct: this controls how fast the motor/motors will move \
+        the speed percent is from -100 to 100 \
+        you can not put in zero though \
+        positive numbers move the motor right \
+        negative numbers turn it to the left \
+        -------------
+        then: the then function tells the robot what to do next \
+        our default is stop.HOLD \
+        stop.HOLD tells the robot that when it stops \
+        to hold that position as much as it can \
+        -------------
+        wait: this tells the robot if it should wait \
+        for the next line of code or \
+        run both lines of code at the same time
+        """
         speed = RescaleMedMotSpeed(speedPct)
         self.leftAttachmentMotor.run_angle(speed, millis, then, wait)
 
@@ -159,6 +184,31 @@ class BaseRobot:
         speedPct=DEFAULT_MED_MOT_SPEED_PCT,
         then=Stop.HOLD,
     ):
+        """
+        moveLeftAttachmentMotorUntillStalled moves \
+        the left attachment motor untill it is stalled \
+        Paramaters:
+        -------------
+        StallPct: how much pressure is needed for the\
+        motor to stop and go to the next line of code \
+        -------------
+        speedPct: this controls how fast the motor/motors will move \
+        the speed percent is from -100 to 100 \
+        you can not put in zero \
+        positive numbers move the motor right \
+        negative numbers turn it to the left \
+        -------------
+        then: the then function tells the robot what to do \
+        after the line of code is done running
+        our default for then is stop.HOLD \
+        stop.HOLD tells the robot that when it stops \
+        to hold that position as much as it can \
+        -------------
+        wait: this tells the robot if it should wait \
+        for the next line of code or \
+        run both lines of code at the same time
+
+        """
         speed = RescaleMedMotSpeed(speedPct)
         duty_limit_pct = RescaleMedMotDutyLimit(duty_limit_pct)
         self.leftAttachmentMotor.run_until_stalled(speed, then, duty_limit_pct)
@@ -235,7 +285,7 @@ class BaseRobot:
 
     def turnInPlace(
         self,
-        degrees,
+        angle,
         speedPct=DEFAULT_TURN_SPEED_PCT,
         gyro=True,
         wait=True,
@@ -246,8 +296,24 @@ class BaseRobot:
         acceleration = RescaleTurnAccel(accelerationPct)
         self.robot.use_gyro(gyro)
         self.robot.settings(acceleration, speed)
-        self.robot.straight(degrees, then, wait)
+        self.robot.turn(angle, then=Stop.BRAKE, wait=True)
+
+    def curve(
+        self,
+        radius,
+        angle,
+        speedPct=DEFAULT_TURN_SPEED_PCT,
+        then=Stop.BRAKE,
+        wait=True,
+        gyro=True,
+        accelerationPct=DEFAULT_TURN_ACCEL_PCT,
+    ):
+        speed = RescaleMedMotSpeed(speedPct)
+        acceleration = RescaleTurnAccel(accelerationPct)
+        self.robot.use_gyro(gyro)
+        self.robot.settings(acceleration, speed)
+        self.robot.turn(radius, angle, then=Stop.BRAKE, wait=True)
 
 
-# Finish this if you can ^
+# ask coach for help with curve
 # also start doing comments like  this
