@@ -43,6 +43,6 @@ while True:
     if col == Color.SENSOR_RED:
         Sadie.Run(br)
         # If detected color is red, then run Sadie's mission
-    if col == Color.SENSOR_LIME:
+    if col == Color.SENSOR_GREEN:
         NOTDECLAN.Run(br)
         # If detected color is White, then run Declan's mission
