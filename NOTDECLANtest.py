@@ -22,4 +22,3 @@ def Run(br: BaseRobot):
 # everything will be fine.
 if __name__ == "__main__":
     br = BaseRobot()
-    Run(br)

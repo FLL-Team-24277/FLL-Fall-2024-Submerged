@@ -118,8 +118,7 @@ class BaseRobot:
         speed = RescaleMedMotSpeed(speedPct)
         self.rightAttachmentMotor.control.limits(acceleration=10000)
         self.rightAttachmentMotor.run_angle(
-            speed, degrees, then=Stop.HOLD, wait=True
-        )
+            speed, degrees, then, wait)
 
     def moveRightAttachmentMotorForMillis(
         self,
@@ -131,8 +130,7 @@ class BaseRobot:
         speed = RescaleMedMotSpeed(speedPct)
         self.rightAttachmentMotor.control.limits(acceleration=10000)
         self.rightAttachmentMotor.run_time(
-            speed, millis, then=Stop.HOLD, wait=True
-        )
+            speed, millis, then, wait)
 
     def moveRightAttachmentMotorUntilStalled(
         self,
@@ -144,8 +142,7 @@ class BaseRobot:
         speed1 = RescaleMedMotSpeed(speedPct)
         self.rightAttachmentMotor.control.limits(acceleration=10000)
         self.rightAttachmentMotor.run_until_stalled(
-            speed=speed1, duty_limit=duty_limit, then=Stop.HOLD, wait=True
-        )
+            speed1, then,duty_limit)
 
 
 # def MoveRightAttachmentMotorForDegrees(
