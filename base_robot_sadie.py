@@ -222,6 +222,44 @@ class BaseRobot:
         gyro=True,
         accelerationPct=DEF_ROBOT_ACCELERATION,
     ):
+        """
+        driveForDistance moves \
+        the robot forward a certain amount \
+        Paramaters:
+        -------------
+        distance: how far forward the robot will move \
+        positive numbers move it forward \
+        and negative numbers move the robot backward \
+        -------------
+        speedPct: this controls how fast the robot will move \
+        the speed percent is from -100 to 100 \
+        the code will not let you put in zero \
+        positive numbers move the robot forward \
+        negative numbers move the robot backward \
+        -------------
+        then: this function tells the robot what to do \
+        after the current line of code is done running \
+        our default for then is stop.BRAKE \
+        stop.BRAKE tells the robot that when it stops \
+        to stop and then dont do anything \
+        untill the next line of code \
+        -------------
+        wait: this tells the robot if it should wait \
+        for the next line of code or \
+        run both lines of code at the same time
+        -------------
+        gyro: gyro is used most of the time during our code \
+        this function gives us the option to turn off gyro \
+        if we need to for some reason \
+        gyro is a tool that looks at whats in front of it \
+        and as the robot is moving gyro will make sure that \
+        the robot is more acurate than before \
+        -------------
+        accelerationPct: this function tells the robot \
+        how much acceleration the robot will have \
+        while it is driving \
+        the acceleration is on a 1-100 scale \
+        """
         speed = RescaleMedMotSpeed(speedPct)
         acceleration = RescaleStraightAccel(accelerationPct)
         self.robot.use_gyro(gyro)
@@ -235,6 +273,42 @@ class BaseRobot:
         gyro=True,
         accelerationPct=DEF_ROBOT_ACCELERATION,
     ):
+        """
+        driveForMillis moves \
+        the robot forward for a certain amount of time \
+        Paramaters:
+        -------------
+        Millis: how long the robot will move for \
+        the time is measures in milliseconds \
+        so 5000 would be 5 seconds
+        -------------
+        speedPct: this controls how fast the robot will move \
+        the speed percent is from -100 to 100 \
+        the code will not let you put in zero \
+        positive numbers will move the robot forward \
+        and negative numbers backward \
+        -------------
+        then: the function then lets the robot know \
+        what to do after running the line of code \
+        Our default for then is stop.BRAKE \
+        stop.BRAKE tells the robot that when it stops \
+        to stop and then dont do anything \
+        untill the next line of code \
+        -------------
+        # waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaait: this tells the robot if it should wait \
+        for the next line of code or \
+        run both lines of code at the same time
+        -------------
+        gyro: gyro is used most of the time during our code \
+        this function gives us the option to turn off gyro \
+        if we need to for some reason \
+        gyro is  \
+        -------------
+        accelerationPct: this function tells the robot \
+        how much acceleration the robot will have \
+        while it is driving \
+        the acceleration is on a 1-100 scale \
+        """
         speed = RescaleMedMotSpeed(speedPct)
         acceleration = RescaleStraightAccel(accelerationPct)
         self.robot.use_gyro(gyro)
@@ -292,28 +366,24 @@ class BaseRobot:
         then=Stop.BRAKE,
         accelerationPct=DEFAULT_TURN_ACCEL_PCT,
     ):
-        speed = RescaleMedMotSpeed(speedPct)
+        speed = RescaleTurnSpeed(speedPct)
         acceleration = RescaleTurnAccel(accelerationPct)
         self.robot.use_gyro(gyro)
         self.robot.settings(acceleration, speed)
-        self.robot.turn(angle, then=Stop.BRAKE, wait=True)
+        self.robot.turn(angle, then, wait)
 
     def curve(
         self,
         radius,
         angle,
-        speedPct=DEFAULT_TURN_SPEED_PCT,
+        speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
         then=Stop.BRAKE,
         wait=True,
         gyro=True,
         accelerationPct=DEFAULT_TURN_ACCEL_PCT,
     ):
-        speed = RescaleMedMotSpeed(speedPct)
+        speed = RescaleTurnSpeed(speedPct)
         acceleration = RescaleTurnAccel(accelerationPct)
         self.robot.use_gyro(gyro)
         self.robot.settings(acceleration, speed)
-        self.robot.turn(radius, angle, then=Stop.BRAKE, wait=True)
-
-
-# ask coach for help with curve
-# also start doing comments like  this
+        self.robot.curve(radius, angle, then, wait)
