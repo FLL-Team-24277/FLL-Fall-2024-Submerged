@@ -1,4 +1,4 @@
-from base_robot_sadie import *
+from base_robot import *
 
 # Import missions
 import Sadie
