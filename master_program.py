@@ -5,10 +5,6 @@ import Sadie
 import NOTDECLAN
 
 
-
-
-
-
 br = BaseRobot()
 
 pressed = []
@@ -50,4 +46,3 @@ while True:
     if col == Color.SENSOR_LIME:
         NOTDECLAN.Run(br)
         # If detected color is White, then run Declan's mission
-    

@@ -13,9 +13,10 @@ from base_robot_sadie import *
 def Run(br: BaseRobot):
     #   Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
-    br.curve(200,90,then = Stop.NONE)
+    br.curve(200, 90, then=Stop.NONE)
     br.driveForDistance(500)
     br.waitForMillis(5000)
+
 
 # If running this program directly (not from the master program), this is
 # how we know it is running directly. In which case, this method will
