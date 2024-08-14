@@ -279,21 +279,11 @@ class BaseRobot:
         the right attachment motor untill it is stalled \
         Paramaters:
         -------------
-        StallPct: how much pressure is needed for the\
-        motor to stop and go to the next line of code \
-        -------------
         speedPct: this controls how fast the motor/motors will move \
         the speed percent is from -100 to 100 \
         you can not put in zero \
         positive numbers move the motor right \
         negative numbers turn it to the left \
-        -------------
-        then: the then function tells the robot what to do \
-        after the line of code is done running
-        our default for then is stop.HOLD \
-        stop.HOLD tells the robot that when it stops \
-        to hold that position as much as it can \
-
         """
         speed = RescaleMedMotSpeed(speedPct)
         self.rightAttachmentMotor.run(speed)
