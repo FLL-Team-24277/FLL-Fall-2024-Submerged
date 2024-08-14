@@ -14,8 +14,8 @@ def Run(br: BaseRobot):
     br.turnInPlace(angle=90)
     br.moveLeftAttachmentMotorForDegrees(degrees=-720)
     br.moveRightAttachmentMotorForMillis(millis=1500)
-    br.waitForMillis(1000)
-    br.moveLeftAttachmentMotorUntilStalled(duty_limit_pct=50)
+    br.waitForMillis(millis=1000)
+    br.moveLeftAttachmentMotorUntilStalled()
     br.curve(radius=350, angle=70)
 
 
