@@ -184,38 +184,25 @@ class BaseRobot:
 
     def moveLeftAttachmentMotorUntilStalled(
         self,
-        duty_limit_pct=DEFAULT_DUTY_LIMIT,
         speedPct=DEFAULT_MED_MOT_SPEED_PCT,
-        then=Stop.HOLD,
     ):
         """
         moveLeftAttachmentMotorUntillStalled moves \
         the left attachment motor untill it is stalled \
         Paramaters:
         -------------
-        StallPct: how much pressure is needed for the\
-        motor to stop and go to the next line of code \
-        -------------
         speedPct: this controls how fast the motor/motors will move \
         the speed percent is from -100 to 100 \
         you can not put in zero \
         positive numbers move the motor right \
         negative numbers turn it to the left \
-        -------------
-        then: the then function tells the robot what to do \
-        after the line of code is done running
-        our default for then is stop.HOLD \
-        stop.HOLD tells the robot that when it stops \
-        to hold that position as much as it can \
-        -------------
-        wait: this tells the robot if it should wait \
-        for the next line of code or \
-        run both lines of code at the same time
-
         """
+
         speed = RescaleMedMotSpeed(speedPct)
-        duty_limit_pct = RescaleMedMotDutyLimit(duty_limit_pct)
-        self.leftAttachmentMotor.run_until_stalled(speed, then, duty_limit_pct)
+        self.leftAttachmentMotor.run(speed)
+        while not (self.leftAttachmentMotor.stalled()):
+            wait(25)
+        self.leftAttachmentMotor.hold()
 
     def moveRightAttachmentMotorForDegrees(
         self,
@@ -285,9 +272,7 @@ class BaseRobot:
 
     def moveRightAttachmentMotorUntilStalled(
         self,
-        duty_limit_pct=DEFAULT_DUTY_LIMIT,
         speedPct=DEFAULT_MED_MOT_SPEED_PCT,
-        then=Stop.HOLD,
     ):
         """
         moveRightAttachmentMotorUntillStalled moves \
@@ -311,10 +296,10 @@ class BaseRobot:
 
         """
         speed = RescaleMedMotSpeed(speedPct)
-        duty_limit_pct = RescaleMedMotDutyLimit(duty_limit_pct)
-        self.rightAttachmentMotor.run_until_stalled(
-            speed, then, duty_limit_pct
-        )
+        self.rightAttachmentMotor.run(speed)
+        while not (self.rightAttachmentMotor.stalled()):
+            wait(25)
+        self.rightAttachmentMotor.hold()
 
     def driveForDistance(
         self,
