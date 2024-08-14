@@ -29,6 +29,7 @@ DEF_ROBOT_ACCELERATION = 75  # normal acceleration
 DEFAULT_STALL_PCT = 50  # normal
 DEFAULT_TURN_SPEED_PCT = 45  #
 DEFAULT_TURN_ACCEL_PCT = 45  #
+DEFAULT_DUTY_LIMIT = 50
 
 
 class BaseRobot:
@@ -183,7 +184,7 @@ class BaseRobot:
 
     def moveLeftAttachmentMotorUntilStalled(
         self,
-        duty_limit_pct,
+        duty_limit_pct=DEFAULT_DUTY_LIMIT,
         speedPct=DEFAULT_MED_MOT_SPEED_PCT,
         then=Stop.HOLD,
     ):
@@ -284,7 +285,7 @@ class BaseRobot:
 
     def moveRightAttachmentMotorUntilStalled(
         self,
-        duty_limit_pct,
+        duty_limit_pct=DEFAULT_DUTY_LIMIT,
         speedPct=DEFAULT_MED_MOT_SPEED_PCT,
         then=Stop.HOLD,
     ):
