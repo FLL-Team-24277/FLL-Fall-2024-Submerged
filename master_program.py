@@ -1,8 +1,7 @@
 from base_robot import *
 
 # Import missions
-import Sadie
-import NOTDECLAN
+import sample_mission
 
 
 br = BaseRobot()
@@ -39,10 +38,5 @@ while True:
                 br.rightDriveMotor.run(0)
 
     # It will now launch the mission coresponding to the color
-    # If detected color is Red, then run RJ's & Cleveland's mission
     if col == Color.SENSOR_RED:
-        Sadie.Run(br)
-        # If detected color is red, then run Sadie's mission
-    if col == Color.SENSOR_GREEN:
-        NOTDECLAN.Run(br)
-        # If detected color is White, then run Declan's mission
+        sample_mission.Run(br)
