@@ -1,4 +1,4 @@
-from base_robot_2024_submerged import *
+from base_robot import *
 
 # Add good comments, such as what the mission is supposed to do,
 # how to align the robot in home, any initial starting instructions,
@@ -10,25 +10,11 @@ from base_robot_2024_submerged import *
 def Run(br: BaseRobot):
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
-    # br.GyroDrive(distance=680, speed=500)
-    # br.WaitForMillis(millis=500)  # half second
-    # br.GyroTurn(65)  # turn to the right 85 degrees
-    # br.GyroDrive(distance=300)  # use the default speed
-    # deg = 1000
-    # br.leftAttachmentMotor.control.limits(acceleration=20000)
-    # br.leftAttachmentMotor.run_angle(1000, deg)  # speed 200, 180 degrees
-    # br.leftAttachmentMotor.run_angle(990, deg)  # speed 200, 180 degrees
-    # br.leftAttachmentMotor.run_angle(1000, deg)  # speed 200, 180 degrees
-    # br.leftAttachmentMotor.run_angle(990, deg)  # speed 200, 180 degrees
-    # br.rightAttachmentMotor.run_angle(200, 180)  # speed 200, 180 degrees
-    # br.TurnInPlace(angle=360, then=Stop.COAST_SMART)
-    # br.WaitForButton(button=Button.LEFT)
-    # br.TurnInPlace(angle=360, then=Stop.COAST_SMART)
-    # br.WaitForButton(button=Button.LEFT)
-    # br.moveLeftAttachmentMotorForDegrees(speedPct=100, degrees=4000)
-    print(br.hub.battery.voltage())
-    br.hub.display.number(round(br.hub.battery.voltage() / 100, 0))
-    wait(2000)
+    br.driveForDistance(distance=250)
+    br.turnInPlace(angle=90)
+    br.moveLeftAttachmentMotorForDegrees(degrees=-720)
+    br.waitForMillis(1000)
+    br.curve(radius=350, angle=70)
 
 
 # If running this program directly (not from the master program), this is
