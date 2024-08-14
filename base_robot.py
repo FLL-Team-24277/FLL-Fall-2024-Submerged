@@ -18,7 +18,6 @@ from utils import *
 
 TIRE_DIAMETER = 56  # mm
 AXLE_TRACK = 103  # distance between the wheels, mm
-DEFAULT_STALL = 120
 STRAIGHT_SPEED = 400  # normal straight speed for driving, mm/sec
 DEFAULT_MED_MOT_SPEED_PCT = 100  # normal attachment moter speed, % value
 DEFAULT_BIG_MOT_SPEED_PCT = 80  # normal wheels moter speed, % value
