@@ -1,4 +1,4 @@
-from base_robot_2024_submerged import *
+from base_robot import *
 
 # This program is just for testing the values seen by the robot
 # for different colors as seen by the light sensor, and what it
