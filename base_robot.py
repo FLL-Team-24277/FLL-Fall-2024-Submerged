@@ -1,4 +1,5 @@
 from pybricks.pupdevices import Motor, ColorSensor
+
 from pybricks.parameters import (
     Port,
     Direction,
@@ -14,21 +15,14 @@ from pybricks.hubs import PrimeHub
 from pybricks.tools import wait
 from utils import *
 
-# All constents will be defined here
-
-TIRE_DIAMETER = 56  # mm
-AXLE_TRACK = 103  # distance between the wheels, mm
-STRAIGHT_SPEED = 400  # normal straight speed for driving, mm/sec
+# All default constant percentages will be defined here
 DEFAULT_MED_MOT_SPEED_PCT = 100  # normal attachment moter speed, % value
+DEFAULT_MED_MOT_ACCEL_PCT = 80
 DEFAULT_BIG_MOT_SPEED_PCT = 80  # normal wheels moter speed, % value
-STRAIGHT_ACCEL = 600  # normal acceleration, mm/sec^2
-TURN_RATE = 150  # normal turning rate, deg/sec
-TURN_ACCEL = 360  # normal turning acceleration, deg/sec^2
-DEF_ROBOT_ACCELERATION = 75  # normal acceleration
+DEFAULT_BIG_MOT_ACCEL_PCT = 80
 DEFAULT_STALL_PCT = 50  # normal
 DEFAULT_TURN_SPEED_PCT = 45  #
 DEFAULT_TURN_ACCEL_PCT = 45  #
-DEFAULT_DUTY_LIMIT = 50
 
 
 class BaseRobot:
@@ -57,8 +51,12 @@ class BaseRobot:
         )
         # default speeds were determined by testing
         self.robot.settings(
-            STRAIGHT_SPEED, STRAIGHT_ACCEL, TURN_RATE, TURN_ACCEL
+            RescaleStraightSpeed(DEFAULT_BIG_MOT_SPEED_PCT),
+            RescaleStraightAccel(DEFAULT_BIG_MOT_ACCEL_PCT),
+            RescaleTurnSpeed(DEFAULT_TURN_SPEED_PCT),
+            RescaleTurnAccel(DEFAULT_TURN_ACCEL_PCT),
         )
+
         self.leftAttachmentMotor = Motor(Port.B)
         self.rightAttachmentMotor = Motor(Port.D)
         self.leftAttachmentMotor.control.limits(acceleration=20000)
@@ -297,7 +295,7 @@ class BaseRobot:
         then=Stop.BRAKE,
         wait=True,
         gyro=True,
-        accelerationPct=DEF_ROBOT_ACCELERATION,
+        accelerationPct=DEFAULT_BIG_MOT_ACCEL_PCT,
     ):
         """
         driveForDistance moves \
@@ -348,7 +346,7 @@ class BaseRobot:
         millis,
         speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
         gyro=True,
-        accelerationPct=DEF_ROBOT_ACCELERATION,
+        accelerationPct=DEFAULT_BIG_MOT_ACCEL_PCT,
     ):
         """
         driveForMillis moves \
@@ -400,7 +398,7 @@ class BaseRobot:
         # think about above line later
         speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
         gyro=True,
-        accelerationPct=DEF_ROBOT_ACCELERATION,
+        accelerationPct=DEFAULT_BIG_MOT_ACCEL_PCT,
     ):
         spd = RescaleMedMotSpeed(speedPct)
         print(spd)
