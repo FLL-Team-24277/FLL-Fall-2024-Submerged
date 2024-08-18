@@ -14,6 +14,8 @@
         "base_robot.py": true,
         "requirements.txt": true,
         "pyproject.toml": true,
+        "colorTest.py": true,
+        "master_program.py": true,
         "utils.py": true
     },
     "task.allowAutomaticTasks": "on",
