@@ -4,6 +4,7 @@
 /.git/
 __pycache__/
 ~*
+.vscode/settings.json
 
 # will sync .gitiginore 
 !/.gitignore
