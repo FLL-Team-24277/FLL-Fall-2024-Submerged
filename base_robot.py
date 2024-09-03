@@ -401,7 +401,7 @@ class BaseRobot:
         accelerationPct=DEFAULT_BIG_MOT_ACCEL_PCT,
     ):
         spd = RescaleMedMotSpeed(speedPct)
-        print(spd)
+        # print(spd)
         acceleration = RescaleStraightAccel(accelerationPct)
         self.robot.use_gyro(gyro)
         # self.robot.settings(straight_speed=-999)
