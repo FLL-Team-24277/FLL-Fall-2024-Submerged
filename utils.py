@@ -96,7 +96,7 @@ def RescaleStraightAccel(accelPct):
 
 
 def RescaleTurnSpeed(turnSpeedPct):
-    print(turnSpeedPct)
+    # print(turnSpeedPct)
     return Rescale(
         turnSpeedPct,
         1,

@@ -337,7 +337,7 @@ class BaseRobot:
         """
         speed = RescaleMedMotSpeed(speedPct)
         acceleration = RescaleStraightAccel(accelerationPct)
-        # self.robot.use_gyro(True)
+        self.robot.use_gyro(gyro)
         self.robot.settings(acceleration, speed)
         self.robot.straight(distance, then, wait)
 
