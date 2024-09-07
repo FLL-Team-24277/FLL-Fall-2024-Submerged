@@ -39,8 +39,8 @@ DB_MIN_TURN_RATE_DEGSEC = 20
 DB_MIN_TURN_ACCEL_DEGSEC2 = 10
 
 # Not sure how these are used
-DB_MAX_TORQUE_MNM = 1000  # milli-newton-meters
-DB_MIN_TORQUE_MNM = 1000
+DB_ABS_MAX_TORQUE_MNM = 700  # milli-newton-meters
+DB_ABS_MIN_TORQUE_MNM = 20  # milli-newton-meters
 
 # Large Motor usable parameters
 LG_MOT_MAX_VOLTAGE = 9000  # mV
@@ -52,8 +52,8 @@ MED_MOT_MAX_SPEED_DEGSEC = 1000
 # MED_MOT_MAX_ACCEL_DEGSEC2 = 20000
 # MED_MOT_MIN_ACCEL_DEGSEC2 = 50
 MED_MOT_MIN_SPEED_DEGSEC = 100
-MED_MOT_MAX_TORQUE = 1000
-MED_MOT_MIN_TORQUE = 600
+MED_MOT_MAX_TORQUE = 195  # milli-newton-meters
+MED_MOT_MIN_TORQUE = 50  # milli-newton-meters
 
 
 def Rescale(val, in_min, in_max, out_min, out_max):
@@ -133,6 +133,16 @@ def RescaleMedMotTorque(medMotTorquePct):
         100,
         MED_MOT_MIN_TORQUE,
         MED_MOT_MAX_TORQUE,
+    )
+
+
+def RescaleDbTorque(dbTorquePct):
+    return Rescale(
+        dbTorquePct,
+        1,
+        100,
+        DB_ABS_MIN_TORQUE_MNM,
+        DB_ABS_MAX_TORQUE_MNM,
     )
 
 

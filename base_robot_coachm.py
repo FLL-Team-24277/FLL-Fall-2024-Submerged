@@ -22,7 +22,8 @@ DEFAULT_BIG_MOT_SPEED_PCT = 80  # normal wheels moter speed, % value
 DEFAULT_BIG_MOT_ACCEL_PCT = 80
 DEFAULT_TURN_SPEED_PCT = 45  #
 DEFAULT_TURN_ACCEL_PCT = 45  #
-# DEFAULT_STALL_PCT = 50  # not currently used
+DEFAULT_DB_STALL_PCT = 50
+DEFAULT_MED_MOT_STALL_PCT = 50
 
 
 class BaseRobot:
@@ -182,6 +183,7 @@ class BaseRobot:
     def moveLeftAttachmentMotorUntilStalled(
         self,
         speedPct=DEFAULT_MED_MOT_SPEED_PCT,
+        stallPct=DEFAULT_MED_MOT_STALL_PCT,
     ):
         """
         moveLeftAttachmentMotorUntillStalled moves \
@@ -196,8 +198,9 @@ class BaseRobot:
         """
 
         speed = RescaleMedMotSpeed(speedPct)
+        load = RescaleMedMotTorque(stallPct)
         self.leftAttachmentMotor.run(speed)
-        while not (self.leftAttachmentMotor.stalled()):
+        while abs(self.leftAttachmentMotor.load()) < load:
             wait(25)
         self.leftAttachmentMotor.hold()
 
@@ -270,6 +273,7 @@ class BaseRobot:
     def moveRightAttachmentMotorUntilStalled(
         self,
         speedPct=DEFAULT_MED_MOT_SPEED_PCT,
+        stallPct=DEFAULT_MED_MOT_STALL_PCT,
     ):
         """
         moveRightAttachmentMotorUntillStalled moves \
@@ -283,8 +287,9 @@ class BaseRobot:
         negative numbers turn it to the left \
         """
         speed = RescaleMedMotSpeed(speedPct)
+        load = RescaleMedMotTorque(stallPct)
         self.rightAttachmentMotor.run(speed)
-        while not (self.rightAttachmentMotor.stalled()):
+        while abs(self.rightAttachmentMotor.load()) < load:
             wait(25)
         self.rightAttachmentMotor.hold()
 
@@ -394,8 +399,7 @@ class BaseRobot:
 
     def driveUntilStalled(
         self,
-        # stallPct=DEFAULT_STALL_PCT,
-        # think about above line later
+        stallPct=DEFAULT_DB_STALL_PCT,
         speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
         gyro=True,
         accelerationPct=DEFAULT_BIG_MOT_ACCEL_PCT,
@@ -403,12 +407,16 @@ class BaseRobot:
         spd = RescaleMedMotSpeed(speedPct)
         # print(spd)
         acceleration = RescaleStraightAccel(accelerationPct)
+        load = RescaleDbTorque(stallPct)
         self.robot.use_gyro(gyro)
         # self.robot.settings(straight_speed=-999)
         self.robot.settings(straight_acceleration=acceleration)
         self.robot.drive(spd, 0)
-        while not self.robot.stalled():
-            print(self.leftDriveMotor.load(), self.rightDriveMotor.load())
+        # while not self.robot.stalled():
+        while (
+            abs(self.leftDriveMotor.load()) < load
+            and abs(self.rightDriveMotor.load()) < load
+        ):
             wait(50)
         self.robot.brake()
 
