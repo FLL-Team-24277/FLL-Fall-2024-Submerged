@@ -1,10 +1,11 @@
 from pybricks.pupdevices import Motor
 from pybricks.parameters import Port
 from pybricks.tools import wait
-from pybricks.hubs import PrimeHub
+from pybricks import version
+
+print(version)
 
 myMotor = Motor(Port.B)
-myHub = PrimeHub()
 
 myMotor.run(speed=1000)
 
