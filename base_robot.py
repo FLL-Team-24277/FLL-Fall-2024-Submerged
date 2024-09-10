@@ -458,6 +458,7 @@ class BaseRobot:
         accelerationPct=DEFAULT_TURN_ACCEL_PCT,
     ):
         speed = RescaleTurnSpeed(speedPct)
+        print(str(speed))
         acceleration = RescaleTurnAccel(accelerationPct)
         self.robot.use_gyro(gyro)
         self.robot.settings(acceleration, speed)
