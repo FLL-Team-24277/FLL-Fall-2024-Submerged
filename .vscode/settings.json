@@ -11,7 +11,7 @@
         "**/__pycache__/": true,
         "**/.gitignore": true,
         "**/README.md": true,
-        "base_robot.py": true,
+        "base_robot*.py": true,
         "requirements.txt": true,
         "pyproject.toml": true,
         "colorTest.py": true,

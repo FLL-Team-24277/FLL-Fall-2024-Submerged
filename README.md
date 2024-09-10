@@ -32,22 +32,34 @@ Very helpful page here about how to use pybricks with VS Code: https://pybricks.
 ~~~python
 from base_robot import *
 
+# Copy this text into a new mission file. Name it something like
+# myname.py. You can name it pretty much anything, but don't use
+# any spaces or punctuation, other than _ and -. The name MUST
+# end with .py
+#
+# Weird spacing in the code below is intentional. It should be
+# corrected automatically by the Black formatter if it is working
+# correctly.
+#
 # Add good comments, such as what the mission is supposed to do,
 # how to align the robot in home, any initial starting instructions,
 # such as how it should be loaded with anything, arm positions, etc.
-
+# Please delete all of these comments, and consider writing your
+# own here.
 
 # When we run this program from the master program, we will call this
 # "Run(br)" method.
-def   Run(br: BaseRobot):
+def Run ( br: BaseRobot ) :  
     #   Your mission code goes here, step-by-step
-    #It MUST be indented just like the lines below
-    br.driveForDistance ( distance=250 )    #    Drive distance
-    br.turnInPlace(angle=90)
+    # It MUST be indented just like the lines below
+    br.driveForDistance(distance=250)     #    Drive distance
+    br.turnInPlace( angle  = 90  )
     br.moveLeftAttachmentMotorForDegrees(degrees=-720)
+    br.waitForForwardButton  ()
+    br.driveUntilStalled(speedPct=80, stallPct=5)
     br.moveRightAttachmentMotorForMillis(millis=1500)
     br.waitForMillis(millis=1000)
-    br.moveLeftAttachmentMotorUntilStalled()
+    br.moveLeftAttachmentMotorUntilStalled(stallPct=100)
     br.curve(radius=350, angle=70)
 
 
