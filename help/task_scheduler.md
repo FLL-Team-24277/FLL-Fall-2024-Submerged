@@ -6,22 +6,22 @@ C:\Github-Projects\Fall-2024-Submerged
 
 You will need that path during the task setup.
 
-![01TaskScheduler](https://github.com/FLL-Team-24277/Master-Program-Fall-2023/blob/main/help/images/01TaskScheduler.png)  
+![01TaskScheduler](https://github.com/FLL-Team-24277/FLL-Fall-2024-Submerged/blob/main/help/images/01TaskScheduler.png)  
 
-![02CreateBasicTaskWizard](https://github.com/FLL-Team-24277/Master-Program-Fall-2023/blob/main/help/images/02CreateBasicTaskWizard.png)  
+![02CreateBasicTaskWizard](https://github.com/FLL-Team-24277/FLL-Fall-2024-Submerged/blob/main/help/images/02CreateBasicTaskWizard.png)  
 
-![03TaskTrigger](https://github.com/FLL-Team-24277/Master-Program-Fall-2023/blob/main/help/images/03TaskTrigger.png)  
+![03TaskTrigger](https://github.com/FLL-Team-24277/FLL-Fall-2024-Submerged/blob/main/help/images/03TaskTrigger.png)  
 
-![04DailyRecurrence](https://github.com/FLL-Team-24277/Master-Program-Fall-2023/blob/main/help/images/04DailyRecurrence.png)  
+![04DailyRecurrence](https://github.com/FLL-Team-24277/FLL-Fall-2024-Submerged/blob/main/help/images/04DailyRecurrence.png)  
 
-![05Action](https://github.com/FLL-Team-24277/Master-Program-Fall-2023/blob/main/help/images/05Action.png)  
+![05Action](https://github.com/FLL-Team-24277/FLL-Fall-2024-Submerged/blob/main/help/images/05Action.png)  
 
 Be sure to fill in the path that you copied earlier into the path field
 
-![06StartAProgram](https://github.com/FLL-Team-24277/Master-Program-Fall-2023/blob/main/help/images/05StartAProgram.png)  
+![06StartAProgram](https://github.com/FLL-Team-24277/FLL-Fall-2024-Submerged/blob/main/help/images/05StartAProgram.png)  
 
-![07Summary](https://github.com/FLL-Team-24277/Master-Program-Fall-2023/blob/main/help/images/07Summary.png)  
+![07Summary](https://github.com/FLL-Team-24277/FLL-Fall-2024-Submerged/blob/main/help/images/07Summary.png)  
 
-![08TaskSchedulerFinished](https://github.com/FLL-Team-24277/Master-Program-Fall-2023/blob/main/help/images/08TaskSchedulerFinished.png)  
+![08TaskSchedulerFinished](https://github.com/FLL-Team-24277/FLL-Fall-2024-Submerged/blob/main/help/images/08TaskSchedulerFinished.png)  
 
 
