@@ -16,7 +16,7 @@ def Run(br: BaseRobot):
     br.driveForDistance(170)
     br.driveForDistance(-340)
     br.turnInPlace(-30)
-    br.moveRightAttachmentMotorForDegrees(-55)
+    br.moveRightAttachmentMotorForDegrees(-250)
     br.driveForDistance(350)
 
 
