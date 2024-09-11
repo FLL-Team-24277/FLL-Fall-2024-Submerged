@@ -13,6 +13,7 @@ from pybricks.parameters import (
 from pybricks.robotics import DriveBase
 from pybricks.hubs import PrimeHub
 from pybricks.tools import wait
+from pybricks import version
 from utils import *
 
 # All default constant percentages will be defined here
@@ -22,6 +23,7 @@ DEFAULT_BIG_MOT_SPEED_PCT = 80  # normal wheels moter speed, % value
 DEFAULT_BIG_MOT_ACCEL_PCT = 80
 DEFAULT_TURN_SPEED_PCT = 45  #
 DEFAULT_TURN_ACCEL_PCT = 45  #
+DEFAULT_STALL_PCT = 50
 # DEFAULT_STALL_PCT = 50  # not currently used
 
 
@@ -40,7 +42,9 @@ class BaseRobot:
 
     def __init__(self):
         self.hub = PrimeHub(top_side=Axis.Z, front_side=-Axis.Y)
-        self._version = "0.1 05/19/2023"
+        print(version)
+        print("Battery voltage: " + str(self.hub.battery.voltage()))
+        self._version = "1.0 09/11/2024"
         self.leftDriveMotor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
         self.rightDriveMotor = Motor(Port.A)
         self.robot = DriveBase(
@@ -180,8 +184,7 @@ class BaseRobot:
         self.leftAttachmentMotor.run_angle(speed, millis, then, wait)
 
     def moveLeftAttachmentMotorUntilStalled(
-        self,
-        speedPct=DEFAULT_MED_MOT_SPEED_PCT,
+        self, speedPct=DEFAULT_MED_MOT_SPEED_PCT, stallPct=DEFAULT_STALL_PCT
     ):
         """
         moveLeftAttachmentMotorUntillStalled moves \
@@ -196,10 +199,11 @@ class BaseRobot:
         """
 
         speed = RescaleMedMotSpeed(speedPct)
-        self.leftAttachmentMotor.run(speed)
-        while not (self.leftAttachmentMotor.stalled()):
+        load = RescaleMedMotTorque(stallPct)
+        self.rightAttachmentMotor.run(speed)
+        while abs(self.rightAttachmentMotor.load()) < load:
             wait(25)
-        self.leftAttachmentMotor.hold()
+        self.rightAttachmentMotor.hold()
 
     def moveRightAttachmentMotorForDegrees(
         self,
@@ -268,8 +272,7 @@ class BaseRobot:
         self.rightAttachmentMotor.run_angle(speed, millis, then, wait)
 
     def moveRightAttachmentMotorUntilStalled(
-        self,
-        speedPct=DEFAULT_MED_MOT_SPEED_PCT,
+        self, speedPct=DEFAULT_MED_MOT_SPEED_PCT, stallPct=DEFAULT_STALL_PCT
     ):
         """
         moveRightAttachmentMotorUntillStalled moves \
@@ -283,8 +286,9 @@ class BaseRobot:
         negative numbers turn it to the left \
         """
         speed = RescaleMedMotSpeed(speedPct)
+        load = RescaleMedMotTorque(stallPct)
         self.rightAttachmentMotor.run(speed)
-        while not (self.rightAttachmentMotor.stalled()):
+        while abs(self.rightAttachmentMotor.load()) < load:
             wait(25)
         self.rightAttachmentMotor.hold()
 
@@ -335,7 +339,7 @@ class BaseRobot:
         while it is driving \
         the acceleration is on a 1-100 scale \
         """
-        speed = RescaleMedMotSpeed(speedPct)
+        speed = RescaleStraightSpeed(speedPct)
         acceleration = RescaleStraightAccel(accelerationPct)
         self.robot.use_gyro(gyro)
         self.robot.settings(acceleration, speed)
@@ -384,7 +388,7 @@ class BaseRobot:
         while it is driving \
         the acceleration is on a 1-100 scale \
         """
-        speed = RescaleMedMotSpeed(speedPct)
+        speed = RescaleStraightSpeed(speedPct)
         acceleration = RescaleStraightAccel(accelerationPct)
         self.robot.use_gyro(gyro)
         self.robot.settings(straight_acceleration=acceleration)
@@ -400,7 +404,7 @@ class BaseRobot:
         gyro=True,
         accelerationPct=DEFAULT_BIG_MOT_ACCEL_PCT,
     ):
-        spd = RescaleMedMotSpeed(speedPct)
+        spd = RescaleStraightSpeed(speedPct)
         # print(spd)
         acceleration = RescaleStraightAccel(accelerationPct)
         self.robot.use_gyro(gyro)
@@ -457,8 +461,7 @@ class BaseRobot:
         gyro=True,
         accelerationPct=DEFAULT_TURN_ACCEL_PCT,
     ):
-        speed = RescaleTurnSpeed(speedPct)
-        print(str(speed))
+        speed = RescaleStraightSpeed(speedPct)
         acceleration = RescaleTurnAccel(accelerationPct)
         self.robot.use_gyro(gyro)
         self.robot.settings(acceleration, speed)
