@@ -42,7 +42,7 @@ class BaseRobot:
     def __init__(self):
         self.hub = PrimeHub(top_side=Axis.Z, front_side=-Axis.Y)
         print(version)
-        print("Battery voltage: " + str(self.hub.battery.voltage))
+        print("Battery voltage: " + str(self.hub.battery.voltage()))
         self._version = "1.0 09/11/2024"
         self.leftDriveMotor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
         self.rightDriveMotor = Motor(Port.A)
