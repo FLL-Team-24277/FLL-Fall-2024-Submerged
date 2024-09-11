@@ -13,6 +13,7 @@ from pybricks.parameters import (
 from pybricks.robotics import DriveBase
 from pybricks.hubs import PrimeHub
 from pybricks.tools import wait
+from pybricks import version
 from utils import *
 
 # All default constant percentages will be defined here
@@ -40,7 +41,9 @@ class BaseRobot:
 
     def __init__(self):
         self.hub = PrimeHub(top_side=Axis.Z, front_side=-Axis.Y)
-        self._version = "0.1 05/19/2023"
+        print(version)
+        print("Battery voltage: " + str(self.hub.battery.voltage()))
+        self._version = "1.0 09/11/2024"
         self.leftDriveMotor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
         self.rightDriveMotor = Motor(Port.A)
         self.robot = DriveBase(
@@ -458,6 +461,7 @@ class BaseRobot:
         accelerationPct=DEFAULT_TURN_ACCEL_PCT,
     ):
         speed = RescaleTurnSpeed(speedPct)
+        print(str(speed))
         acceleration = RescaleTurnAccel(accelerationPct)
         self.robot.use_gyro(gyro)
         self.robot.settings(acceleration, speed)
