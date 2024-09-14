@@ -466,3 +466,8 @@ class BaseRobot:
         self.robot.use_gyro(gyro)
         self.robot.settings(acceleration, speed)
         self.robot.curve(radius, angle, then, wait)
+
+
+if __name__ == "__main__":
+    print("Don't run the BaseRobot class file. Nothing to do here.")
+    print("You probably meant to run one of the mission files.")
