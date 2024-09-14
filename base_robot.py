@@ -200,7 +200,7 @@ class BaseRobot:
 
         speed = RescaleMedMotSpeed(speedPct)
         load = RescaleMedMotTorque(stallPct)
-        self.rightAttachmentMotor.run(speed)
+        self.rightAttachmentMotor.run(speed)  # FIXME: Wrong motor
         while abs(self.rightAttachmentMotor.load()) < load:
             wait(25)
         self.rightAttachmentMotor.hold()
@@ -339,7 +339,9 @@ class BaseRobot:
         while it is driving \
         the acceleration is on a 1-100 scale \
         """
-        speed = RescaleStraightSpeed(speedPct)
+        speed = RescaleStraightSpeed(
+            speedPct
+        )  # TODO: Ensure speed is positive
         acceleration = RescaleStraightAccel(accelerationPct)
         self.robot.use_gyro(gyro)
         self.robot.settings(acceleration, speed)
@@ -396,7 +398,7 @@ class BaseRobot:
         wait(millis)
         self.robot.brake()
 
-    def driveUntilStalled(
+    def driveUntilStalled(  # TODO add stall parameter
         self,
         # stallPct=DEFAULT_STALL_PCT,
         # think about above line later
@@ -411,7 +413,7 @@ class BaseRobot:
         # self.robot.settings(straight_speed=-999)
         self.robot.settings(straight_acceleration=acceleration)
         self.robot.drive(spd, 0)
-        while not self.robot.stalled():
+        while not self.robot.stalled():  # TODO: Change to use stall parameter
             wait(50)
         self.robot.brake()
 
@@ -445,7 +447,7 @@ class BaseRobot:
         then=Stop.BRAKE,
         accelerationPct=DEFAULT_TURN_ACCEL_PCT,
     ):
-        speed = RescaleTurnSpeed(speedPct)
+        speed = RescaleTurnSpeed(speedPct)  # TODO: Ensure speed is positive
         acceleration = RescaleTurnAccel(accelerationPct)
         self.robot.use_gyro(gyro)
         self.robot.settings(acceleration, speed)
@@ -459,10 +461,14 @@ class BaseRobot:
         then=Stop.BRAKE,
         wait=True,
         gyro=True,
-        accelerationPct=DEFAULT_TURN_ACCEL_PCT,
+        accelerationPct=DEFAULT_TURN_ACCEL_PCT,  # FIXME: Wrong default
     ):
-        speed = RescaleStraightSpeed(speedPct)
-        acceleration = RescaleTurnAccel(accelerationPct)
+        speed = RescaleStraightSpeed(
+            speedPct
+        )  # TODO: Ensure speed is positive
+        acceleration = RescaleTurnAccel(
+            accelerationPct
+        )  # FIXME: Wrong rescale
         self.robot.use_gyro(gyro)
         self.robot.settings(acceleration, speed)
         self.robot.curve(radius, angle, then, wait)
