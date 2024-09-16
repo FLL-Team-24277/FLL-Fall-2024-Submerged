@@ -19,3 +19,4 @@ For the team members that are working on the more advanced coding, such as writi
 * Auto docstring: https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring
 * GitLens: https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
 * Live Share: https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare
+* TODO Tree: https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
