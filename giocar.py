@@ -25,6 +25,21 @@ def Run(br: BaseRobot):
     br.moveRightAttachmentMotorForDegrees(-100)
     br.turnInPlace(125)
     br.driveForDistance(150)
+    # br.driveForDistance(distance=250)
+    # br.turnInPlace(-50)
+    # br.moveRightAttachmentMotorForDegrees(degrees=-115)
+    # br.driveForDistance(200)
+    # br.turnInPlace(-60)
+    # br.driveForDistance(185)
+    # br.turnInPlace(73)
+    # br.driveForDistance(310 )
+    # br.moveRightAttachmentMotorForDegrees(degrees=150)
+    # br.turnInPlace(-35)
+    # br.driveForDistance(500)
+    # br.moveRightAttachmentMotorForDegrees(-100)
+    # br.turnInPlace(125)
+    # br.driveForDistance(170)
+>>>>>>> 8fce134ac66a7f92dfb4b6e7fa62d4e58eca03e2
     br.moveRightAttachmentMotorForDegrees(150)
 
 # If running this program directly (not from the master program), this is
