@@ -44,4 +44,4 @@ while True:
 
     # It will now launch the mission coresponding to the color
     if col == Color.SENSOR_RED:
-        sample_mission.Run(br)
+        declan.Run(br)
