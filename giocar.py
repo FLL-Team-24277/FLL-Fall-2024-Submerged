@@ -8,22 +8,22 @@ from base_robot import *
 # When we run this program from the master program, we will call this
 # "Run(br)" method.
 def Run(br: BaseRobot):
-    # Your mission code goes here, step-by-step
-    # It MUST be indented just like the lines below
-    # br.driveForDistance(distance=250)
-    # br.turnInPlace(-50)
-    # br.moveRightAttachmentMotorForDegrees(degrees=-115)
-    # br.driveForDistance(200)
-    # br.turnInPlace(-60)
-    # br.driveForDistance(185)
-    # br.turnInPlace(73)
-    # br.driveForDistance(310 )
-    # br.moveRightAttachmentMotorForDegrees(degrees=150)
-    # br.turnInPlace(-35)
-    # br.driveForDistance(500)
-    # br.moveRightAttachmentMotorForDegrees(-100)
-    # br.turnInPlace(125)
-    # br.driveForDistance(170)
+    Your mission code goes here, step-by-step
+    It MUST be indented just like the lines below
+    br.driveForDistance(distance=250)
+    br.turnInPlace(-50)
+    br.moveRightAttachmentMotorForDegrees(degrees=-115)
+    br.driveForDistance(200)
+    br.turnInPlace(-60)
+    br.driveForDistance(185)
+    br.turnInPlace(73)
+    br.driveForDistance(310 )
+    br.moveRightAttachmentMotorForDegrees(degrees=150)
+    br.turnInPlace(-35)
+    br.driveForDistance(500)
+    br.moveRightAttachmentMotorForDegrees(-100)
+    br.turnInPlace(125)
+    br.driveForDistance(170)
     br.moveRightAttachmentMotorForDegrees(150)
 
 # If running this program directly (not from the master program), this is
