@@ -168,3 +168,7 @@ def RescaleSensitivity(sens):
         1,
         12,
     )
+
+
+def RescaleBatteryVoltage(volts):
+    return Rescale(volts, 7000, 8300, 0, 100)
