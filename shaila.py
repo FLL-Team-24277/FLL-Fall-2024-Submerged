@@ -8,7 +8,16 @@ from base_robot import *
 # When we run this program from the master program, we will call this
 # "Run(br)" method.
 def Run(br: BaseRobot):
-    br.moveRightAttachmentMotorForDegrees(-600)
+    br.driveForDistance(distance=592, wait=None)
+    br.waitForMillis(1000)
+    br.curve(radius=300, angle=-90)
+
+    # br.turnInPlace (-603.9021)
+    # br.driveForDistance (133)
+    # br.turnInPlace (602.902501)
+    # br.moveRightAttachmentMotorForDegrees(-900)
+
+
 # If running this program directly (not from the master program), this is
 # how we know it is running directly. In which case, this method will
 # create a BaseRobot and run the Run(br) method above.
