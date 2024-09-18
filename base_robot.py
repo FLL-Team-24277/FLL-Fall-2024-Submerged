@@ -472,6 +472,24 @@ class BaseRobot:
         gyro=True,
         accelerationPct=DEFAULT_TURN_ACCEL_PCT,  # FIXME: Wrong default
     ):
+        """Drive the robot in a curve
+
+        Args:
+
+        radius (integer): How tight of a curve. POS = Forward; NEG = Reverse
+
+        angle (integer): Number of degrees to drive along the curve. POS = right; NEG = left
+
+        speedPct (pos integer, optional): How fast to drive. Defaults to DEFAULT_BIG_MOT_SPEED_PCT.
+
+        then (Stop(), optional): What kind of Stop. Defaults to Stop.BRAKE.
+
+        wait (bool, optional): Execution stays on this line until finished. Defaults to True.
+
+        gyro (bool, optional): Use the gyro. Defaults to True.
+
+        accelerationPct (pos integer, optional): How fast to change speed. Defaults to DEFAULT_TURN_ACCEL_PCT.
+        """
         speed = RescaleStraightSpeed(
             speedPct
         )  # TODO: Ensure speed is positive
