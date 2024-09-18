@@ -36,8 +36,8 @@ class BaseRobot:
 
     >>> from base_robot import *
     >>> br = BaseRobot()
-    >>> br.GyroDrive(400) #400mm at default speed
-    >>> br.GyroTurn(90) #90 deg to the right
+    >>> br.driveForDistance(400) #400mm at default speed
+    >>> br.turnInPlace(90) #90 deg to the right
     """
 
     def __init__(self):
@@ -401,6 +401,7 @@ class BaseRobot:
         wait(millis)
         self.robot.brake()
 
+    # TODO driveUntilStalled() needs comments
     def driveUntilStalled(  # TODO add stall parameter
         self,
         # stallPct=DEFAULT_STALL_PCT,
@@ -420,9 +421,11 @@ class BaseRobot:
             wait(50)
         self.robot.brake()
 
+    # TODO waitForMillis needs comments
     def waitForMillis(self, millis):
         wait(millis)
 
+    # TODO waitForForwardButton() needs comments
     def waitForForwardButton(
         self,
     ):
@@ -432,6 +435,7 @@ class BaseRobot:
                 break
             wait(10)
 
+    # TODO waitForBackButton() needs comments
     def waitForBackButton(
         self,
     ):
@@ -441,6 +445,7 @@ class BaseRobot:
                 break
             wait(10)
 
+    # TODO turnInPlace() needs comments
     def turnInPlace(
         self,
         angle,
@@ -456,6 +461,7 @@ class BaseRobot:
         self.robot.settings(acceleration, speed)
         self.robot.turn(angle, then, wait)
 
+    # TODO curve() needs comments
     def curve(
         self,
         radius,
@@ -479,6 +485,9 @@ class BaseRobot:
         self.robot.curve(radius, angle, then, wait)
 
 
+# This BaseRobot class file is not meant to be run like the mission files.
+# But if someone does try (accidentally probably) to run it, show this
+# error message.
 if __name__ == "__main__":
     print("Don't run the BaseRobot class file. Nothing to do here.")
     print("You probably meant to run one of the mission files.")
