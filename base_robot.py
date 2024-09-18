@@ -473,7 +473,9 @@ class BaseRobot:
             accelerationPct
         )  # FIXME: Wrong rescale
         self.robot.use_gyro(gyro)
-        self.robot.settings(acceleration, speed)
+        self.robot.settings(
+            acceleration, speed
+        )  # FIXME: Need to set turn_rate & turn_acceleration only
         self.robot.curve(radius, angle, then, wait)
 
 

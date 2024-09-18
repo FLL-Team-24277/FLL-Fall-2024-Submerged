@@ -464,10 +464,11 @@ class BaseRobot:
         then=Stop.BRAKE,
         wait=True,
         gyro=True,
-        accelerationPct=DEFAULT_TURN_ACCEL_PCT,
+        accelerationPct=DEFAULT_BIG_MOT_ACCEL_PCT,
     ):
-        speed = RescaleTurnSpeed(speedPct)
-        acceleration = RescaleTurnAccel(accelerationPct)
+        speed = RescaleStraightSpeed(speedPct)
+        acceleration = RescaleStraightAccel(accelerationPct)
         self.robot.use_gyro(gyro)
-        self.robot.settings(acceleration, speed)
+        # self.robot.settings(acceleration, speed, 150, 360)
+        self.robot.settings(turn_acceleration=acceleration, turn_rate=speed)
         self.robot.curve(radius, angle, then, wait)
