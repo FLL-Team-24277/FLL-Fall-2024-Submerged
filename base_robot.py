@@ -159,29 +159,33 @@ class BaseRobot:
         wait=True,
     ):
         """
-        moveLeftAttachmentMotorForMillis moves the left attachment motor. \
-        to determine how long the motor moves for you put in a number \
-        that number is how many miliseconds it will run for \
-        Paramaters:
-        -------------
-        millis: how many miliseconds the left attachment motor will turn for\
-        a millisecond is 0.001 of a second \
-        so 5000 is 5 seconds \
-        -------------
-        speedPct: this controls how fast the motor/motors will move \
-        the speed percent is from -100 to 100 \
-        you can not put in zero though \
-        positive numbers move the motor right \
-        negative numbers turn it to the left \
-        -------------
-        then: the then function tells the robot what to do next \
-        our default is stop.HOLD \
-        stop.HOLD tells the robot that when it stops \
-        to hold that position as much as it can \
-        -------------
-        wait: this tells the robot if it should wait \
-        for the next line of code or \
-        run both lines of code at the same time
+        Moves the left attachment motor for a set amount of time
+
+        Example:
+
+        >>> moveLeftAttachmentMotorForMillis(millis=500, speedPct=50)
+        >>> moveLeftAttachmentMotorForMillis(millis=500, then=STOP.BRAKE)
+        >>> moveLeftAttachmentMotorForMillis(millis=500, wait=False)
+
+        Args:
+
+        millis (REQUIRED integer, > 0): how many miliseconds the left \
+        attachment motor will turn for. A millisecond is 0.001 of a second, \
+        so 5000 is 5 seconds.
+
+        speedPct (OPTIONAL integer, -100 to 100, except 0): Controls how fast \
+        the motor/motors will move. Positive numbers move the motor right, \
+        negative numbers turn it to the left.
+
+        then (OPTIONAL Stop): the then function tells the robot what to do \
+        next. Our default is stop.HOLD, which tells the motor that when it \
+        stops to hold that position as much as it can.
+
+        wait (OPTIONAL bool): this tells the robot if it should wait for the \
+        next line of code or run both lines of code at the same time. \
+        Default is True, which means wait on this line until it is \
+        complete.
+
         """
         speed = RescaleMedMotSpeed(speedPct)
         self.leftAttachmentMotor.run_angle(speed, millis, then, wait)
@@ -249,6 +253,12 @@ class BaseRobot:
         """
         Moves the right attachment motor for a set amount of time
 
+        Example:
+
+        >>> moveRightAttachmentMotorForMillis(millis=500, speedPct=50)
+        >>> moveRightAttachmentMotorForMillis(millis=500, then=STOP.BRAKE)
+        >>> moveRightAttachmentMotorForMillis(millis=500, wait=False)
+
         Args:
 
         millis (REQUIRED integer, > 0): how many miliseconds the right \
@@ -260,7 +270,7 @@ class BaseRobot:
         negative numbers turn it to the left.
 
         then (OPTIONAL Stop): the then function tells the robot what to do \
-        next. Our default is stop.HOLD, which tells the robot that when it \
+        next. Our default is stop.HOLD, which tells the motor that when it \
         stops to hold that position as much as it can.
 
         wait (OPTIONAL bool): this tells the robot if it should wait for the \
@@ -276,8 +286,13 @@ class BaseRobot:
         self, speedPct=DEFAULT_MED_MOT_SPEED_PCT, stallPct=DEFAULT_STALL_PCT
     ):
         """
-
         Moves the right attachment motor untill it is stalled
+
+        Example:
+
+        >>> moveRightAttachmentMotorUntilStalled() # uses defaults
+        >>> moveRightAttachmentMotorUntilStalled(speedPct=20)
+        >>> moveRightAttachmentMotorUntilStalled(speedPct=30, stallPct=75)
 
         Args:
 
@@ -472,6 +487,12 @@ class BaseRobot:
         accelerationPct=DEFAULT_TURN_ACCEL_PCT,  # FIXME: Wrong default
     ):
         """Drive the robot in a curve
+
+        Example:
+
+        >>> curve(radius=350, angle=-60) # curve forward to the left
+        >>> curve(radius=170, angle=60, speedPct=40)
+        >>> curve(radius=-200, angle=45, wait=False)
 
         Args:
 
