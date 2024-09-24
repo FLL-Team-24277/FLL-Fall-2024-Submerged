@@ -6,9 +6,12 @@ from pybricks.parameters import (
     Stop,
 )
 from pybricks.robotics import DriveBase
+from pybricks import version
 
 TIRE_DIAMETER = 56  # mm
 AXLE_TRACK = 103  # distance between the wheels, mm
+
+print(version)
 
 leftDriveMotor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
 rightDriveMotor = Motor(Port.A)
@@ -20,5 +23,6 @@ robot = DriveBase(
 )
 
 robot.settings(straight_speed=400, straight_acceleration=300)
-robot.straight(distance=700, then=Stop.NONE)
-robot.curve(radius=600, angle=90)
+# robot.straight(distance=700, then=Stop.NONE)
+# robot.curve(radius=600, angle=90)
+robot.arc(radius=600, distance=500)
