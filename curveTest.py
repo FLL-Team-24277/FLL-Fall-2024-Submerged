@@ -19,6 +19,6 @@ robot = DriveBase(
     AXLE_TRACK,
 )
 
-robot.settings(straight_speed=900, straight_acceleration=300)
+robot.settings(straight_speed=400, straight_acceleration=300)
 robot.straight(distance=700, then=Stop.NONE)
 robot.curve(radius=600, angle=90)
