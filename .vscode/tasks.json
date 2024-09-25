@@ -83,20 +83,20 @@
         }
     ],
     "inputs": [
-    {
-      "type": "pickString",
-      "id": "robotName",
-      "description": "Which Robot?",
-      "options": [
-        "NOTDECLAN",
-        "SUPERNOVA",
-        "BOB",
-        "service",
-        "class",
-        "guard",
-        "interface",
-        "enum"
-      ],
-      "default": "${env:robotName}"
-    }]
+        {
+            "type": "pickString",
+            "id": "robotName",
+            "description": "Which Robot?",
+            "options": [
+                "NOTDECLAN",
+                "SUPERNOVA",
+                "BOB",
+                "PATRIOT",
+                "MITZVAH",
+                "LEROYYY",
+                "CURIOSITY",
+                "enum"
+            ]
+        }
+    ]
 }
