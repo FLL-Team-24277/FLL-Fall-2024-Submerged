@@ -531,6 +531,23 @@ class BaseRobot:
         )  # FIXME: Need to set turn_rate & turn_acceleration only
         self.robot.curve(radius, angle, then, wait)
 
+    # TODO driveArc() needs comments
+    def driveArcDist(
+        self,
+        radius,
+        dist,
+        speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
+        accelPct=DEFAULT_BIG_MOT_ACCEL_PCT,
+        gyro=True,
+        then=Stop.BRAKE,
+        wait=True,
+    ):
+        speed = RescaleStraightSpeed(speedPct)
+        accel = RescaleStraightAccel(accelPct)
+        self.robot.use_gyro(gyro)
+        self.robot.settings(straight_speed=speed, straight_acceleration=accel)
+        self.robot.arc(radius=radius, distance=dist, then=then, wait=wait)
+
 
 # This BaseRobot class file is not meant to be run like the mission files.
 # But if someone does try (accidentally probably) to run it, show this
