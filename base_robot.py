@@ -207,10 +207,10 @@ class BaseRobot:
 
         speed = RescaleMedMotSpeed(speedPct)
         load = RescaleMedMotTorque(stallPct)
-        self.rightAttachmentMotor.run(speed)  # FIXME: Wrong motor
-        while abs(self.rightAttachmentMotor.load()) < load:
+        self.leftAttachmentMotor.run(speed)
+        while abs(self.leftAttachmentMotor.load()) < load:
             wait(25)
-        self.rightAttachmentMotor.hold()
+        self.leftAttachmentMotor.hold()
 
     def moveRightAttachmentMotorForDegrees(
         self,

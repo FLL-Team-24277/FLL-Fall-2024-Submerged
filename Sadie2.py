@@ -13,8 +13,15 @@ def Run(br: BaseRobot):
     br.driveForDistance(-25, 100)
     br.curve(-380, -70, 100)
     br.driveForDistance(-200, speedPct=100)
-    br.driveForDistance(200, 100)
-    # br.moveRightAttachmentMotorForDegrees(250)
+    br.driveForDistance(50)
+    br.driveForDistance(-70)
+    br.driveForDistance(290, 150)
+    br.turnInPlace(-70)
+    br.driveForDistance(70)
+    br.turnInPlace(-100)
+    br.driveForDistance(-50)
+    br.driveForDistance(50)
+    br.moveRightAttachmentMotorForDegrees(250)
 
 
 # If running this program directly (not from the master program), this is
