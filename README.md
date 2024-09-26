@@ -78,32 +78,14 @@ keybindings.json
 ~~~json
 [
     {
-        "key": "ctrl+alt+o",
-        "command": "projectManager.listProjects"
-    },
-    {
-        "key": "shift+alt+p",
-        "command": "-projectManager.listProjects"
-    },
-    {
         "key" : "ctrl+shift+l",
         "command" : "workbench.action.tasks.runTask",
         "args": "Run on robot"
     },
     {
-        "key" : "ctrl+alt+l 1",
+        "key" : "ctrl+alt+l",
         "command" : "workbench.action.tasks.runTask",
-        "args": "Run on robot1"
-    },
-    {
-        "key" : "ctrl+alt+l 2",
-        "command" : "workbench.action.tasks.runTask",
-        "args": "Run on robot2"
-    },
-    {
-        "key" : "ctrl+alt+l 3",
-        "command" : "workbench.action.tasks.runTask",
-        "args": "Run on robot3"
+        "args": "Run on any robot"
     }
 ]
 ~~~
