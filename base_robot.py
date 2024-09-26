@@ -299,7 +299,8 @@ class BaseRobot:
         speedPct (OPTIONAL integer, -100 to 100, except 0): Sets how fast the \
         motor/motors will move.
 
-        stallPct (OPTIONAL integer, 1 to 100): How much torque before stalling.
+        stallPct (OPTIONAL integer, 1 to 100): How much torque before \
+        stalling. Lower numbers means stalls with less torque.
 
         """
         speed = RescaleMedMotSpeed(speedPct)
