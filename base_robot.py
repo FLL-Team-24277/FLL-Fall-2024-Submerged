@@ -531,7 +531,6 @@ class BaseRobot:
         )  # FIXME: Need to set turn_rate & turn_acceleration only
         self.robot.curve(radius, angle, then, wait)
 
-    # TODO driveArc() needs comments
     def driveArcDist(
         self,
         radius,
@@ -542,6 +541,41 @@ class BaseRobot:
         then=Stop.BRAKE,
         wait=True,
     ):
+        """Drive the robot in an arc
+
+        Example:
+
+        >>> driveArcDist(radius=350, dist=60) # curve forward to the right
+        >>> driveArcDist(radius=170, dist=-160, speedPct=40)
+        >>> driveArcDist(radius=-200, dist=45, wait=False, then=Stop.NONE)
+
+        Args:
+
+        radius (REQUIRED, integer): How tight of a curve in mm. POS = curve \
+        right; NEG = curve left. Smaller numbers means tighter curve.
+
+        dist (REQUIRED, integer): Number of mm to drive along the curve. \
+        POS = forward; NEG = reverse
+
+        speedPct (OPTIONAL, pos integer): How fast to drive. Defaults to \
+        DEFAULT_BIG_MOT_SPEED_PCT.
+
+        then (OPTIONAL, Stop()): What kind of Stop. Defaults to Stop.BRAKE. \
+        Stop.NONE works great when chaining multiple movements together.
+
+        wait (OPTIONAL, bool): Control whether execution stays on this line \
+        until finished or not. Defaults to True, which means stay on this \
+        line. wait = False means exection can move on to the next line \
+        immediately and not have to wait for it to finish. We often use this \
+        to run attachment motors while the robot is driving.
+
+        gyro (OPTIONAL, bool): Use the gyro or not. Defaults to True, which \
+        means use the gyro.
+
+        accelPct (OPTIONAL, pos integer): How fast to change speed. \
+        Defaults to DEFAULT_TURN_ACCEL_PCT.
+
+        """
         speed = RescaleStraightSpeed(speedPct)
         accel = RescaleStraightAccel(accelPct)
         self.robot.use_gyro(gyro)
