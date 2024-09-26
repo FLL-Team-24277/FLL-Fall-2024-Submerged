@@ -88,14 +88,16 @@
             "id": "robotName",
             "description": "Which Robot?",
             "options": [
-                "NOTDECLAN",
-                "SUPERNOVA",
                 "BOB",
-                "PATRIOT",
-                "MITZVAH",
-                "LEROYYY",
                 "CURIOSITY",
-                "enum"
+                "GABE",
+                "LEROYYY",
+                "MITZVAH",
+                "NOTDECLAN",
+                "OAKS",
+                "PATRIOT",
+                "SUPERNOVA",
+                "TIMOTHY"
             ]
         }
     ]
