@@ -16,10 +16,12 @@ def Run(br: BaseRobot):
     # br.driveForDistance (200.1046)
     # br.turnInPlace (90.702501)
     # br.moveRightAttachmentMotorForDegrees(-900)
-
-    br.curve(radius=1652, angle=-28.6)
-    br.moveRightAttachmentMotorForDegrees(-600)
-# sigh i do NOT know. what. is. going. on.
+    br.driveForDistance (467, then=Stop.NONE)
+    # br.curve(radius=1652, angle=-25, speedPct=120)
+    br.driveArcDist(radius=-350, dist=350)
+    # br.moveRightAttachmentMotorForDegrees(600)
+    # br.moveRightAttachmentMotorForDegrees (600)
+# Diary entry - 2024. At lego robotics i learned how to curve drive straight 
 # If running this program directly (not from the master program), this is
 # how we know it is running directly. In which case, this method will
 # create a BaseRobot and run the Run(br) method above.
