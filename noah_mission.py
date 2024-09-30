@@ -11,9 +11,9 @@ def Run(br: BaseRobot):
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
 
-    # br.driveForDistance(715,speedPct=100)
-    # br.turnInPlace(40,speedPct=100)
-    # br.driveForDistance(distance=130, speedPct=15)
+    br.driveForDistance(715, speedPct=100)
+    br.turnInPlace(45, speedPct=100)
+    br.driveForDistance(distance=130, speedPct=15)
     br.moveRightAttachmentMotorForDegrees(400)
 
     # WIGGLE WIGGLE
@@ -21,14 +21,13 @@ def Run(br: BaseRobot):
     br.moveRightAttachmentMotorForDegrees(80)
     br.moveRightAttachmentMotorForDegrees(-80)
     br.moveRightAttachmentMotorForDegrees(80)
-    print("Done wiggle")
-    #END OF WIGGLE WIGGLE
-    br.moveRightAttachmentMotorForMillis(-1000)
-    print("Done undumping")
+    # END OF WIGGLE WIGGLE
+    br.moveRightAttachmentMotorForMillis(millis=1000, speedPct=-100)
     br.waitForMillis(500)
-    # br.driveForDistance(-300)
-    # br.turnInPlace(-100)
-    # br.driveForDistance(-700)
+    br.driveForDistance(-300)
+    br.turnInPlace(-80)
+    br.driveForDistance(-750)
+
 
 # If running this program directly (not from the master program), this is
 # how we know it is running directly. In which case, this method will
