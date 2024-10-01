@@ -12,11 +12,11 @@ def Run(br: BaseRobot):
     # It MUST be indented just like the lines below
 
     br.driveForDistance(715, speedPct=100)
-    br.turnInPlace(49, speedPct=100)
+    br.turnInPlace(40, speedPct=100)
     br.driveForDistance(distance=130, speedPct=15)
     br.moveLeftAttachmentMotorForDegrees(400)
-    br.moveRightAttachmentMotorForMillis(millis=750, speedPct=-100)
-    br.moveRightAttachmentMotorForMillis(millis=500, Speed=-20)
+    br.moveRightAttachmentMotorForMillis(millis=750, speedPct=-75)
+    br.moveRightAttachmentMotorForMillis(millis=250, speedPct=10)
     # WIGGLE WIGGLE
     br.waitForMillis(500)
     br.moveLeftAttachmentMotorForMillis(millis=250, speedPct=-100)
