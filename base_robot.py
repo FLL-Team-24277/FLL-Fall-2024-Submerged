@@ -188,6 +188,7 @@ class BaseRobot:
 
         """
         speed = RescaleMedMotSpeed(speedPct)
+        print(str(speed))
         self.leftAttachmentMotor.run_time(speed, millis, then, wait)
 
     def moveLeftAttachmentMotorUntilStalled(
@@ -280,6 +281,7 @@ class BaseRobot:
 
         """
         speed = RescaleMedMotSpeed(speedPct)
+        print(str(speed))
         self.rightAttachmentMotor.run_time(speed, millis, then, wait)
 
     def moveRightAttachmentMotorUntilStalled(
