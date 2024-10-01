@@ -14,15 +14,15 @@ def Run(br: BaseRobot):
     br.driveForDistance(715, speedPct=100)
     br.turnInPlace(45, speedPct=100)
     br.driveForDistance(distance=130, speedPct=15)
-    br.moveRightAttachmentMotorForDegrees(400)
+    br.moveLeftAttachmentMotorForDegrees(400)
 
     # WIGGLE WIGGLE
-    br.moveRightAttachmentMotorForDegrees(-80)
-    br.moveRightAttachmentMotorForDegrees(80)
-    br.moveRightAttachmentMotorForDegrees(-80)
-    br.moveRightAttachmentMotorForDegrees(80)
+    br.moveLeftAttachmentMotorForMillis(millis=250, speedPct=-100)
+    br.moveLeftAttachmentMotorForMillis(millis=250, speedPct=100)
+    br.moveLeftAttachmentMotorForMillis(millis=250, speedPct=-100)
+    br.moveLeftAttachmentMotorForMillis(millis=250, speedPct=100)
     # END OF WIGGLE WIGGLE
-    br.moveRightAttachmentMotorForMillis(millis=1000, speedPct=-100)
+    br.moveLeftAttachmentMotorForMillis(millis=1000, speedPct=-100)
     br.waitForMillis(500)
     br.driveForDistance(-300)
     br.turnInPlace(-80)
