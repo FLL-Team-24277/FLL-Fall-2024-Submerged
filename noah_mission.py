@@ -22,6 +22,7 @@ def Run(br: BaseRobot):
     br.moveRightAttachmentMotorForDegrees(-80)
     br.moveRightAttachmentMotorForDegrees(80)
     #END OF WIGGLE WIGGLE
+    # are You skibidi?
     br.moveRightAttachmentMotorForDegrees(-480)
     br.driveForDistance(-300)
     br.turnInPlace(-75)
