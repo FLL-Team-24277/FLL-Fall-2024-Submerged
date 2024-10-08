@@ -9,8 +9,8 @@ from base_robot import *
 
 def Run(br: BaseRobot):
     br.driveForDistance(distance=250)
+    
     br.turnInPlace(-50)
-    br.moveRightAttachmentMotorForDegrees(degrees=-115)
     br.driveForDistance(200)
     br.turnInPlace(-60)
     br.driveForDistance(185)
