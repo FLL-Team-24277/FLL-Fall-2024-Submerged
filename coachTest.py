@@ -16,7 +16,7 @@ def Run(br: BaseRobot):
     # br.moveRightAttachmentMotorForDegrees(degrees=-360, speedPct=100)
 
     medMotPair = DriveBase(
-        br.leftAttachmentMotor, br.rightAttachmentMotor, 100, 100
+        br.leftAttachmentMotor, br.rightAttachmentMotor, 100, 99
     )
     medMotPair.curve(0, -360)
     wait(1001)
