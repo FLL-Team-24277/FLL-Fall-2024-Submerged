@@ -11,11 +11,11 @@ def Run(br: BaseRobot):
     br.driveForDistance (467, then=Stop.NONE)
     # br.curve(radius=1652, angle=-25, speedPct=120)
     br.driveArcDist (radius=-350, dist=350, speedPct=50)
-    br.moveRightAttachmentMotorForDegrees(1200)
+    br.moveRightAttachmentMotorForDegrees(1800)
 
-    br.driveForDistance (distance=-58, speedPct=100, then=Stop.NONE)
-    br.driveArcDist (radius=-340, dist=-300, speedPct=100, then=Stop.NONE)
-    br.driveForDistance (distance=-460, speedPct=80)
+    # br.driveForDistance (distance=-20, speedPct=100, then=Stop.NONE)
+    br.driveArcDist (radius=-340, dist=-150, speedPct=100, then=Stop.NONE)
+    br.driveForDistance (distance=-670, speedPct=80)
     
     # If running this program directly (not from the master program), this is
 # how we know it is running directly. In which case, this method will
