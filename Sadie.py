@@ -20,25 +20,23 @@ def Run(br: BaseRobot):
     br.turnInPlace(25)
     br.driveForDistance(35)
     br.moveRightAttachmentMotorForDegrees(-140)
-    br.driveForDistance(-25, wait=False)
+    br.driveForDistance(25)
+    br.driveForDistance(-50, wait=False)
     br.moveRightAttachmentMotorForDegrees(140)
     br.turnInPlace(-95)
     # shark
     br.driveForDistance(-50)
-    br.moveRightAttachmentMotorForDegrees(-175)
+    br.moveRightAttachmentMotorForDegrees(-195)
     br.driveForDistance(-25)
     br.moveRightAttachmentMotorForDegrees(-30)
     br.moveRightAttachmentMotorForDegrees(225)
     # coral reef
     br.turnInPlace(-25)
-    br.driveForDistance(100)
-    br.waitForMillis(400)
-    br.driveForDistance(50, 50)
+    br.driveForDistance(130)
     br.moveRightAttachmentMotorForDegrees(100)
-    br.waitForMillis(500)
     br.driveForDistance(-100)
     br.turnInPlace(-65)
-    br.driveForDistance(500)
+    br.driveForDistance(600)
 
 
 # If running this program directly (not from the master program), this is
