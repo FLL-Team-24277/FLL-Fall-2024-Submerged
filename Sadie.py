@@ -14,27 +14,29 @@ def Run(br: BaseRobot):
     # It MUST be indented just like the lines below
 
     # coral reef
-    br.moveRightAttachmentMotorForDegrees(-170, wait=False)
+    br.moveRightAttachmentMotorForDegrees(20)
+    br.moveRightAttachmentMotorForDegrees(-160, wait=False)
     br.driveForDistance(700)
-    br.turnInPlace(16)
-    br.moveRightAttachmentMotorForDegrees(-120)
-    br.driveForDistance(20)
-    br.moveRightAttachmentMotorForDegrees(-20)
-    br.waitForMillis(1000)
-    br.driveForDistance(-20, wait=False)
+    br.turnInPlace(25)
+    br.driveForDistance(35)
+    br.moveRightAttachmentMotorForDegrees(-140)
+    br.driveForDistance(25)
+    br.driveForDistance(-50, wait=False)
     br.moveRightAttachmentMotorForDegrees(140)
-    br.turnInPlace(-80)
+    br.turnInPlace(-95)
     # shark
-    br.driveForDistance(-60)
-    br.moveRightAttachmentMotorForDegrees(-175)
-    br.driveForDistance(-15)
+    br.driveForDistance(-50)
+    br.moveRightAttachmentMotorForDegrees(-195)
+    br.driveForDistance(-25)
     br.moveRightAttachmentMotorForDegrees(-30)
-    br.moveRightAttachmentMotorForDegrees(215)
+    br.moveRightAttachmentMotorForDegrees(225)
     # coral reef
-    br.turnInPlace(-30)
-    br.driveForDistance(100)
-    br.moveRightAttachmentMotorForDegrees(90)
+    br.turnInPlace(-25)
+    br.driveForDistance(130)
+    br.moveRightAttachmentMotorForDegrees(100)
     br.driveForDistance(-100)
+    br.turnInPlace(-65)
+    br.driveForDistance(600)
 
 
 # If running this program directly (not from the master program), this is
