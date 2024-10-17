@@ -11,10 +11,10 @@ def Run(br: BaseRobot):
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
 
-    # br.driveForDistance(-200)
-    # br.turnInPlace(-55)
-    br.driveForDistance(200)
-    br.moveLeftAttachmentMotorForDegrees(200)
+    br.driveForDistance(375)
+    br.turnInPlace(45)
+    br.driveForDistance(150)
+    br.moveRightAttachmentMotorForDegrees(400)
     # br.turnInPlace(50)
 # If running this program directly (not from the master program), this is
 # how we know it is running directly. In which case, this method will
