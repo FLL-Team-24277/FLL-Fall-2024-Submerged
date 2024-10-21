@@ -12,10 +12,20 @@ def Run(br: BaseRobot):
     # It MUST be indented just like the lines below
 
     br.driveForDistance(375)
-    br.turnInPlace(45)
+    br.turnInPlace(43)
     br.driveForDistance(150)
     br.moveRightAttachmentMotorForDegrees(400)
-    # br.turnInPlace(50)
+    br.moveLeftAttachmentMotorForDegrees(-250,speedPct=80)
+    br.waitForMillis(500)
+    br.driveForDistance(-30)
+    br.turnInPlace(-85)
+    # br.driveArcDist(radius=300, dist=-150, then=Stop.NONE)
+    br.driveForDistance(distance=-550)
+    br.turnInPlace(-55)
+    # br.driveArcDist(radius=100,dist=-130, then=Stop.NONE)
+    # br.driveForDistance(distance=-400)
+
+
 # If running this program directly (not from the master program), this is
 # how we know it is running directly. In which case, this method will
 # create a BaseRobot and run the Run(br) method above.
