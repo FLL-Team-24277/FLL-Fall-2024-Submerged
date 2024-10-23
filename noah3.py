@@ -21,7 +21,7 @@ def Run(br: BaseRobot):
     br.turnInPlace(-85)
     # br.driveArcDist(radius=300, dist=-150, then=Stop.NONE)
     br.driveForDistance(distance=-550)
-    br.turnInPlace(angle=-55,gyro=False)
+    br.turnInPlace(angle=-75,gyro=False)
     # br.driveArcDist(radius=100,dist=-130, then=Stop.NONE)
     # br.driveForDistance(distance=-400)
 
