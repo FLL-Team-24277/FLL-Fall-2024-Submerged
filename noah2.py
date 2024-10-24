@@ -27,9 +27,10 @@ def Run(br: BaseRobot):
     # END OF WIGGLE WIGGLE
 
     br.waitForMillis(500)
-    br.driveForDistance(-300)
-    br.turnInPlace(-80)
-    br.driveForDistance(-750)
+    br.driveArcDist(radius=500, dist=-800)
+    # br.driveForDistance(-300)
+    # br.turnInPlace(-80)
+    # br.driveForDistance(-750)
 
 
 # If running this program directly (not from the master program), this is
