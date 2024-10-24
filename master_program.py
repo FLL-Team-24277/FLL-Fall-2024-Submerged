@@ -47,8 +47,8 @@ while True:
     if col == Color.SENSOR_BLUE:
         Sadie.Run(br)
 
-    # if col == Color.LIME GREEN:
-    # noah3.Run(br)
+    if col == Color.SENSOR_LIME:
+        noah3.Run(br)
 
     if col == Color.SENSOR_MAGENTA:
         shaila.Run(br)
