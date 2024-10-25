@@ -13,30 +13,45 @@ def Run(br: BaseRobot):
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
 
-    # coral reef
-    br.moveRightAttachmentMotorForDegrees(20)
-    br.moveRightAttachmentMotorForDegrees(-160, wait=False)
-    br.driveForDistance(700)
-    br.turnInPlace(25)
-    br.driveForDistance(35)
-    br.moveRightAttachmentMotorForDegrees(-140)
-    br.driveForDistance(25)
-    br.driveForDistance(-50, wait=False)
-    br.moveRightAttachmentMotorForDegrees(140)
+    # Coral nursery
+
+    br.driveForDistance(200, wait=False)
+    br.curve(150, 40)
+    br.curve(200, -40)
+    br.driveForDistance(450)
+    br.moveRightAttachmentMotorForDegrees(-145, wait=False)
     br.turnInPlace(-95)
-    # shark
-    br.driveForDistance(-50)
-    br.moveRightAttachmentMotorForDegrees(-195)
-    br.driveForDistance(-25)
-    br.moveRightAttachmentMotorForDegrees(-30)
-    br.moveRightAttachmentMotorForDegrees(225)
-    # coral reef
-    br.turnInPlace(-25)
-    br.driveForDistance(130)
-    br.moveRightAttachmentMotorForDegrees(100)
-    br.driveForDistance(-100)
-    br.turnInPlace(-65)
-    br.driveForDistance(600)
+    br.driveForDistance(200)
+    br.moveRightAttachmentMotorForDegrees(50, 70, wait=False)
+    br.driveForDistance(-150)
+    br.moveRightAttachmentMotorForDegrees(-20)
+    br.turnInPlace(93)
+    br.driveForDistance(20)
+
+    # # coral reef
+    # br.moveRightAttachmentMotorForDegrees(20)
+    # br.moveRightAttachmentMotorForDegrees(-160, wait=False)
+    # br.driveForDistance(700)
+    # br.turnInPlace(25)
+    # br.driveForDistance(35)
+    # br.moveRightAttachmentMotorForDegrees(-140)
+    # br.driveForDistance(25)
+    # br.driveForDistance(-50, wait=False)
+    # br.moveRightAttachmentMotorForDegrees(140)
+    # br.turnInPlace(-95)
+    # # shark
+    # br.driveForDistance(-50)
+    # br.moveRightAttachmentMotorForDegrees(-195)
+    # br.driveForDistance(-25)
+    # br.moveRightAttachmentMotorForDegrees(-30)
+    # br.moveRightAttachmentMotorForDegrees(225)
+    # # coral reef
+    # br.turnInPlace(-25)
+    # br.driveForDistance(130)
+    # br.moveRightAttachmentMotorForDegrees(100)
+    # br.driveForDistance(-100)
+    # br.turnInPlace(-65)
+    # br.driveForDistance(600)
 
 
 # If running this program directly (not from the master program), this is

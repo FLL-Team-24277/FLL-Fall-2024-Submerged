@@ -4,26 +4,21 @@ from base_robot import *
 # how to align the robot in home, any initial starting instructions,
 # such as how it should be loaded with anything, arm positions, etc.
 
+###             this is the shark/coral reef
 
-# When we run this program from the master program, we will cal(l this
+
+# When we run this program from the master program, we will call this
 # "Run(br)" method.
 def Run(br: BaseRobot):
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
 
-    br.driveForDistance(375)
-    br.turnInPlace(43)
-    br.driveForDistance(150)
+    # shark/coral
+
     br.moveRightAttachmentMotorForDegrees(400)
-    br.moveLeftAttachmentMotorForDegrees(-250,speedPct=80)
-    br.waitForMillis(500)
-    br.driveForDistance(-30)
-    br.turnInPlace(-85)
-    # br.driveArcDist(radius=300, dist=-150, then=Stop.NONE)
-    br.driveForDistance(distance=-550)
-    br.turnInPlace(angle=-75,gyro=False)
-    # br.driveArcDist(radius=100,dist=-130, then=Stop.NONE)
-    # br.driveForDistance(distance=-400)
+    br.waitForBackButton()
+    br.driveForDistance(150)
+    br.driveForDistance(-150)
 
 
 # If running this program directly (not from the master program), this is
