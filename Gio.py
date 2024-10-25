@@ -13,6 +13,10 @@ def Run(br: BaseRobot):
     # It MUST be indented just like the lines below
     
     #br.driveForDistance(600)
+    br.driveForDistance(1000)
+    br.moveRightAttachmentMotorForDegrees(-75)
+    br.driveForDistance(-180)
+    br.moveRightAttachmentMotorForDegrees(25)
     br.driveArcDist(radius=-340, dist=-150, speedPct=100, then=Stop.NONE)
     # If running this pogram directly (not from the master program), this is
 # how we know it is running directly. In which case, this method will
