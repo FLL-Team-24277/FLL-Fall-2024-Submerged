@@ -32,7 +32,7 @@ while True:
             # cleaning
             br.leftDriveMotor.run(1000)
             br.rightDriveMotor.run(1000)
-            wait(10000)
+            wait(25000)
             br.leftDriveMotor.brake()
             br.rightDriveMotor.brake()
 
