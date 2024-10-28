@@ -30,12 +30,11 @@ while True:
         if Button.BLUETOOTH in pressed:
             # If the Bluetooth button is pressed, it will run the motors fast for
             # cleaning
-            if br.leftDriveMotor.speed() == 0:
-                br.leftDriveMotor.run(5000)
-                br.rightDriveMotor.run(5000)
-            else:
-                br.leftDriveMotor.run(0)
-                br.rightDriveMotor.run(0)
+            br.leftDriveMotor.run(1000)
+            br.rightDriveMotor.run(1000)
+            wait(25000)
+            br.leftDriveMotor.brake()
+            br.rightDriveMotor.brake()
 
     # It will now launch the mission coresponding to the color
     if col == Color.SENSOR_YELLOW:
