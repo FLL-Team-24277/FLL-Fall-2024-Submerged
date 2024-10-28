@@ -13,18 +13,25 @@ def Run(br: BaseRobot):
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
 
-    # Coral nursery
+    # Shark
 
     br.driveForDistance(200, wait=False)
     br.curve(150, 40)
     br.curve(150, -40)
-    br.driveForDistance(450)
-    br.moveRightAttachmentMotorForDegrees(-145, wait=False)
+    br.driveForDistance(480)
     br.moveLeftAttachmentMotorForDegrees(350)
     br.waitForMillis(300)
-    br.moveLeftAttachmentMotorForDegrees(-300)
+    br.moveLeftAttachmentMotorForDegrees(-340)
     br.turnInPlace(-90)
-    br.moveLeftAttachmentMotorForDegrees(320)
+
+    # coral reef
+    br.moveLeftAttachmentMotorForDegrees(350)
+    br.moveRightAttachmentMotorForDegrees(-115, wait=False)
+    br.driveForDistance(90)
+    br.moveRightAttachmentMotorForDegrees(115)
+    br.turnInPlace(10)
+    br.driveForDistance(-40)
+    br.moveLeftAttachmentMotorForDegrees(-200)
 
 
 # If running this program directly (not from the master program), this is
