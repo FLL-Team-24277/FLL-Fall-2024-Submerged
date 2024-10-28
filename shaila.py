@@ -7,7 +7,7 @@ from base_robot import *
 
 # When we run this program from the master program, we will call this
 # "Run(br)" method.
-def Run(br: BaseRobot):
+def Run(br):
     br.driveForDistance (467, then=Stop.NONE)
     # br.curve(radius=1652, angle=-25, speedPct=120)
     br.driveArcDist (radius=-350, dist=350, speedPct=50)
