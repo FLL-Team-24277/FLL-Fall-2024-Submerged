@@ -19,19 +19,22 @@ def Run(br: BaseRobot):
     br.curve(150, 40)
     br.curve(150, -40)
     br.driveForDistance(480)
-    br.moveLeftAttachmentMotorForDegrees(350)
+    br.moveLeftAttachmentMotorUntilStalled()
     br.waitForMillis(300)
-    br.moveLeftAttachmentMotorForDegrees(-340)
+    br.moveLeftAttachmentMotorForDegrees(degrees=-640)
     br.turnInPlace(-90)
 
     # coral reef
     br.moveLeftAttachmentMotorForDegrees(350)
+    br.waitForMillis(300)
     br.moveRightAttachmentMotorForDegrees(-115, wait=False)
-    br.driveForDistance(90)
+    br.driveForDistance(100)
     br.moveRightAttachmentMotorForDegrees(115)
     br.turnInPlace(10)
-    br.driveForDistance(-40)
-    br.moveLeftAttachmentMotorForDegrees(-200)
+    br.driveForDistance(-50)
+    br.moveLeftAttachmentMotorForDegrees(-500)
+    br.moveLeftAttachmentMotorForDegrees(50)
+    br.moveLeftAttachmentMotorForDegrees(-50)
 
 
 # If running this program directly (not from the master program), this is
