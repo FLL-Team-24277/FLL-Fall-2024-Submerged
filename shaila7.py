@@ -7,7 +7,8 @@ def Run(br: BaseRobot):
 
     br.driveForDistance(215)
     br.waitForForwardButton()
-    br.driveForDistance(300)
+    br.driveForDistance(distance=450)
+    br.driveArcDist(radius=600, dist=1120, speedPct=68, gyro=False)
 
 
 # everything will be fine.
