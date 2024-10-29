@@ -7,20 +7,17 @@ from base_robot import *
 
 # When we run this program from the master program, we will call this
 # "Run(br)" method.
-def Run(br: BaseRobot):
-    # br.driveForDistance(distance=592, wait=None)
-    # br.waitForMillis(1000)
-    # br.curve(radius=300, angle=-90)
-    # br.driveForDistance (754)
-    # br.turnInPlace (-90.9021)
-    # br.driveForDistance (200.1046)
-    # br.turnInPlace (90.702501)
-    # br.moveRightAttachmentMotorForDegrees(-900)
+def Run(br):
+    br.driveForDistance (467, then=Stop.NONE)
+    # br.curve(radius=1652, angle=-25, speedPct=120)
+    br.driveArcDist (radius=-350, dist=350, speedPct=50)
+    br.moveRightAttachmentMotorForDegrees(1800)
 
-    br.curve(radius=1652, angle=-28.6)
-    br.moveRightAttachmentMotorForDegrees(-600)
-# sigh i do NOT know. what. is. going. on.
-# If running this program directly (not from the master program), this is
+    # br.driveForDistance (distance=-20, speedPct=100, then=Stop.NONE)
+    br.driveArcDist (radius=-340, dist=-150, speedPct=100, then=Stop.NONE)
+    br.driveForDistance (distance=-670, speedPct=80)
+    
+    # If running this program directly (not from the master program), this is
 # how we know it is running directly. In which case, this method will
 # create a BaseRobot and run the Run(br) method above.
 # In other words, keep these three lines at the bottom of your code and

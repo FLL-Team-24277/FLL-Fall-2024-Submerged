@@ -3,20 +3,27 @@ from base_robot import *
 # Add good comments, such as what the mission is supposed to do,
 # how to align the robot in home, any initial starting instructions,
 # such as how it should be loaded with anything, arm positions, etc.
-# When we run this program from the master program, we will call this
+
+
+# When we run this program from the master program, we will cal(l this
 # "Run(br)" method.
-
-
 def Run(br: BaseRobot):
-    br.moveRightAttachmentMotorForDegrees(-90)
-    br.driveForDistance(-50)
-    br.moveRightAttachmentMotorForDegrees(90)
-    br.driveForDistance(-300) 
-    
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
 
-
+    br.driveForDistance(400)
+    # br.driveArcDist(radius=-400)
+    br.driveArcDist(radius=-450,dist=-450)
+    #negitive opens positive closes
+    br.waitForForwardButton()
+    br.moveLeftAttachmentMotorForDegrees(-800)
+    # br.driveForDistance(400)
+    br.driveArcDist(radius=-1000,dist=400)
+    br.turnInPlace(100)
+    br.driveArcDist(radius=200,dist=50)
+    br.driveArcDist(radius=-200,dist=50)
+    # br.driveArcDist(radius=100,dist=200)
+    # br.moveLeftAttachmentMotorForDegrees(800)
 # If running this program directly (not from the master program), this is
 # how we know it is running directly. In which case, this method will
 # create a BaseRobot and run the Run(br) method above.
