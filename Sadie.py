@@ -24,17 +24,29 @@ def Run(br: BaseRobot):
     br.moveLeftAttachmentMotorForDegrees(degrees=-640)
     br.turnInPlace(-90)
 
-    # coral reef
+    # coral nursery
     br.moveLeftAttachmentMotorForDegrees(350)
     br.waitForMillis(300)
-    br.moveRightAttachmentMotorForDegrees(-115, wait=False)
+    br.moveRightAttachmentMotorForDegrees(-135, 50)
+    br.waitForMillis(300)
     br.driveForDistance(100)
     br.moveRightAttachmentMotorForDegrees(115)
     br.turnInPlace(10)
-    br.driveForDistance(-50)
-    br.moveLeftAttachmentMotorForDegrees(-500)
+    br.driveForDistance(-70)
+    br.moveLeftAttachmentMotorForDegrees(-450)
     br.moveLeftAttachmentMotorForDegrees(50)
     br.moveLeftAttachmentMotorForDegrees(-50)
+
+    # to coral reef and scuba diver
+    br.turnInPlace(-30)
+    br.driveForDistance(-20, wait=False)
+    br.driveForDistance(-100, wait=False)
+    br.turnInPlace(120)
+    br.moveRightAttachmentMotorForDegrees(-60)
+    br.moveRightAttachmentMotorForDegrees(10)
+    br.driveForDistance(40)
+
+    # coral reef
 
 
 # If running this program directly (not from the master program), this is
