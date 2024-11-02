@@ -19,10 +19,14 @@ def Run(br: BaseRobot):
     br.curve(150, 40)
     br.curve(150, -40)
     br.driveForDistance(480)
+    br.moveRightAttachmentMotorForDegrees(-250, wait=False)
+    br.driveForDistance(50)
+    br.driveForDistance(-50, wait=False)
     br.moveLeftAttachmentMotorUntilStalled()
     br.waitForMillis(300)
-    br.moveLeftAttachmentMotorForDegrees(degrees=-640)
-    br.turnInPlace(-92)
+    br.moveLeftAttachmentMotorForDegrees(degrees=-640, wait=False)
+    br.moveRightAttachmentMotorForDegrees(250)
+    br.turnInPlace(-90)
 
     # coral nursery
     br.moveLeftAttachmentMotorForDegrees(350)
@@ -36,15 +40,17 @@ def Run(br: BaseRobot):
     br.moveLeftAttachmentMotorForDegrees(-50)
 
     # to coral reef and scuba diver
-    br.turnInPlace(-30)
+    br.turnInPlace(-70)
     br.driveForDistance(-20, wait=False)
-    br.driveForDistance(-100, wait=False)
-    br.turnInPlace(120)
-    br.driveForDistance(40)
-    br.moveRightAttachmentMotorForDegrees(-250)
-    br.waitForMillis(300)
-    br.driveForDistance(20)
-    br.driveArcDist(-700,-730)
+    br.driveForDistance(700)
+  
+    # br.driveForDistance(-100, wait=False)
+    # br.turnInPlace(120)
+    # br.driveForDistance(40)
+    # br.moveRightAttachmentMotorForDegrees(-250)
+    # br.waitForMillis(300)
+    # br.driveForDistance(20)
+    # br.driveArcDist(-700,-730)
   
 
 
