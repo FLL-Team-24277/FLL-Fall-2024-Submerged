@@ -1,4 +1,4 @@
-from base_robot import BaseRobot
+from base_robot import *
 
 
 def Run(br: BaseRobot):
@@ -7,7 +7,7 @@ def Run(br: BaseRobot):
 
     br.driveForDistance(215)
     br.waitForForwardButton()
-    br.driveForDistance(distance=450)
+    br.driveForDistance(distance=450, then=Stop.NONE)
     br.driveArcDist(radius=600, dist=822, speedPct=68, gyro=False)
 
 
