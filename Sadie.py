@@ -32,7 +32,7 @@ def Run(br: BaseRobot):
     br.moveLeftAttachmentMotorForDegrees(550)
     br.waitForMillis(300)
     br.waitForMillis(300)
-    br.driveForDistance(110,35)
+    br.driveForDistance(110, 35)
     br.turnInPlace(10)
     br.driveForDistance(-70)
     br.moveLeftAttachmentMotorForDegrees(-480)
@@ -44,7 +44,7 @@ def Run(br: BaseRobot):
     br.turnInPlace(-100)
     br.driveForDistance(-20, wait=False)
     br.driveForDistance(700)
-  
+
     # br.driveForDistance(-100, wait=False)
     # br.turnInPlace(120)
     # br.driveForDistance(40)
@@ -52,10 +52,7 @@ def Run(br: BaseRobot):
     # br.waitForMillis(300)
     # br.driveForDistance(20)
     # br.driveArcDist(-700,-730)
-  
 
-
- 
 
 # If running this program directly (not from the master program), this is
 # how we know it is running directly. In which case, this method will
