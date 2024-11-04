@@ -24,7 +24,7 @@ def Run(br: BaseRobot):
     br.driveForDistance(-50)
     br.moveLeftAttachmentMotorUntilStalled(90)
     br.waitForMillis(300)
-    br.moveLeftAttachmentMotorForDegrees(degrees=-640, wait=False)
+    br.moveLeftAttachmentMotorForDegrees(degrees=-660, wait=False)
     br.moveRightAttachmentMotorForDegrees(250)
     br.turnInPlace(-90)
 
@@ -35,8 +35,7 @@ def Run(br: BaseRobot):
     br.driveForDistance(110, 35)
     br.turnInPlace(10)
     br.driveForDistance(-70)
-    br.moveLeftAttachmentMotorForDegrees(-480)
-    br.moveLeftAttachmentMotorForDegrees(50)
+    br.moveLeftAttachmentMotorForDegrees(-600)
     br.moveLeftAttachmentMotorForDegrees(-50)
     br.turnInPlace(30)
 
