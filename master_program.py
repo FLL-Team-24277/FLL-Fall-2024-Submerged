@@ -1,7 +1,7 @@
 from base_robot import *
 
 # Import missions
-import noah2, noah3, shaila, shaila2, noah4, Carthalamew, Carovanni
+import noah2, noah3, shaila, shaila2, noah4, Carthalamew, Carovanni, Gio
 
 
 br = BaseRobot()
@@ -26,7 +26,7 @@ while True:
         pressed = br.hub.buttons.pressed()
         #  When the left button is pressed, it will break out of the loop
         if Button.LEFT in pressed:
-            brea
+            break
         if Button.BLUETOOTH in pressed:
             # If the Bluetooth button is pressed, it will run the motors fast for
             # cleaning
