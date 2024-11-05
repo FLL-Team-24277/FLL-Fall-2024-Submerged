@@ -26,7 +26,7 @@ while True:
         pressed = br.hub.buttons.pressed()
         #  When the left button is pressed, it will break out of the loop
         if Button.LEFT in pressed:
-            break
+            brea
         if Button.BLUETOOTH in pressed:
             # If the Bluetooth button is pressed, it will run the motors fast for
             # cleaning
