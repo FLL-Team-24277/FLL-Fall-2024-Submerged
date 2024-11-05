@@ -9,8 +9,7 @@ def Run(br: BaseRobot):
     # Your mission code goes here, step-by-step
  
     # It MUST be indented just like the lines below
-    #br.driveForDistance(600)  
-    .
+    
     br.driveForDistance(400, then=Stop.NONE)
     br.driveArcDist(radius=800, dist=180, then=Stop.NONE)
     br.driveArcDist(radius=-800, dist=180, then=Stop.NONE)
