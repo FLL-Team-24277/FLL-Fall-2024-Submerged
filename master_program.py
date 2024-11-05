@@ -1,7 +1,7 @@
 from base_robot import *
 
 # Import missions
-import noah2, Gio, noah3, shaila, shaila2, noah4, Carthalamew, Carovanni
+import noah2, noah3, shaila, shaila2, noah4, Carthalamew, Carovanni
 
 
 br = BaseRobot()
