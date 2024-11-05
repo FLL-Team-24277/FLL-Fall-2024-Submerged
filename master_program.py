@@ -1,7 +1,7 @@
 from base_robot import *
 
 # Import missions
-import noah2, noah3, shaila, shaila2, noah4, Carthalamew, Carovanni, Gio
+import noah2, noah3, shaila, shaila2, noah4, Carthalamew, Carovanni, GiosToast
 
 
 br = BaseRobot()
@@ -38,25 +38,33 @@ while True:
 
     # It will now launch the mission coresponding to the color
     if col == Color.SENSOR_YELLOW:
+        print("Launching Yellow")
         noah2.Run(br)
 
     if col == Color.SENSOR_GREEN:
-        Gio.Run(br)
+        print("Launching Green")
+        GiosToast.Run(br)
 
     if col == Color.SENSOR_LIME:
+        print("Launching Lime")
         noah3.Run(br)
 
     if col == Color.SENSOR_MAGENTA:
+        print("Launching Magenta")
         shaila.Run(br)
 
     if col == Color.SENSOR_WHITE:
+        print("Launching White")
         shaila2.Run(br)
 
     if col == Color.SENSOR_ORANGE:
+        print("Launching Orange")
         noah4.Run(br)
 
     if col == Color.SENSOR_RED:
+        print("Launching Red")
         Carthalamew.Run(br)
 
     if col == Color.SENSOR_BLUE:
+        print("Launching Blue")
         Carovanni.Run(br)
