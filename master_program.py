@@ -52,5 +52,5 @@ while True:
     if col == Color.SENSOR_MAGENTA:
         shaila.Run(br)
 
-    # if col == Color.SENSOR_BLUE:
-        # shaila2.run(br)
+    if col == Color.SENSOR_WHITE:
+        shaila2.Run(br)
