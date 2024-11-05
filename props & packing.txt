@@ -38,7 +38,7 @@ Folder for judges with Team Info Sheets
 Binders (RD & IP)
 Robot Design Scripts
 Robot First aid kit (x2) (+ rubber bands)
-Robot Charger
+Robot Charger and USB cables
 Laptop Charger
 Large Power Battery
 Cart
