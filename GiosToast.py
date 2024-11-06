@@ -24,7 +24,7 @@ def Run(br: BaseRobot):
     br.driveForDistance(275)
     br.driveForDistance(-250)
     br.moveLeftAttachmentMotorForDegrees(-100)
-    br.driveArcDist(radius=150 dist=-300)
+    br.driveArcDist(radius=150, dist=-300)
 
     # If running this pogram directly (not from the master program), this is
 # how we know it is running directly. In which case, this method will
