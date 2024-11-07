@@ -22,8 +22,12 @@ def Run(br: BaseRobot):
     br.driveForDistance(325)
     br.turnInPlace(-30)
     br.driveForDistance(275)
-    br.moveLeftAttachmentMotorForDegrees(70)
     br.driveForDistance(-250)
+    br.moveLeftAttachmentMotorForDegrees(-110)
+    br.driveForDistance(-400)
+    br.driveArcDist(radius=-200, dist=500, then=Stop.NONE)
+    br.driveForDistance(500,100)
+
 
 
     # If running this pogram directly (not from the master program), this is
