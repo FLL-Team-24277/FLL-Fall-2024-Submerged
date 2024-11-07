@@ -1,5 +1,7 @@
 from base_robot import *
 
+import Sadie
+
 # Add good comments, such as what the mission is supposed to do,
 # how to align the robot in home, any initial starting instructions,
 # such as how it should be loaded with anything, arm positions, etc.
@@ -8,14 +10,16 @@ from base_robot import *
 
 
 def Run(br: BaseRobot):
-    br.driveForDistance(150)
-    br.moveRightAttachmentMotorForMillis(1000, speedPct=-100)
-    br.driveForMillis(500, speedPct=-30)
-    br.driveForDistance(15)
-    # br.driveForDistance(-30)
-    br.moveRightAttachmentMotorForDegrees(350)
-    br.driveForDistance(-150) 
-    
+    br.moveRightAttachmentMotorForDegrees(-590)
+    br.driveForDistance(-15, wait=False)
+    br.moveRightAttachmentMotorForDegrees(280, speedPct=50)
+    br.driveForDistance(-40)
+    br.moveRightAttachmentMotorForDegrees(-100, wait=False)
+    br.driveForDistance(-500)
+
+    br.waitForForwardButton()
+    Sadie.Run(br)
+
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
 
