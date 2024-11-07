@@ -10,11 +10,12 @@ import Sadie
 
 
 def Run(br: BaseRobot):
-    br.moveRightAttachmentMotorForDegrees(-590)
-    br.driveForDistance(-15, wait=False)
-    br.moveRightAttachmentMotorForDegrees(280, speedPct=50)
+    br.driveForDistance(15, wait=False)
+    br.moveRightAttachmentMotorForDegrees(-620)
     br.driveForDistance(-40)
-    br.moveRightAttachmentMotorForDegrees(-100, wait=False)
+    br.moveRightAttachmentMotorForDegrees(320, speedPct=50)
+    br.driveForDistance(-40)
+    br.moveRightAttachmentMotorForDegrees(-250, wait=False)
     br.driveForDistance(-500)
 
     br.waitForForwardButton()
