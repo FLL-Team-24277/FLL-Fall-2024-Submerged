@@ -40,6 +40,8 @@ while True:
     if col == Color.SENSOR_YELLOW:
         print("Launching Yellow")
         noah2.Run(br)
+        br.waitForForwardButton()
+        shaila.Run(br)
 
     if col == Color.SENSOR_GREEN:
         print("Launching Green")
@@ -49,9 +51,9 @@ while True:
         print("Launching Lime")
         noah3.Run(br)
 
-    if col == Color.SENSOR_MAGENTA:
-        print("Launching Magenta")
-        shaila.Run(br)
+    # if col == Color.SENSOR_MAGENTA:
+    #     print("Launching Magenta")
+    #     shaila.Run(br)
 
     if col == Color.SENSOR_WHITE:
         print("Launching White")
@@ -61,8 +63,8 @@ while True:
         print("Launching Orange")
         noah4.Run(br)
 
-    if col == Color.SENSOR_RED:
-        print("Launching Red")
+    if col == Color.SENSOR_RED or col == Color.SENSOR_MAGENTA:
+        print("Launching Red/Magenta")
         Carthalamew.Run(br)
 
     if col == Color.SENSOR_BLUE:
