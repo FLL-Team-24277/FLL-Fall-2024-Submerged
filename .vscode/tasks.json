@@ -34,6 +34,38 @@
             }
         },
         {
+            "label": "Run master_program.py on robot",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/Scripts/pybricksdev.exe",
+            "args": [
+                "run",
+                "ble",
+                "--name",
+                "${env:robotName}",
+                "master_program.py"
+            ],
+            "problemMatcher": {
+                "owner": "python",
+                "fileLocation": [
+                    "absolute"
+                ],
+                "pattern": {
+                    "regexp": "^(.*)File(.*)(C:(.*)\\.py)(.*)(line(\\s*))([0-9]+),",
+                    "file": 3,
+                    "line": 8
+                }
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false,
+                "revealProblems": "onProblem"
+            }
+        },
+        {
             "label": "git pull on startup",
             "type": "shell",
             "command": "git pull",
@@ -59,6 +91,38 @@
                 "--name",
                 "${input:robotName}",
                 "${file}"
+            ],
+            "problemMatcher": {
+                "owner": "python",
+                "fileLocation": [
+                    "absolute"
+                ],
+                "pattern": {
+                    "regexp": "^(.*)File(.*)(C:(.*)\\.py)(.*)(line(\\s*))([0-9]+),",
+                    "file": 3,
+                    "line": 8
+                }
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false,
+                "revealProblems": "onProblem"
+            }
+        },
+        {
+            "label": "Run master_program.py on any robot",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/Scripts/pybricksdev.exe",
+            "args": [
+                "run",
+                "ble",
+                "--name",
+                "${input:robotName}",
+                "master_program.py"
             ],
             "problemMatcher": {
                 "owner": "python",

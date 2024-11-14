@@ -2,6 +2,9 @@ Judging room
 --------------------------
 Two robots (OAKS & MITZVAH)
 Attachments
+    Rubber band Car
+    The Claw
+    The OG FTW
 Dummy attachments (blue & red)
 Slides RD & IP (in order)
 Aligator clips
@@ -13,6 +16,7 @@ Binders (RD & IP)
 Robot Design Scripts
 Cart
 Map
+Locked Axle Demo
 
 
 

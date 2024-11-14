@@ -10,15 +10,15 @@ import Sadie
 
 
 def Run(br: BaseRobot):
-    br.driveForDistance(150)
-    br.moveRightAttachmentMotorForMillis(1000, speedPct=-100)
-    br.driveForMillis(500, speedPct=-30)
-    br.driveForDistance(15)
-    # br.driveForDistance(-30)
-    br.moveRightAttachmentMotorForDegrees(350)
-    br.driveForDistance(-150)
-    br.waitForForwardButton()
+    br.driveForDistance(15, wait=False)
+    br.moveRightAttachmentMotorForDegrees(-620)
+    br.driveForDistance(-40)
+    br.moveRightAttachmentMotorForDegrees(320, speedPct=50)
+    br.driveForDistance(-40)
+    br.moveRightAttachmentMotorForDegrees(-250, wait=False)
+    br.driveForDistance(-500)
 
+    br.waitForForwardButton()
     Sadie.Run(br)
 
     # Your mission code goes here, step-by-step

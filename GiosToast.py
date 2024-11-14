@@ -21,9 +21,15 @@ def Run(br: BaseRobot):
     br.turnInPlace(-35)
     br.driveForDistance(325)
     br.turnInPlace(-30)
-    br.driveForDistance(200)
-    br.moveLeftAttachmentMotorForDegrees(90)
+    br.driveForDistance(275)
     br.driveForDistance(-250)
+    br.moveLeftAttachmentMotorForDegrees(-150)
+    br.driveForDistance(-400)
+    br.driveArcDist(radius=-200, dist=475, then=Stop.NONE)
+    br.driveForDistance(500,100)
+
+
+
     # If running this pogram directly (not from the master program), this is
 # how we know it is running directly. In which case, this method will
 # create a BaseRobot and run the Run(br) method above.

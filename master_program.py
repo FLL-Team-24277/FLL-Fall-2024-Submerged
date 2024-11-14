@@ -38,25 +38,35 @@ while True:
 
     # It will now launch the mission coresponding to the color
     if col == Color.SENSOR_YELLOW:
+        print("Launching Yellow")
         noah2.Run(br)
+        br.waitForForwardButton()
+        shaila.Run(br)
 
     if col == Color.SENSOR_GREEN:
+        print("Launching Green")
         GiosToast.Run(br)
 
     if col == Color.SENSOR_LIME:
+        print("Launching Lime")
         noah3.Run(br)
 
-    if col == Color.SENSOR_MAGENTA:
-        shaila.Run(br)
+    # if col == Color.SENSOR_MAGENTA:
+    #     print("Launching Magenta")
+    #     shaila.Run(br)
 
     if col == Color.SENSOR_WHITE:
+        print("Launching White")
         shaila2.Run(br)
 
     if col == Color.SENSOR_ORANGE:
+        print("Launching Orange")
         noah4.Run(br)
 
-    if col == Color.SENSOR_RED:
+    if col == Color.SENSOR_RED or col == Color.SENSOR_MAGENTA:
+        print("Launching Red/Magenta")
         Carthalamew.Run(br)
 
     if col == Color.SENSOR_BLUE:
+        print("Launching Blue")
         Carovanni.Run(br)
