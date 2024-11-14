@@ -12,8 +12,8 @@ def Run(br: BaseRobot):
     # It MUST be indented just like the lines below
 
     br.driveForDistance(360)
-    br.turnInPlace(33)
-    br.driveForDistance(110)
+    br.turnInPlace(35)
+    br.driveForDistance(100)
     br.moveRightAttachmentMotorForDegrees(400)
     br.moveLeftAttachmentMotorForDegrees(-250, speedPct=80)
     br.waitForMillis(500)
