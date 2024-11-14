@@ -16,30 +16,31 @@ def Run(br: BaseRobot):
     # Shark
 
     br.driveForDistance(200, wait=False)
-    br.curve(150, 40, then=Stop.NONE)
-    br.curve(150, -40, then=Stop.NONE)
+    br.curve(150, 40)
+    br.curve(150, -40)
     br.driveForDistance(470)
     br.moveRightAttachmentMotorForDegrees(-250, wait=False)
-    br.driveForDistance(50, then=Stop.NONE)
+    br.driveForDistance(50)
     br.driveForDistance(-50)
     br.moveLeftAttachmentMotorUntilStalled(90)
     br.waitForMillis(300)
     br.moveLeftAttachmentMotorForDegrees(degrees=-660, wait=False)
-    br.moveRightAttachmentMotorForDegrees(250, then=Stop.NONE)
-    br.turnInPlace(-90, Stop.NONE)
+    br.moveRightAttachmentMotorForDegrees(250)
+    br.turnInPlace(-90)
 
     # coral nursery
     br.moveLeftAttachmentMotorForDegrees(550)
-    br.waitForMillis(600)
-    br.driveForDistance(110, 35, then=Stop.NONE)
-    br.turnInPlace(10, then=Stop.NONE)
+    br.waitForMillis(300)
+    br.waitForMillis(300)
+    br.driveForDistance(110, 35)
+    br.turnInPlace(10)
     br.driveForDistance(-70)
     br.moveLeftAttachmentMotorForDegrees(-600)
-    br.moveLeftAttachmentMotorForDegrees(-50, then=Stop.NONE)
-    br.turnInPlace(30, then=Stop.NONE)
+    br.moveLeftAttachmentMotorForDegrees(-50)
+    br.turnInPlace(30)
 
-    # to base
-    br.turnInPlace(-100, then=Stop.NONE)
+    # to coral reef and scuba diver
+    br.turnInPlace(-100)
     br.driveForDistance(-20, wait=False)
     br.driveForDistance(700)
 
