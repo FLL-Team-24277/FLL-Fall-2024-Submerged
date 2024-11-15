@@ -26,7 +26,7 @@ def Run(br: BaseRobot):
     br.waitForMillis(300)
     br.moveLeftAttachmentMotorForDegrees(degrees=-660, wait=False)
     br.moveRightAttachmentMotorForDegrees(250)
-    br.driveArcDist(-1000,-600)
+    br.driveArcDist(-1000, -700)
     # br.turnInPlace(-90)
 
     # coral nursery
