@@ -26,31 +26,32 @@ def Run(br: BaseRobot):
     br.waitForMillis(300)
     br.moveLeftAttachmentMotorForDegrees(degrees=-660, wait=False)
     br.moveRightAttachmentMotorForDegrees(250)
-    br.turnInPlace(-90)
+    br.driveArcDist(-1000,-600)
+    # br.turnInPlace(-90)
 
     # coral nursery
-    br.moveLeftAttachmentMotorForDegrees(550)
-    br.waitForMillis(300)
-    br.waitForMillis(300)
-    br.driveForDistance(110, 35)
-    br.turnInPlace(10)
-    br.driveForDistance(-70)
-    br.moveLeftAttachmentMotorForDegrees(-600)
-    br.moveLeftAttachmentMotorForDegrees(-50)
-    br.turnInPlace(30)
-
-    # to coral reef and scuba diver
-    br.turnInPlace(-100)
-    br.driveForDistance(-20, wait=False)
-    br.driveForDistance(700)
-
-    # br.driveForDistance(-100, wait=False)
-    # br.turnInPlace(120)
-    # br.driveForDistance(40)
-    # br.moveRightAttachmentMotorForDegrees(-250)
+    # br.moveLeftAttachmentMotorForDegrees(550)
     # br.waitForMillis(300)
-    # br.driveForDistance(20)
-    # br.driveArcDist(-700,-730)
+    # br.waitForMillis(300)
+    # br.driveForDistance(110, 35)
+    # br.turnInPlace(10)
+    # br.driveForDistance(-70)
+    # br.moveLeftAttachmentMotorForDegrees(-600)
+    # br.moveLeftAttachmentMotorForDegrees(-50)
+    # br.turnInPlace(30)
+
+    # # to coral reef and scuba diver
+    # br.turnInPlace(-100)
+    # br.driveForDistance(-20, wait=False)
+    # br.driveForDistance(700)
+
+    # # br.driveForDistance(-100, wait=False)
+    # # br.turnInPlace(120)
+    # # br.driveForDistance(40)
+    # # br.moveRightAttachmentMotorForDegrees(-250)
+    # # br.waitForMillis(300)
+    # # br.driveForDistance(20)
+    # # br.driveArcDist(-700,-730)
 
 
 # If running this program directly (not from the master program), this is
