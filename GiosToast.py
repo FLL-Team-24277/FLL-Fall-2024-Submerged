@@ -28,7 +28,7 @@ def Run(br: BaseRobot):
     br.driveForDistance(-240)
     br.moveLeftAttachmentMotorForDegrees(-150)
     br.driveForDistance(-400)
-    br.driveArcDist(radius=-225, dist=475, then=Stop.NONE)
+    br.driveArcDist(radius=-250, dist=550, then=Stop.NONE)
     br.driveForDistance(600,100)
 
 
