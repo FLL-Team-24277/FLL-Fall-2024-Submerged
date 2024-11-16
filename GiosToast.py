@@ -18,16 +18,18 @@ def Run(br: BaseRobot):
     br.driveForDistance(-180)
     br.moveRightAttachmentMotorForDegrees(100)
     br.moveRightAttachmentMotorForDegrees(100)
+    br.moveRightAttachmentMotorForDegrees(-200)
     br.driveForDistance(-50)   
     br.turnInPlace(-35)
     br.driveForDistance(325)
-    br.turnInPlace(-30)
-    br.driveForDistance(275)
-    br.driveForDistance(-250)
+    br.turnInPlace(-27)
+    br.driveForDistance(250)
+    br.moveRightAttachmentMotorForDegrees(150)
+    br.driveForDistance(-240)
     br.moveLeftAttachmentMotorForDegrees(-150)
     br.driveForDistance(-400)
-    br.driveArcDist(radius=-200, dist=475, then=Stop.NONE)
-    br.driveForDistance(500,100)
+    br.driveArcDist(radius=-250, dist=475, then=Stop.NONE)
+    br.driveForDistance(600,100)
 
 
 
