@@ -10,10 +10,29 @@ import Sadie
 
 
 def Run(br: BaseRobot):
+    br.driveForDistance(400)
+    br.driveArcDist(radius=-600, dist=-450)
+    br.waitForForwardButton()
+    br.moveLeftAttachmentMotorForMillis(1000, speedPct=-100) # open claw
+    br.driveArcDist(radius=-1000, dist=300, then=Stop.NONE)
+    br.driveArcDist(radius=400, dist=350)
+    br.moveLeftAttachmentMotorForMillis(1000, speedPct=100) # close claw
+    br.driveArcDist(radius=200, dist=-200, then=Stop.NONE)
+    br.driveForDistance(-450)
+    # NOM NOM NOM
+    br.waitForForwardButton()
+
     br.driveForDistance(200,then=Stop.NONE)
-    br.driveArcDist(-550,800,then=Stop.NONE)
-    br.driveForDistance(320)
-    br.moveRightAttachmentMotorForDegrees(-900)
+    br.driveArcDist(-535,800,then=Stop.NONE)
+    br.driveForDistance(500)
+    br.turnInPlace(-30)
+    br.driveForDistance(-250)
+    br.moveRightAttachmentMotorForDegrees(-900) # extend the arm
+    br.moveLeftAttachmentMotorForMillis(1000, speedPct=-100) # open claw
+    br.driveArcDist(1000,500)
+    br.turnInPlace(-45)
+    br.driveForDistance(800)
+    # br.driveArcDist(radius=-535,dist=800)
 
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
