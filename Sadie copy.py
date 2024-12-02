@@ -8,14 +8,18 @@ from base_robot import *
 
 
 # When we run this program from the master program, we will call this
-# "Run(br)" method.
+# "Run(br)" method
 def Run(br: BaseRobot):
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
 
-    # Shark
-
-    br.driveArcDist(750, 300)
+    br.driveArcDist(-270, 415, then=Stop.NONE)
+    br.driveForDistance(144)
+    br.moveRightAttachmentMotorForDegrees(-400)
+    br.moveLeftAttachmentMotorForDegrees(230)
+    br.moveLeftAttachmentMotorForDegrees(-50, then=Stop.NONE)
+    br.moveRightAttachmentMotorForDegrees(100)
+    br.driveForDistance(-600)
 
 
 # If running this program directly (not from the master program), this is
