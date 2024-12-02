@@ -17,8 +17,7 @@ Robot Design Scripts
 Cart
 Map
 Locked Axle Demo
-
-
+Project tri-fold
 
 Packing List
 --------------------------
@@ -47,6 +46,7 @@ Laptop Charger
 Large Power Battery
 Cart
 Map
+Project tri-fold
 Ties, Jackets, pocket squares
 Posterboard and Markers for making signs
 Wheel Scrubber magic eraser
