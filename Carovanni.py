@@ -1,6 +1,6 @@
 from base_robot import *
 
-import Sadie
+import Sadie2
 
 # Add good comments, such as what the mission is supposed to do,
 # how to align the robot in home, any initial starting instructions,
@@ -19,7 +19,7 @@ def Run(br: BaseRobot):
     br.driveForDistance(-500)
 
     br.waitForForwardButton()
-    Sadie.Run(br)
+    Sadie2.Run(br)
 
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
