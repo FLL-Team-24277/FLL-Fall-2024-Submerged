@@ -19,7 +19,7 @@ def Run(br: BaseRobot):
     br.driveForDistance(-500)
 
     br.waitForForwardButton()
-    Sadie.Run(br)
+    Sadie2.Run(br)
 
     # Your mission code goes here, step-by-step
     # It MUST be indented just like the lines below
