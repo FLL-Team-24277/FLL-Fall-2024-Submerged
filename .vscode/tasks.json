@@ -68,9 +68,9 @@
         {
             "label": "git pull on startup",
             "type": "shell",
-            "command": "git pull",
+            "command": "${fileDirname}\\gitpull.cmd",
             "windows": {
-                "command": "git pull"
+                "command": "${fileDirname}\\gitpull.cmd"
             },
             "presentation": {
                 "reveal": "always",

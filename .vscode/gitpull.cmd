@@ -1,0 +1,3 @@
+echo Git pull in 5 seconds...
+timeout /t 5 /nobreak
+git pull
