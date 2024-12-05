@@ -10,23 +10,23 @@ import Sadie
 
 
 def Run(br: BaseRobot):
-    # br.driveForDistance(400)
-    # br.driveArcDist(radius=-800, dist=-450)
-    # br.waitForForwardButton()
-    # br.moveLeftAttachmentMotorForMillis(1000, speedPct=-100)  # open claw
-    # br.driveArcDist(radius=-1000, dist=300, then=Stop.NONE)
-    # br.driveArcDist(radius=400, dist=350)
-    # br.moveLeftAttachmentMotorForMillis(1000, speedPct=100)  # close claw
-    # br.driveArcDist(radius=200, dist=-200, then=Stop.NONE)
-    # br.driveForDistance(-450)
-    # # NOM NOM NOM
-    # br.waitForForwardButton()
+    br.driveForDistance(400)
+    br.driveArcDist(radius=-800, dist=-450)
+    br.waitForForwardButton()
+    br.moveLeftAttachmentMotorForMillis(1000, speedPct=-100)  # open claw
+    br.driveArcDist(radius=-1000, dist=300, then=Stop.NONE)
+    br.driveArcDist(radius=400, dist=350)
+    br.moveLeftAttachmentMotorForMillis(1000, speedPct=100)  # close claw
+    br.driveArcDist(radius=200, dist=-200, then=Stop.NONE)
+    br.driveForDistance(-450)
+    # NOM NOM NOM
+    br.waitForForwardButton()
 
     br.driveForDistance(200, then=Stop.NONE)
     br.driveArcDist(-535, 800, speedPct=60, then=Stop.NONE)
     br.driveForDistance(500)
     br.turnInPlace(-30)
-    br.driveForDistance(-250)
+    br.driveForDistance(-240)
     br.moveRightAttachmentMotorForDegrees(-900)  # extend the arm
     br.driveArcDist(700, 300, speedPct=30,then=Stop.NONE)
     br.moveLeftAttachmentMotorForMillis(1000, speedPct=-100,wait=False)  # open claw

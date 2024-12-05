@@ -1,7 +1,7 @@
 from base_robot import *
 
 # Import missions
-import noah2, noahsdice, shaila, shaila2, noah4, Carthalamew, carternoah, GiosToast
+import noah2, noahsdice, shaila, shaila2, noah4, Carovanni, carternoah, GiosToast
 
 
 br = BaseRobot()
@@ -70,4 +70,4 @@ while True:
 
     if col == Color.SENSOR_BLUE:
         print("Launching Blue")
-        carternoah.Run(br)
+        Carovanni.Run(br)
