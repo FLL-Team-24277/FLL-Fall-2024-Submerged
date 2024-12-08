@@ -28,10 +28,13 @@ def Run(br: BaseRobot):
     br.turnInPlace(-30)
     br.driveForDistance(-240)
     br.moveRightAttachmentMotorForDegrees(-900)  # extend the arm
-    br.driveArcDist(700, 300, speedPct=30,then=Stop.NONE)
-    br.moveLeftAttachmentMotorForMillis(1000, speedPct=-100,wait=False)  # open claw
+    br.driveArcDist(900, 300, speedPct=30, then=Stop.NONE)
+    br.moveLeftAttachmentMotorForMillis(
+        1000, speedPct=-100, wait=False
+    )  # open claw
     br.driveArcDist(-350, 300, speedPct=30, then=Stop.NONE)
-    br.driveForDistance(600)
+    br.driveForDistance(650)
+
     # br.turnInPlace(-30)
     # br.driveForDistance(500)
     # br.turnInPlace(90)
