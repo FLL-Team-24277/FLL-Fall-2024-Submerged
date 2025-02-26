@@ -196,18 +196,37 @@ class BaseRobot:
         wait(millis)
         self.robot.brake()
 
-    def driveUntilStalled(
+    def drive_until_stalled(
         self,
-        stallPct=DEFAULT_DB_STALL_PCT,
-        speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
-        gyro=True,
-        accelerationPct=DEFAULT_BIG_MOT_ACCEL_PCT,
+        stall_pct=DEFAULT_DB_STALL_PCT,
+        speed_pct=DEFAULT_BIG_MOT_SPEED_PCT,
+        use_gyro=True,
+        accel_pct=DEFAULT_BIG_MOT_ACCEL_PCT,
     ):
-        spd = RescaleMedMotSpeed(speedPct)
+        """
+        drive_until_stalled drives the robot at a certain speed until it \
+        is stalled, then it will stop and brake. The robot will not stop \
+        until it is stalled.
+
+        Parameters:
+
+        stall_pct (int): The percentage at which the robot is stalled. \
+        Defaults to DEFAULT_DB_STALL_PCT.
+
+        speed_pct (int): The percentage of the maximum speed to drive \
+        the robot at. Defaults to DEFAULT_BIG_MOT_SPEED_PCT.
+        
+        use_gyro (bool): If True, the robot will use the gyro sensor to \
+        drive straight. Defaults to True.
+        
+        accel_pct (int): The percentage of the maximum acceleration to \
+        drive the robot at. Defaults to DEFAULT_BIG_MOT_ACCEL_PCT.
+        """
+        spd = RescaleMedMotSpeed(speed_pct)
         # print(spd)
-        acceleration = RescaleStraightAccel(accelerationPct)
-        load = RescaleDbTorque(stallPct)
-        self.robot.use_gyro(gyro)
+        acceleration = RescaleStraightAccel(accel_pct)
+        load = RescaleDbTorque(stall_pct)
+        self.robot.use_gyro(use_gyro)
         # self.robot.settings(straight_speed=-999)
         self.robot.settings(straight_acceleration=acceleration)
         self.robot.drive(spd, 0)

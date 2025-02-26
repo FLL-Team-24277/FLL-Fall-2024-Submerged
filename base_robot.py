@@ -75,12 +75,14 @@ class BaseRobot:
         # in comments. Theoretically, the farther apart the hsv-values are,
         # the less likely two colors can get "confused"
         # Use the colorTest.py program to get the color sensor values
-        Color.SENSOR_WHITE = Color(h=0, s=0, v=100)  # h=0,s=0,v=100
-        Color.SENSOR_RED = Color(h=353, s=82, v=92)  # h=0,s=100,v=100
+        self.SENSOR_WHITE: Color = Color(h=0, s=0, v=100)  # h=0,s=0,v=100
+        self.SENSOR_RED: Color = Color(h=353, s=82, v=92)  # h=0,s=100,v=100
         Color.SENSOR_YELLOW = Color(h=60, s=60, v=100)  # h=60,s=100,v=100
         Color.SENSOR_GREEN = Color(h=156, s=66, v=66)  # h=120,s=100,v=100
         Color.SENSOR_BLUE = Color(h=216, s=84, v=83)  # h=240,s=100,v=100
-        Color.SENSOR_MAGENTA = Color(h=333, s=75, v=78)  # h=300,s=100,v=100
+        self.SENSOR_MAGENTA: Color = Color(
+            h=333, s=75, v=78
+        )  # h=300,s=100,v=100
         Color.SENSOR_ORANGE = Color(h=8, s=75, v=100)  # h=30,s=100,v=100
         Color.SENSOR_DARKGRAY = Color(h=192, s=21, v=64)  # h=0,s=0,v=50
         Color.SENSOR_NONE = Color(h=170, s=26, v=15)  # h=0,s=0,v=0
@@ -123,7 +125,7 @@ class BaseRobot:
     def moveLeftAttachmentMotorForDegrees(
         self,
         degrees,
-        speedPct=DEFAULT_MED_MOT_SPEED_PCT,
+        speed_pct=DEFAULT_MED_MOT_SPEED_PCT,
         then=Stop.HOLD,
         wait=True,
     ):
@@ -148,7 +150,7 @@ class BaseRobot:
         or run both lines of code at the same time
          """
         # now the real work begins!
-        speed = RescaleMedMotSpeed(speedPct)
+        speed = RescaleMedMotSpeed(speed_pct)
         self.leftAttachmentMotor.run_angle(speed, degrees, then, wait)
 
     def moveLeftAttachmentMotorForMillis(
@@ -534,13 +536,13 @@ class BaseRobot:
 
     def driveArcDist(
         self,
-        radius,
-        dist,
-        speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
-        accelPct=DEFAULT_BIG_MOT_ACCEL_PCT,
-        gyro=True,
-        then=Stop.BRAKE,
-        wait=True,
+        radius: int,
+        dist: int,
+        speedPct: int = DEFAULT_BIG_MOT_SPEED_PCT,
+        accelPct: int = DEFAULT_BIG_MOT_ACCEL_PCT,
+        gyro: bool = True,
+        then: Stop = Stop.BRAKE,
+        wait: bool = True,
     ):
         """Drive the robot in an arc
 
@@ -552,7 +554,7 @@ class BaseRobot:
 
         Args:
 
-        radius (REQUIRED, integer): How tight of a curve in mm. POS = curve \
+        radius (REQUIRED, integer): How tight of a curve in mm. POS = curve
         right; NEG = curve left. Smaller numbers means tighter curve.
 
         dist (REQUIRED, integer): Number of mm to drive along the curve. \
@@ -576,7 +578,17 @@ class BaseRobot:
         accelPct (OPTIONAL, pos integer): How fast to change speed. \
         Defaults to DEFAULT_TURN_ACCEL_PCT.
 
+        Raises:
+
+        ValueError: If radius is 0, which is not allowed.
+        VakueError: If speedPct is less than 1, which is not allowed.
+
         """
+        if radius == 0:
+            raise ValueError("Radius cannot be 0")
+
+        if speedPct < 1:
+            raise ValueError("Speed must be greater than 0")
         speed = RescaleStraightSpeed(speedPct)
         accel = RescaleStraightAccel(accelPct)
         self.robot.use_gyro(gyro)

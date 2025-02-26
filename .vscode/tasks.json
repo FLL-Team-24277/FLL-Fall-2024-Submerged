@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Run on robot",
+            "label": "Run on my robot",
             "type": "shell",
             "command": "${workspaceFolder}/.venv/Scripts/pybricksdev.exe",
             "args": [
@@ -82,7 +82,7 @@
             "problemMatcher": []
         },
         {
-            "label": "Run on any robot",
+            "label": "Run on alt robot",
             "type": "shell",
             "command": "${workspaceFolder}/.venv/Scripts/pybricksdev.exe",
             "args": [
