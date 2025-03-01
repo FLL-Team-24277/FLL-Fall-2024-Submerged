@@ -57,36 +57,30 @@ class BaseRobot:
         # in comments. Theoretically, the farther apart the hsv-values are,
         # the less likely two colors can get "confused"
         # Use the colorTest.py program to get the color sensor values
-        self.SENSOR_WHITE: Color = Color(h=0, s=0, v=100)  # h=0,s=0,v=100
-        self.SENSOR_RED: Color = Color(h=353, s=82, v=92)  # h=0,s=100,v=100
-        self.SENSOR_YELLOW: Color = Color(
-            h=60, s=60, v=100
-        )  # h=60,s=100,v=100
-        self.SENSOR_GREEN: Color = Color(
-            h=156, s=66, v=66
-        )  # h=120,s=100,v=100
-        self.SENSOR_BLUE: Color = Color(h=216, s=84, v=83)  # h=240,s=100,v=100
-        self.SENSOR_MAGENTA: Color = Color(
-            h=333, s=75, v=78
-        )  # h=300,s=100,v=100
-        self.SENSOR_ORANGE: Color = Color(h=8, s=75, v=100)  # h=30,s=100,v=100
-        self.SENSOR_DARKGRAY: Color = Color(h=192, s=21, v=64)  # h=0,s=0,v=50
-        self.SENSOR_NONE: Color = Color(h=170, s=26, v=15)  # h=0,s=0,v=0
-        self.SENSOR_LIME: Color = Color(h=92, s=55, v=93)  # h=92, s=57, v=93
+        Color.SENSOR_WHITE = Color(h=0, s=0, v=100)  # h=0,s=0,v=100
+        Color.SENSOR_RED = Color(h=353, s=82, v=92)  # h=0,s=100,v=100
+        Color.SENSOR_YELLOW = Color(h=60, s=60, v=100)  # h=60,s=100,v=100
+        Color.SENSOR_GREEN = Color(h=156, s=66, v=66)  # h=120,s=100,v=100
+        Color.SENSOR_BLUE = Color(h=216, s=84, v=83)  # h=240,s=100,v=100
+        Color.SENSOR_MAGENTA = Color(h=333, s=75, v=78)  # h=300,s=100,v=100
+        Color.SENSOR_ORANGE = Color(h=8, s=75, v=100)  # h=30,s=100,v=100
+        Color.SENSOR_DARKGRAY = Color(h=192, s=21, v=64)  # h=0,s=0,v=50
+        Color.SENSOR_NONE = Color(h=170, s=26, v=15)  # h=0,s=0,v=0
+        Color.SENSOR_LIME = Color(h=92, s=55, v=93)  # h=92, s=57, v=93
 
         # Put the custom colors in a list. Best practice is to only use
         # colors that we are using for actual missions.
         self.sensorColors = [
-            self.SENSOR_WHITE,
-            self.SENSOR_RED,
-            self.SENSOR_YELLOW,
-            self.SENSOR_GREEN,
-            self.SENSOR_BLUE,
-            self.SENSOR_MAGENTA,
-            self.SENSOR_ORANGE,
-            self.SENSOR_DARKGRAY,
-            self.SENSOR_NONE,  # must have SENSOR_NONE. Do not comment
-            self.SENSOR_LIME,
+            Color.SENSOR_WHITE,
+            Color.SENSOR_RED,
+            Color.SENSOR_YELLOW,
+            Color.SENSOR_GREEN,
+            Color.SENSOR_BLUE,
+            Color.SENSOR_MAGENTA,
+            Color.SENSOR_ORANGE,
+            Color.SENSOR_DARKGRAY,
+            Color.SENSOR_NONE,  # must have SENSOR_NONE. Do not comment
+            Color.SENSOR_LIME,
         ]
 
         # Set the detectable colors usisng our list
@@ -96,16 +90,16 @@ class BaseRobot:
         # Used to set the hub light to the correct color. It dodesn't
         # matter if there are extra colors in here that won't be detected
         self.myColor2DefaultColorDict = {
-            self.SENSOR_GREEN: Color.GREEN,
-            self.SENSOR_RED: Color.RED,
-            self.SENSOR_YELLOW: Color.YELLOW,
-            self.SENSOR_BLUE: Color.BLUE,
-            self.SENSOR_MAGENTA: Color.MAGENTA,
-            self.SENSOR_WHITE: Color.WHITE,
-            self.SENSOR_ORANGE: Color.ORANGE,
-            self.SENSOR_DARKGRAY: Color.GRAY,
-            self.SENSOR_NONE: Color.NONE,
-            self.SENSOR_LIME: Color.CYAN,
+            Color.SENSOR_GREEN: Color.GREEN,
+            Color.SENSOR_RED: Color.RED,
+            Color.SENSOR_YELLOW: Color.YELLOW,
+            Color.SENSOR_BLUE: Color.BLUE,
+            Color.SENSOR_MAGENTA: Color.MAGENTA,
+            Color.SENSOR_WHITE: Color.WHITE,
+            Color.SENSOR_ORANGE: Color.ORANGE,
+            Color.SENSOR_DARKGRAY: Color.GRAY,
+            Color.SENSOR_NONE: Color.NONE,
+            Color.SENSOR_LIME: Color.CYAN,
         }
 
     def moveLeftAttachmentMotorForDegrees(
@@ -202,18 +196,37 @@ class BaseRobot:
         wait(millis)
         self.robot.brake()
 
-    def driveUntilStalled(
+    def drive_until_stalled(
         self,
-        stallPct=DEFAULT_DB_STALL_PCT,
-        speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
-        gyro=True,
-        accelerationPct=DEFAULT_BIG_MOT_ACCEL_PCT,
+        stall_pct=DEFAULT_DB_STALL_PCT,
+        speed_pct=DEFAULT_BIG_MOT_SPEED_PCT,
+        use_gyro=True,
+        accel_pct=DEFAULT_BIG_MOT_ACCEL_PCT,
     ):
-        spd = RescaleMedMotSpeed(speedPct)
+        """
+        drive_until_stalled drives the robot at a certain speed until it \
+        is stalled, then it will stop and brake. The robot will not stop \
+        until it is stalled.
+
+        Parameters:
+
+        stall_pct (int): The percentage at which the robot is stalled. \
+        Defaults to DEFAULT_DB_STALL_PCT.
+
+        speed_pct (int): The percentage of the maximum speed to drive \
+        the robot at. Defaults to DEFAULT_BIG_MOT_SPEED_PCT.
+        
+        use_gyro (bool): If True, the robot will use the gyro sensor to \
+        drive straight. Defaults to True.
+        
+        accel_pct (int): The percentage of the maximum acceleration to \
+        drive the robot at. Defaults to DEFAULT_BIG_MOT_ACCEL_PCT.
+        """
+        spd = RescaleMedMotSpeed(speed_pct)
         # print(spd)
-        acceleration = RescaleStraightAccel(accelerationPct)
-        load = RescaleDbTorque(stallPct)
-        self.robot.use_gyro(gyro)
+        acceleration = RescaleStraightAccel(accel_pct)
+        load = RescaleDbTorque(stall_pct)
+        self.robot.use_gyro(use_gyro)
         # self.robot.settings(straight_speed=-999)
         self.robot.settings(straight_acceleration=acceleration)
         self.robot.drive(spd, 0)
