@@ -16,7 +16,9 @@
         "pyproject.toml": true,
         "colorTest.py": true,
         "master_program.py": true,
-        "utils.py": true
+        "utils.py": true,
+        ".idea/": true,
+        ".mypy_cache": true
     },
     "task.allowAutomaticTasks": "on",
     "git.postCommitCommand": "sync",

@@ -7,3 +7,5 @@ __pycache__/
 
 # will sync .gitiginore 
 !/.gitignore
+/.idea
+/.mypy_cache
