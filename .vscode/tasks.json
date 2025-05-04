@@ -34,7 +34,7 @@
             }
         },
         {
-            "label": "Run master_program.py on robot",
+            "label": "Run master_program.py on my robot",
             "type": "shell",
             "command": "${workspaceFolder}/.venv/Scripts/pybricksdev.exe",
             "args": [
@@ -114,7 +114,7 @@
             }
         },
         {
-            "label": "Run master_program.py on any robot",
+            "label": "Run master_program.py on alt robot",
             "type": "shell",
             "command": "${workspaceFolder}/.venv/Scripts/pybricksdev.exe",
             "args": [
