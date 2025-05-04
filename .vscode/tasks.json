@@ -68,9 +68,9 @@
         {
             "label": "git pull on startup",
             "type": "shell",
-            "command": "${fileWorkspaceFolder}\\.vscode\\gitpull.cmd",
+            "command": "python ${fileWorkspaceFolder}\\.vscode\\gitpull.py",
             "windows": {
-                "command": "${fileWorkspaceFolder}\\.vscode\\gitpull.cmd"
+                "command": "python ${fileWorkspaceFolder}\\.vscode\\gitpull.py"
             },
             "presentation": {
                 "reveal": "always",
