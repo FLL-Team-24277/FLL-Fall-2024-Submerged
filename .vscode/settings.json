@@ -23,6 +23,9 @@
     },
     "task.allowAutomaticTasks": "on",
     "git.postCommitCommand": "sync",
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true
