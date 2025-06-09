@@ -9,5 +9,5 @@ def Run(br: BaseRobot):
 
 
 if __name__ == "__main__":
-    br = BaseRobot()
+    br: BaseRobot = BaseRobot()
     Run(br)

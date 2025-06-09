@@ -4,10 +4,10 @@ from base_robot import *
 import noah2, noahsdice, shaila, shaila2, noah4, Carovanni, carternoah, GiosToast
 
 
-br = BaseRobot()
+br: BaseRobot = BaseRobot()
 
 pressed = []
-col = br.colorSensor.color()
+col: Color = br.colorSensor.color()
 
 while True:
     while True:
@@ -30,11 +30,7 @@ while True:
         if Button.BLUETOOTH in pressed:
             # If the Bluetooth button is pressed, it will run the motors fast for
             # cleaning
-            br.leftDriveMotor.run(1000)
-            br.rightDriveMotor.run(1000)
-            wait(25000)
-            br.leftDriveMotor.brake()
-            br.rightDriveMotor.brake()
+            br.driveForMillis(millis=30000, speedPct=100, gyro=False)
 
     # It will now launch the mission coresponding to the color
     if col == Color.SENSOR_YELLOW:

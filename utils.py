@@ -1,11 +1,11 @@
-TIRE_DIAMETER = 56  # mm
-AXLE_TRACK = 103  # distance between the wheels, mm
+TIRE_DIAMETER: int = 56  # mm
+AXLE_TRACK: int = 103  # distance between the wheels, mm
 
 # Drivebase parameters. None of these should ever be changed by users
 if TIRE_DIAMETER == 56:
-    DB_MAX_SPEED_MMSEC = 488
+    DB_MAX_SPEED_MMSEC: int = 488
 if TIRE_DIAMETER == 88:
-    DB_MAX_SPEED_MMSEC = 768
+    DB_MAX_SPEED_MMSEC: int = 768
 
 # Straight Acceleration constants
 # Anything above 800 mm/sec^2 causes wheel slippage, regardless of the
@@ -13,7 +13,7 @@ if TIRE_DIAMETER == 88:
 # force to maintain that acceleration is the same
 # For 56mm, the maximum that can be set in the settings() command is 9775.
 # For 88mm, the maximum that can be set in the settings() command is 15360.
-DB_MAX_ACCEL_MMSEC2 = 800
+DB_MAX_ACCEL_MMSEC2: int = 800
 
 # For turn rates, the best speed and acceleration was determined by testing
 # It did not matter if it was on 56mm or 88mm tires, the values were the
@@ -21,43 +21,45 @@ DB_MAX_ACCEL_MMSEC2 = 800
 # For 56mm, the maximum speed that can be set in the settings() command is 543
 # For 88mm, the maximum speed that can be set in the settings() command is 854.
 # For 88mm, the maximum accel that can be set in the settings() command is 17094.
-DB_MAX_TURN_RATE_DEGSEC = 180
-DB_MAX_TURN_ACCEL_DEGSEC2 = 360
+DB_MAX_TURN_RATE_DEGSEC: int = 180
+DB_MAX_TURN_ACCEL_DEGSEC2: int = 360
 
-AXLE_TRACK = 103  # distance between the wheels, mm
+AXLE_TRACK: int = 103  # distance between the wheels, mm
 
 # The drivebase can accept speeds down to zero, but is not very efficient and
 # quite erratic. Realistically, 30 is a good minimum speed
-DB_MIN_SPEED_MMSEC = 30
+DB_MIN_SPEED_MMSEC: int = 30
 
 # Lowest usable accelleration, determined by testing
-DB_MIN_ACCEL_MMSEC2 = 5
+DB_MIN_ACCEL_MMSEC2: int = 5
 
 # Max and min turning speeds, determined by testing
 # These are not affected by the tire size
-DB_MIN_TURN_RATE_DEGSEC = 20
-DB_MIN_TURN_ACCEL_DEGSEC2 = 10
+DB_MIN_TURN_RATE_DEGSEC: int = 20
+DB_MIN_TURN_ACCEL_DEGSEC2: int = 10
 
 # Not sure how these are used
-DB_ABS_MAX_TORQUE_MNM = 700  # milli-newton-meters
-DB_ABS_MIN_TORQUE_MNM = 20  # milli-newton-meters
+DB_ABS_MAX_TORQUE_MNM: int = 700  # milli-newton-meters
+DB_ABS_MIN_TORQUE_MNM: int = 20  # milli-newton-meters
 
 # Large Motor usable parameters
-LG_MOT_MAX_VOLTAGE = 9000  # mV
-LG_MOT_MIN_VOLTAGE = 3000  # mV
-LG_MOT_MAX_TORQUE = 560
+LG_MOT_MAX_VOLTAGE: int = 9000  # mV
+LG_MOT_MIN_VOLTAGE: int = 3000  # mV
+LG_MOT_MAX_TORQUE: int = 560
 
 # Medium Motor usable parameters
-MED_MOT_MAX_SPEED_DEGSEC = 1000
+MED_MOT_MAX_SPEED_DEGSEC: int = 1000
 # MED_MOT_MAX_ACCEL_DEGSEC2 = 20000
 # MED_MOT_MIN_ACCEL_DEGSEC2 = 50
-MED_MOT_MIN_SPEED_DEGSEC = 100
-MED_MOT_MAX_TORQUE = 195  # milli-newton-meters
-MED_MOT_MIN_TORQUE = 50  # milli-newton-meters
+MED_MOT_MIN_SPEED_DEGSEC: int = 100
+MED_MOT_MAX_TORQUE: int = 195  # milli-newton-meters
+MED_MOT_MIN_TORQUE: int = 50  # milli-newton-meters
 
 
-def Rescale(val, in_min, in_max, out_min, out_max):
-    neg = val / abs(val)  # will either be 1 or -1
+def Rescale(
+    val: int, in_min: int, in_max: int, out_min: int, out_max: int
+) -> int:
+    neg: int = int(val / abs(val))  # will either be 1 or -1
     val = abs(val)
     if in_max == in_min:
         return 0
@@ -65,7 +67,7 @@ def Rescale(val, in_min, in_max, out_min, out_max):
         val = in_min
     if val > in_max:
         val = in_max
-    retVal = out_min + (val - in_min) * (
+    retVal: int = out_min + (val - in_min) * int(
         (out_max - out_min) / (in_max - in_min)
     )
     if retVal > out_max:
@@ -75,7 +77,7 @@ def Rescale(val, in_min, in_max, out_min, out_max):
     return retVal * neg
 
 
-def RescaleStraightSpeed(speedPct):
+def RescaleStraightSpeed(speedPct) -> int:
     return Rescale(
         speedPct,
         1,
@@ -85,7 +87,7 @@ def RescaleStraightSpeed(speedPct):
     )
 
 
-def RescaleStraightAccel(accelPct):
+def RescaleStraightAccel(accelPct) -> int:
     return Rescale(
         accelPct,
         1,
@@ -95,7 +97,7 @@ def RescaleStraightAccel(accelPct):
     )
 
 
-def RescaleTurnSpeed(turnSpeedPct):
+def RescaleTurnSpeed(turnSpeedPct) -> int:
     # print(turnSpeedPct)
     return Rescale(
         turnSpeedPct,
@@ -106,7 +108,7 @@ def RescaleTurnSpeed(turnSpeedPct):
     )
 
 
-def RescaleTurnAccel(turnAccelPct):
+def RescaleTurnAccel(turnAccelPct) -> int:
     return Rescale(
         turnAccelPct,
         1,
@@ -116,7 +118,7 @@ def RescaleTurnAccel(turnAccelPct):
     )
 
 
-def RescaleMedMotSpeed(medMotSpeedPct):
+def RescaleMedMotSpeed(medMotSpeedPct) -> int:
     return Rescale(
         medMotSpeedPct,
         1,
@@ -126,7 +128,7 @@ def RescaleMedMotSpeed(medMotSpeedPct):
     )
 
 
-def RescaleMedMotTorque(medMotTorquePct):
+def RescaleMedMotTorque(medMotTorquePct) -> int:
     return Rescale(
         medMotTorquePct,
         1,
@@ -136,7 +138,7 @@ def RescaleMedMotTorque(medMotTorquePct):
     )
 
 
-def RescaleDbTorque(dbTorquePct):
+def RescaleDbTorque(dbTorquePct) -> int:
     return Rescale(
         dbTorquePct,
         1,
@@ -146,11 +148,11 @@ def RescaleDbTorque(dbTorquePct):
     )
 
 
-def RescaleConvertFarToCel(DegF):
-    return Rescale(DegF, 0, 212, -17.77, 100)
+def RescaleConvertFarToCel(DegF) -> int:
+    return Rescale(DegF, 0, 212, -18, 100)
 
 
-def RescaleMedMotDutyLimit(medMotDutyLimitPct):
+def RescaleMedMotDutyLimit(medMotDutyLimitPct) -> int:
     return Rescale(
         medMotDutyLimitPct,
         1,
@@ -160,7 +162,7 @@ def RescaleMedMotDutyLimit(medMotDutyLimitPct):
     )
 
 
-def RescaleSensitivity(sens):
+def RescaleSensitivity(sens) -> int:
     return Rescale(
         sens,
         1,
@@ -170,5 +172,5 @@ def RescaleSensitivity(sens):
     )
 
 
-def RescaleBatteryVoltage(volts):
+def RescaleBatteryVoltage(volts) -> int:
     return Rescale(volts, 7000, 8000, 0, 100)

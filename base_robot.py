@@ -41,16 +41,16 @@ class BaseRobot:
     """
 
     def __init__(self):
-        self.hub = PrimeHub(top_side=Axis.Z, front_side=-Axis.Y)
+        self.hub: PrimeHub = PrimeHub(top_side=Axis.Z, front_side=-Axis.Y)
         print(version)
-        v = self.hub.battery.voltage()
-        vPct = RescaleBatteryVoltage(v)
+        v: int = self.hub.battery.voltage()
+        vPct: int = RescaleBatteryVoltage(v)
         print(str(v))
         print(f"Battery voltage %: {vPct / 100 :.2%}")
-        self._version = "1.0 09/11/2024"
-        self.leftDriveMotor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
-        self.rightDriveMotor = Motor(Port.A)
-        self.robot = DriveBase(
+        self._version: str = "1.0 09/11/2024"
+        self.leftDriveMotor: Motor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
+        self.rightDriveMotor: Motor = Motor(Port.A)
+        self.robot: DriveBase = DriveBase(
             self.leftDriveMotor,
             self.rightDriveMotor,
             TIRE_DIAMETER,
@@ -64,12 +64,12 @@ class BaseRobot:
             RescaleTurnAccel(DEFAULT_TURN_ACCEL_PCT),
         )
 
-        self.leftAttachmentMotor = Motor(Port.B)
-        self.rightAttachmentMotor = Motor(Port.D)
+        self.leftAttachmentMotor: Motor = Motor(Port.B)
+        self.rightAttachmentMotor: Motor = Motor(Port.D)
         self.leftAttachmentMotor.control.limits(acceleration=20000)
         self.leftAttachmentMotor.control.limits(acceleration=20000)
 
-        self.colorSensor = ColorSensor(Port.F)
+        self.colorSensor: ColorSensor = ColorSensor(Port.F)
 
         # HSV values were found by testing. Default hsv-values are provided
         # in comments. Theoretically, the farther apart the hsv-values are,
@@ -88,7 +88,7 @@ class BaseRobot:
 
         # Put the custom colors in a list. Best practice is to only use
         # colors that we are using for actual missions.
-        self.sensorColors = [
+        self.sensorColors: list[Color] = [
             Color.SENSOR_WHITE,
             Color.SENSOR_RED,
             Color.SENSOR_YELLOW,
@@ -107,7 +107,7 @@ class BaseRobot:
         # Translates our costom colors into the default pybricks colors
         # Used to set the hub light to the correct color. It dodesn't
         # matter if there are extra colors in here that won't be detected
-        self.myColor2DefaultColorDict = {
+        self.myColor2DefaultColorDict: dict[Color, Color] = {
             Color.SENSOR_GREEN: Color.GREEN,
             Color.SENSOR_RED: Color.RED,
             Color.SENSOR_YELLOW: Color.YELLOW,
@@ -122,10 +122,10 @@ class BaseRobot:
 
     def moveLeftAttachmentMotorForDegrees(
         self,
-        degrees,
-        speedPct=DEFAULT_MED_MOT_SPEED_PCT,
-        then=Stop.HOLD,
-        wait=True,
+        degrees: int,
+        speedPct: int = DEFAULT_MED_MOT_SPEED_PCT,
+        then: Stop = Stop.HOLD,
+        wait: bool = True,
     ):
         """
         moveLeftAttachmentMotorForDegrees moves the left attachment motor. \
@@ -153,13 +153,15 @@ class BaseRobot:
 
     def moveLeftAttachmentMotorForMillis(
         self,
-        millis,
-        speedPct=DEFAULT_MED_MOT_SPEED_PCT,
-        then=Stop.HOLD,
-        wait=True,
+        millis: int,
+        speedPct: int = DEFAULT_MED_MOT_SPEED_PCT,
+        then: Stop = Stop.HOLD,
+        wait: bool = True,
     ):
         """
         Moves the left attachment motor for a set amount of time
+
+        Snippet: lamt
 
         Example:
 
@@ -187,11 +189,13 @@ class BaseRobot:
         complete.
 
         """
-        speed = RescaleMedMotSpeed(speedPct)
+        speed: int = RescaleMedMotSpeed(speedPct)
         self.leftAttachmentMotor.run_time(speed, millis, then, wait)
 
     def moveLeftAttachmentMotorUntilStalled(
-        self, speedPct=DEFAULT_MED_MOT_SPEED_PCT, stallPct=DEFAULT_STALL_PCT
+        self,
+        speedPct: int = DEFAULT_MED_MOT_SPEED_PCT,
+        stallPct: int = DEFAULT_STALL_PCT,
     ):
         """
         moveLeftAttachmentMotorUntillStalled moves \
@@ -259,6 +263,8 @@ class BaseRobot:
         >>> moveRightAttachmentMotorForMillis(millis=500, then=STOP.BRAKE)
         >>> moveRightAttachmentMotorForMillis(millis=500, wait=False)
 
+        Snippet: ramt
+
         Args:
 
         millis (REQUIRED integer, > 0): how many miliseconds the right \
@@ -303,8 +309,8 @@ class BaseRobot:
         stalling. Lower numbers means stalls with less torque.
 
         """
-        speed = RescaleMedMotSpeed(speedPct)
-        load = RescaleMedMotTorque(stallPct)
+        speed: int = RescaleMedMotSpeed(speedPct)
+        load: int = RescaleMedMotTorque(stallPct)
         self.rightAttachmentMotor.run(speed)
         while abs(self.rightAttachmentMotor.load()) < load:
             wait(25)
@@ -367,10 +373,10 @@ class BaseRobot:
 
     def driveForMillis(
         self,
-        millis,
-        speedPct=DEFAULT_BIG_MOT_SPEED_PCT,
-        gyro=True,
-        accelerationPct=DEFAULT_BIG_MOT_ACCEL_PCT,
+        millis: int,
+        speedPct: int = DEFAULT_BIG_MOT_SPEED_PCT,
+        gyro: bool = True,
+        accelerationPct: int = DEFAULT_BIG_MOT_ACCEL_PCT,
     ):
         """
         driveForMillis moves \
@@ -549,6 +555,8 @@ class BaseRobot:
         >>> driveArcDist(radius=350, dist=60) # curve forward to the right
         >>> driveArcDist(radius=170, dist=-160, speedPct=40)
         >>> driveArcDist(radius=-200, dist=45, wait=False, then=Stop.NONE)
+
+        Snippet: dad
 
         Args:
 
