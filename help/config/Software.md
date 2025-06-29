@@ -12,6 +12,10 @@ Be sure to select VS code as your default editor.
 pybricks https://pybricks.com/ https://code.pybricks.com/ and https://beta.pybricks.com/  
 Nothing to install on your computer, but you will need to install it on your robot.
 
+uv python package manager
+# On Windows.
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
 And completely optional:  
 Lego Spike App https://education.lego.com/en-us/downloads/spike-app/software  
 Every once in a while you will need the official Lego Spike app. But know that if using pybricks, the Spike app will not be able to connect to the hub.
